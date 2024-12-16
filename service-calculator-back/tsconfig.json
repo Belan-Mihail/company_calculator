@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",                     // Устанавливаем целевой стандарт ECMAScript
+    "module": "CommonJS",                   // Используем CommonJS модули
+    "outDir": "./dist",                     // Компилированные файлы будут помещаться сюда
+    "rootDir": "./src",                     // Исходный код будет располагаться в папке src
+    "esModuleInterop": true,                // Для совместимости с импортами
+    "skipLibCheck": true,                   // Пропускаем проверку библиотек
+    "forceConsistentCasingInFileNames": true // Для обеспечения одинакового регистра в пути
+  },
+  "include": [
+    "src/**/*.ts"                           // Включаем все TypeScript файлы в папке src
+  ],
+  "exclude": [
+    "node_modules"                          // Исключаем node_modules
+  ]
+}
