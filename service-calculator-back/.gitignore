@@ -1,0 +1,3 @@
+# service-calculator-back/.gitignore
+node_modules/
+.env
