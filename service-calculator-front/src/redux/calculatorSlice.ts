@@ -14,3 +14,13 @@ interface CalculatorState {
 const initialState: CalculatorState = {
     items: []
 }
+
+const calculatorSlice = createSlice({
+    name: 'calculator',
+    initialState,
+    reducers: {
+        addItem: (state, action: PayloadAction<Item>) => {
+            state.items.push(action.payload)
+        }
+    }
+})
