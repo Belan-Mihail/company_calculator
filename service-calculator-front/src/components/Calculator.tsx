@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Product } from '../types/Product'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
@@ -14,7 +14,9 @@ const Calculator:React.FC = () => {
   const dispatch = useDispatch()
   const items = useSelector((state:any) => state.calculator.items)
 
-  
+  // state for the rows of calculator, each row is an object with the field of the selected product
+  const [rows, setRows] = useState<{id: number, selectedProduct: number | null}[]>([{id: 1, selectedProduct: null}])
+
   return (
     <div>Calculator</div>
   )
