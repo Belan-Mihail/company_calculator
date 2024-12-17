@@ -3,9 +3,11 @@ interface ResetButtonProps {
   onReset: () => void,
 }
 
-const ResetButton = () => {
+const ResetButton:React.FC<ResetButtonProps> = ({onReset}) => {
   return (
-    <div>ResetButton</div>
+    <div className='bg-red-500' onClick={onReset}>
+      Reset
+    </div>
   )
 }
 
