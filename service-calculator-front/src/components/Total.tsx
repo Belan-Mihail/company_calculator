@@ -4,9 +4,11 @@ interface TotalProps {
   total: number
 }
 
-const Total = () => {
+const Total:React.FC<TotalProps> = ({total}) => {
   return (
-    <div>Total</div>
+    <div className='mt-4'>
+      Total price: {total} USD
+    </div>
   )
 }
 
