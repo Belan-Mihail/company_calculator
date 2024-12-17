@@ -5,3 +5,10 @@ export type Product = {
     quantity: number,
     quantityInStock: number,
 }
+
+export interface ProductItemProps {
+    product: Product,
+    onQuantityChange: (id: number, quantity: number) => void,
+    onRemove: (id: number, rowId: number) => void,
+    rowId: number
+}
