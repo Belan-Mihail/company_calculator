@@ -1,5 +1,7 @@
 import React from 'react'
 import { Product } from '../types/Product'
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 const products: Product[] = [
   {id: 1, name: 'Product 1', price: 2.34, quantity: 0, quantityInStock: 350 },
@@ -8,7 +10,11 @@ const products: Product[] = [
   {id: 1, name: 'Product 4', price: 4.80, quantity: 0, quantityInStock: 40 },
 ]
 
-const Calculator = () => {
+const Calculator:React.FC = () => {
+  const dispatch = useDispatch()
+  const items = useSelector((state:any) => state.calculator.items)
+
+  
   return (
     <div>Calculator</div>
   )
