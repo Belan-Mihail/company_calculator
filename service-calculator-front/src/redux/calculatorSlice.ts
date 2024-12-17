@@ -24,6 +24,12 @@ const calculatorSlice = createSlice({
         },
         removeItem: (state, action: PayloadAction<number>) => {
             state.items = state.items.filter(item => item.id != action.payload)
+        },
+        setQuantity: (state, action: PayloadAction<{id: number; quantity: number}>) => {
+            const item = state.items.find(i => i.id === action.payload.id)
+            if (item) {
+                item.quantity = action.payload.quantity
+            }
         }
     }
 })
