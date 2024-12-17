@@ -10,3 +10,7 @@ interface Item {
 interface CalculatorState {
     items: Item[]
 }
+
+const initialState: CalculatorState = {
+    items: []
+}
