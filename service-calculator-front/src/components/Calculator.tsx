@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Product } from '../types/Product'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
+import { addItem } from '../redux/calculatorSlice'
 
 const products: Product[] = [
   {id: 1, name: 'Product 1', price: 2.34, quantity: 0, quantityInStock: 350 },
@@ -16,6 +17,14 @@ const Calculator:React.FC = () => {
 
   // state for the rows of calculator, each row is an object with the field of the selected product
   const [rows, setRows] = useState<{id: number, selectedProduct: number | null}[]>([{id: 1, selectedProduct: null}])
+
+  // read the saved products from Localstorage
+  useEffect(() => {
+    const savedItems = JSON.parse(localStorage.getItem('calculatorItem') || '[]')
+    savedItems.forEach((item: any) => {
+      dispatch(addItem(item))
+    })
+  }, [dispatch])
 
   return (
     <div>Calculator</div>
