@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import './index.css'
+import Calculator from './components/Calculator'
 
 function App() {
   
 
   return (
-    <div className='bg-blue-700'>
-      <h1 className="text-red-500 text-2xl">Hello, Tailwind!</h1>
-    </div>
+    <>
+      <Calculator />
+    </>
   )
 }
 

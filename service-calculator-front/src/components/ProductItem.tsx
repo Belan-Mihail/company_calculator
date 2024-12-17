@@ -1,6 +1,7 @@
 import React from 'react'
+import { ProductItemProps } from '../types/Product'
 
-const ProductItem = () => {
+const ProductItem:React.FC<ProductItemProps> = ({product, onQuantityChange, onRemove}) => {
   return (
     <div>ProductItem</div>
   )
