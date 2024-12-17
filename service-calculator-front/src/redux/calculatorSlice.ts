@@ -21,6 +21,9 @@ const calculatorSlice = createSlice({
     reducers: {
         addItem: (state, action: PayloadAction<Item>) => {
             state.items.push(action.payload)
+        },
+        removeItem: (state, action: PayloadAction<number>) => {
+            state.items = state.items.filter(item => item.id != action.payload)
         }
     }
 })
