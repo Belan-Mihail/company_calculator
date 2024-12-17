@@ -6,3 +6,7 @@ interface Item {
     price: number,
     quantity: number
 }
+
+interface CalculatorState {
+    items: Item[]
+}
