@@ -5,6 +5,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
   product,
   onQuantityChange,
   onRemove,
+  rowId,
 }) => {
   const { id, name, price, quantity, quantityInStock } = product;
   return (
@@ -19,6 +20,9 @@ const ProductItem: React.FC<ProductItemProps> = ({
         value={quantity}
         onChange={(e) => onQuantityChange(id, Number(e.target.value))}
       />
+      <span>Quantity: {quantity}</span>
+      <span>Total: {quantity * price}</span>
+      <button className="bg-red-500" onClick={() => onRemove(id, rowId)}>Remove product</button>
     </div>
   );
 };
