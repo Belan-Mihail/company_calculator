@@ -30,6 +30,10 @@ const calculatorSlice = createSlice({
             if (item) {
                 item.quantity = action.payload.quantity
             }
-        }
+        },
+        resetCalculator: () => initialState,
     }
 })
+
+export const {addItem, removeItem, setQuantity, resetCalculator} = calculatorSlice.actions;
+export default calculatorSlice.reducer
