@@ -1,4 +1,7 @@
 import React from 'react'
+interface ResetButtonProps {
+  onReset: () => void,
+}
 
 const ResetButton = () => {
   return (
