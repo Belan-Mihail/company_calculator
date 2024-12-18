@@ -51,6 +51,20 @@ const Calculator:React.FC = () => {
     )
   }
 
+  // Function for handling changeing quantity
+  const handleQuantityChange = (id: number) => {
+    const productToUpdate = products.find((product) => product.id === id);
+    if (productToUpdate) {
+      dispatch(addItem({
+        id: productToUpdate.id,
+        name: productToUpdate.name,
+        price: productToUpdate.price,
+        quantity: productToUpdate.quantity,
+        quantityInStock: productToUpdate.quantityInStock
+      }))
+    }
+  }
+
 
   return (
     <div>Calculator</div>
