@@ -42,6 +42,15 @@ const Calculator:React.FC = () => {
     }
   }
 
+  // Function for choosing a product in a row
+  const handleProductSelect = (rowId: number, productId: number) => {
+    setRows((prevRows) => 
+      prevRows.map((row) => (
+        row.id === rowId ? {...row, selectedProduct: productId} : row
+      ))
+    )
+  }
+
 
   return (
     <div>Calculator</div>
