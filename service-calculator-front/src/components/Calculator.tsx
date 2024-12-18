@@ -98,6 +98,8 @@ const Calculator:React.FC = () => {
     return items.reduce((total, item) => total + item.price * item.quantity, 0)
   }
 
+  const isAddButtonDisabled = rows.some((row) => row.selectedProduct === null) 
+
 
   return (
     <div>Calculator</div>
