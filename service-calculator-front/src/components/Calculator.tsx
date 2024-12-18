@@ -114,7 +114,12 @@ const Calculator:React.FC = () => {
                 value={row.selectedProduct ?? ''}
                 className='border p-2'
                 > 
-
+                <option value="" disabled>Select Product</option>
+                {availableProduct.map((product) => (
+                  <option key={product.id} value={product.id}>
+                    {product.name} - {product.price} $
+                  </option>
+                ))}
                 </select>
                 
               </div>
