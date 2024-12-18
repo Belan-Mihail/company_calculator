@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Product } from '../types/Product'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { addItem, removeItem } from '../redux/calculatorSlice'
+import { addItem, removeItem, resetCalculator } from '../redux/calculatorSlice'
 
 const products: Product[] = [
   {id: 1, name: 'Product 1', price: 2.34, quantity: 0, quantityInStock: 350 },
@@ -84,6 +84,13 @@ const Calculator:React.FC = () => {
     if (emptyRowExist) {
       addRow()
     }
+  }
+
+  // Function for reset calculator 
+  const handleReset = () => {
+    dispatch(resetCalculator())
+    localStorage.removeItem('calculatorItems')
+    setRows([{id: 1, selectedProduct: null}])
   }
 
 
