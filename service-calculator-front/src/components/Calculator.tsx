@@ -3,6 +3,10 @@ import { Product } from '../types/Product'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { addItem, removeItem, resetCalculator } from '../redux/calculatorSlice'
+import ProductItem from './ProductItem'
+import AddButton from './AddButton'
+import ResetButton from './ResetButton'
+import Total from './Total'
 
 const products: Product[] = [
   {id: 1, name: 'Product 1', price: 2.34, quantity: 0, quantityInStock: 350 },
@@ -123,11 +127,22 @@ const Calculator:React.FC = () => {
                 </select>
                 
               </div>
-            ) : ()}
+            ) : (
+              <ProductItem 
+              product={products.find((p) => p.id === row.selectedProduct)!}
+              onQuantityChange={handleQuantityChange}
+              onRemove={handleRemoveItem}
+              rowId={row.id}
+              />
+            )}
           </div>
         )
       })}
-      
+      <div className='flex items-center space-x-4'>
+        <AddButton isDisabled={isAddButtonDisabled} onAddItem={addRow} />
+        <ResetButton onReset={handleReset} />
+      </div>
+      <Total total={caulculateTotal()} />
     </div>
   )
 }
