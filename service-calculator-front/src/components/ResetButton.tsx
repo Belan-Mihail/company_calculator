@@ -1,14 +1,22 @@
-import React from 'react'
+import React from "react";
 interface ResetButtonProps {
-  onReset: () => void,
+  isDisabled: boolean;
+  onReset: () => void;
 }
 
-const ResetButton:React.FC<ResetButtonProps> = ({onReset}) => {
+const ResetButton: React.FC<ResetButtonProps> = ({ onReset, isDisabled }) => {
   return (
-    <div className='bg-red-500' onClick={onReset}>
+    <button
+      className={`bg-red-500 ${
+        isDisabled ? "opacity-45 cursor-not-allowed" : ""
+      }`}
+      onClick={onReset}
+      disabled={isDisabled}
+      title={isDisabled ? 'No products selected' : ''}
+    >
       Reset
-    </div>
-  )
-}
+    </button>
+  );
+};
 
-export default ResetButton
+export default ResetButton;
