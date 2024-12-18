@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Product } from '../types/Product'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { addItem, removeItem, resetCalculator } from '../redux/calculatorSlice'
+import { addItem, removeItem, resetCalculator, setQuantity } from '../redux/calculatorSlice'
 import ProductItem from './ProductItem'
 import AddButton from './AddButton'
 import ResetButton from './ResetButton'
@@ -56,17 +56,8 @@ const Calculator:React.FC = () => {
   }
 
   // Function for handling changeing quantity
-  const handleQuantityChange = (id: number) => {
-    const productToUpdate = products.find((product) => product.id === id);
-    if (productToUpdate) {
-      dispatch(addItem({
-        id: productToUpdate.id,
-        name: productToUpdate.name,
-        price: productToUpdate.price,
-        quantity: productToUpdate.quantity,
-        quantityInStock: productToUpdate.quantityInStock
-      }))
-    }
+  const handleQuantityChange = (id: number, newQuantity: number) => {
+   dispatch(setQuantity({id, quantity: newQuantity}))
   }
 
   const handleRemoveItem = (productId: number, rowId: number) => {
@@ -130,7 +121,7 @@ const Calculator:React.FC = () => {
               </div>
             ) : (
               <ProductItem 
-              product={products.find((p) => p.id === row.selectedProduct)!}
+              product={items.find((item) => item.id === row.selectedProduct)!}
               onQuantityChange={handleQuantityChange}
               onRemove={handleRemoveItem}
               rowId={row.id}
