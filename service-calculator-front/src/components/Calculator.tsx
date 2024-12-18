@@ -102,7 +102,15 @@ const Calculator:React.FC = () => {
 
 
   return (
-    <div>Calculator</div>
+    <div className='p-8'>
+      {rows.map((row) => {
+        const availableProduct = products.filter((product) => !rows.some((row) => row.selectedProduct === product.id))
+        return (
+          
+        )
+      })}
+      
+    </div>
   )
 }
 
