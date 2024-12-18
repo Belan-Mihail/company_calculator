@@ -65,15 +65,25 @@ const Calculator:React.FC = () => {
     }
   }
 
-  const handleRemoveItem = (prductId: number, rowId: number) => {
+  const handleRemoveItem = (productId: number, rowId: number) => {
     // delete product from store
-    dispatch(removeItem(prductId))
+    dispatch(removeItem(productId))
 
     // delete priduct from rows
     setRows((prevRows) => {
       const updatedRows = prevRows.filter((row) => row.id !== rowId)
       return updatedRows
     })
+
+    // refresh localstorage
+    const updateItems = items.filter((item) => item.id !== productId)
+    localStorage.setItem('calculatorItems', JSON.stringify(updateItems))
+
+    // add a new roe if no empty rows
+    const emptyRowExist = rows.some((row) => row.selectedProduct === null)
+    if (emptyRowExist) {
+      addRow()
+    }
   }
 
 
