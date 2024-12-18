@@ -93,6 +93,11 @@ const Calculator:React.FC = () => {
     setRows([{id: 1, selectedProduct: null}])
   }
 
+  // Function to calculate total
+  const caulculateTotal = () => {
+    return items.reduce((total, item) => total + item.price * item.quantity, 0)
+  }
+
 
   return (
     <div>Calculator</div>
