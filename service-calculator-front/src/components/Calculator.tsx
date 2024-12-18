@@ -31,6 +31,18 @@ const Calculator:React.FC = () => {
     localStorage.setItem('calculatorItems', JSON.stringify(items))
   }) 
 
+  // Function for adding a new row
+  const addRow = () => {
+    if (rows.length < products.length) { // Prevent adding more rows than available products
+      setRows((prevRow) => {
+        const newRowId = prevRow.length > 0 ? prevRow[prevRow.length - 1].id + 1 : 1
+        const newRows = [...prevRow, {id: newRowId, selectedProduct: null}]
+        return newRows
+      })
+    }
+  }
+
+
   return (
     <div>Calculator</div>
   )
