@@ -26,6 +26,11 @@ const Calculator:React.FC = () => {
     })
   }, [dispatch])
 
+  // useEffect to save current data from items in localstorage 
+  useEffect(() => {
+    localStorage.setItem('calculatorItems', JSON.stringify(items))
+  }) 
+
   return (
     <div>Calculator</div>
   )
