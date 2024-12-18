@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Product } from '../types/Product'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { addItem } from '../redux/calculatorSlice'
+import { addItem, removeItem } from '../redux/calculatorSlice'
 
 const products: Product[] = [
   {id: 1, name: 'Product 1', price: 2.34, quantity: 0, quantityInStock: 350 },
@@ -63,6 +63,17 @@ const Calculator:React.FC = () => {
         quantityInStock: productToUpdate.quantityInStock
       }))
     }
+  }
+
+  const handleRemoveItem = (prductId: number, rowId: number) => {
+    // delete product from store
+    dispatch(removeItem(prductId))
+
+    // delete priduct from rows
+    setRows((prevRows) => {
+      const updatedRows = prevRows.filter((row) => row.id !== rowId)
+      return updatedRows
+    })
   }
 
 
