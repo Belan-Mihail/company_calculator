@@ -51,6 +51,11 @@ const Calculator:React.FC = () => {
     // Find the selected product in the products array
     const productToAdd = products.find((p) => p.id === productId)
 
+    if (productToAdd) {
+      // Add the product to (Redux) if it is not there yet
+      const existingProduct = items.find((item) => item.id === productId)
+    }
+
     setRows((prevRows) => 
       prevRows.map((row) => (
         row.id === rowId ? {...row, selectedProduct: productId} : row
