@@ -52,9 +52,22 @@ const Calculator:React.FC = () => {
     const productToAdd = products.find((p) => p.id === productId)
 
     if (productToAdd) {
-      // Add the product to (Redux) if it is not there yet
+      // check selected product in items array
       const existingProduct = items.find((item) => item.id === productId)
+
+      // Add the product to (Redux) if it is not there yet
+      if (!existingProduct) {
+        dispatch(addItem({
+          id: productToAdd.id,
+          name: productToAdd.name,
+          price: productToAdd.price,
+          quantity: productToAdd.quantity,
+          quantityInStock: productToAdd.quantityInStock
+        }))
+      }
     }
+
+    
 
     setRows((prevRows) => 
       prevRows.map((row) => (
