@@ -106,7 +106,20 @@ const Calculator:React.FC = () => {
       {rows.map((row) => {
         const availableProduct = products.filter((product) => !rows.some((row) => row.selectedProduct === product.id))
         return (
-          
+          <div key={row.id} className='space-y-4'>
+            {row.selectedProduct === null ? (
+              <div>
+               <select
+                onChange={(e) => handleProductSelect(row.id, Number(e.target.value))}
+                value={row.selectedProduct ?? ''}
+                className='border p-2'
+                > 
+
+                </select>
+                
+              </div>
+            ) : ()}
+          </div>
         )
       })}
       
