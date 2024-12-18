@@ -103,6 +103,7 @@ const Calculator:React.FC = () => {
   }
 
   const isAddButtonDisabled = rows.some((row) => row.selectedProduct === null) 
+  const isResetButtonDisabled = rows.every((row) => row.selectedProduct === null)
 
 
   return (
@@ -140,7 +141,7 @@ const Calculator:React.FC = () => {
       })}
       <div className='flex items-center space-x-4'>
         <AddButton isDisabled={isAddButtonDisabled} onAddItem={addRow} />
-        <ResetButton onReset={handleReset} />
+        <ResetButton isDisabled={isResetButtonDisabled} onReset={handleReset} />
       </div>
       <Total total={caulculateTotal()} />
     </div>
