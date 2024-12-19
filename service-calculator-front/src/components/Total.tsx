@@ -7,7 +7,7 @@ interface TotalProps {
 const Total:React.FC<TotalProps> = ({total}) => {
   return (
     <div className='mt-4'>
-      Total price: {total} USD
+      Total price: {total.toFixed(2)} USD
     </div>
   )
 }
