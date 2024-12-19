@@ -152,7 +152,8 @@ const Calculator:React.FC = () => {
         )
       })}
       <div className='flex items-center space-x-4'>
-        <AddButton isDisabled={isAddButtonDisabled} onAddItem={addRow} />
+        {rows.length < products.length ? (<AddButton isDisabled={isAddButtonDisabled} onAddItem={addRow} />) : ('')}
+        
         <ResetButton isDisabled={isResetButtonDisabled} onReset={handleReset} />
       </div>
       <Total total={caulculateTotal()} />
