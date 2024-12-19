@@ -24,16 +24,19 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
             setTextColor('green')
             setShowConfetti(true)
         } else {
-            setDiscountMessage('Order more to get a discount')
+            setDiscountMessage('Discount not available. Order more to get a discount')
         }
     }, [total])
 
   return (
     <div className='relative mb-8 p-4 rounded bg-blue-700 text-center'>
-        
+        <h2>Discount Terms</h2>
+        <p>10% discount on orders over $1,500</p>
+        <p>7% discount on orders over $1,000</p>
+        <p>5% discount on orders over $500</p>
         {showConfetti && <Confetti />}
         <p style={{ color: textColor}} className='text-xl'>
-            {discountMessage}
+            Current discount: {discountMessage}
         </p>
     </div>
   )
