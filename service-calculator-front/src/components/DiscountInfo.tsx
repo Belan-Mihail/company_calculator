@@ -15,8 +15,18 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
             setDiscountMessage('You get 10% discount!')
             setTextColor('green')
             setShowConfetti(true)
+        } else if (total >= 1000) {
+            setDiscountMessage('You get 7% discount!')
+            setTextColor('green')
+            setShowConfetti(true)
+        } else if (total >= 500) {
+            setDiscountMessage('You get 5% discount!')
+            setTextColor('green')
+            setShowConfetti(true)
+        } else {
+            setDiscountMessage('Order more to get a discount')
         }
-    })
+    }, [total])
 
   return (
     <div>DiscountInfo</div>
