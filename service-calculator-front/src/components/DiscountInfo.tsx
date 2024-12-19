@@ -23,8 +23,10 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
         }
 
         if (discount !== currentDiscount) {
+            if (discount > currentDiscount) {
+                setShowConfetti(true)
+            }
             setCurrentDiscount(discount)
-            setShowConfetti(true)
         }
 
 
