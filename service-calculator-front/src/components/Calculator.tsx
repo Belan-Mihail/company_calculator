@@ -7,6 +7,7 @@ import ProductItem from './ProductItem'
 import AddButton from './AddButton'
 import ResetButton from './ResetButton'
 import Total from './Total'
+import DiscountInfo from './DiscountInfo'
 
 const products: Product[] = [
   {id: 1, name: 'Product 1', price: 2.34, quantity: 0, quantityInStock: 350 },
@@ -117,9 +118,16 @@ const Calculator:React.FC = () => {
   const isAddButtonDisabled = rows.some((row) => row.selectedProduct === null) 
   const isResetButtonDisabled = rows.every((row) => row.selectedProduct === null)
 
+  // Calculate the total amount to calculate the discount
+  const calculateTotal = () => {
+    return items.reduce((total, item) => total + item.price * item.quantity, 0)
+  }
+
+  const total = calculateTotal()
 
   return (
     <div className='p-8'>
+      <DiscountInfo total={total} />
       {rows.map((row) => {
         const availableProduct = products.filter((product) => !rows.some((row) => row.selectedProduct === product.id))
         return (
