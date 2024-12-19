@@ -42,7 +42,11 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
         <p>10% discount on orders over $1,500</p>
         <p>7% discount on orders over $1,000</p>
         <p>5% discount on orders over $500</p>
-        {showConfetti && <Confetti />}
+        {showConfetti && 
+            <div style={{transition: 'opacity 2s easy-out', opacity: showConfetti ? 1 : 0}}>
+                <Confetti />
+            </div>
+        }
         <p style={{ color: textColor}} className='text-xl'>
             Current discount: {discountMessage}
         </p>
