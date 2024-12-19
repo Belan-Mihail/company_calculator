@@ -9,20 +9,24 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
     const [showConfetti, setShowConfetti] = useState(false);
     const [discountMessage, setDiscountMessage] = useState<string>('');
     const [textColor, setTextColor] = useState<string>('cream');
+    const [lastDiscountThreshold, setLastDiscountTreshold] = useState<number>(0)
 
     useEffect(() => {
-        if (total >= 1500) {
+        if (total >= 1500 && lastDiscountThreshold !== 1500) {
             setDiscountMessage('You get 10% discount!')
             setTextColor('green')
             setShowConfetti(true)
-        } else if (total >= 1000) {
+            setLastDiscountTreshold(1500)
+        } else if (total >= 1000 && lastDiscountThreshold !== 1000) {
             setDiscountMessage('You get 7% discount!')
             setTextColor('green')
             setShowConfetti(true)
-        } else if (total >= 500) {
+            setLastDiscountTreshold(1000)
+        } else if (total >= 500 && lastDiscountThreshold !== 500) {
             setDiscountMessage('You get 5% discount!')
             setTextColor('green')
             setShowConfetti(true)
+            setLastDiscountTreshold(500)
         } else {
             setDiscountMessage('Discount not available. Order more to get a discount')
         }
@@ -31,10 +35,10 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
         if (showConfetti) {
             const timer = setTimeout(() => {
                 setShowConfetti(false)
-            }, 2000);
+            }, 5000);
             return () => clearTimeout(timer)
         }
-    }, [total, showConfetti])
+    }, [total, showConfetti, lastDiscountThreshold])
 
   return (
     <div className='relative mb-8 p-4 rounded bg-blue-700 text-center'>
