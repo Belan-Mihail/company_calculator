@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Confetti from 'react-confetti/dist/types/Confetti'
+import Confetti from 'react-confetti'
 
 interface DiscountInfoProps {
     total: number
@@ -29,7 +29,13 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
     }, [total])
 
   return (
-    <div>DiscountInfo</div>
+    <div className='relative mb-8 p-4 rounded bg-blue-700 text-center'>
+        
+        {showConfetti && <Confetti />}
+        <p style={{ color: textColor}} className='text-xl'>
+            {discountMessage}
+        </p>
+    </div>
   )
 }
 
