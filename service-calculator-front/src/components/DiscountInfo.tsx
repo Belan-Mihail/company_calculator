@@ -9,26 +9,37 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
     const [showConfetti, setShowConfetti] = useState(false);
     const [discountMessage, setDiscountMessage] = useState<string>('');
     const [textColor, setTextColor] = useState<string>('cream');
-    const [lastDiscountThreshold, setLastDiscountTreshold] = useState<number>(0)
+    const [currentDiscount, setCurrentDiscount] = useState<number>(0)
 
     useEffect(() => {
-        if (total >= 1500 && lastDiscountThreshold !== 1500) {
+
+        let discount:number = 0
+        if (total >= 1500) {
+            discount = 10
+        } else if (total >= 1000) {
+            discount = 7
+        } else if (total >= 500) {
+            discount = 5
+        }
+
+        if (discount !== currentDiscount) {
+            setCurrentDiscount(discount)
+            setShowConfetti(true)
+        }
+
+
+        if (discount === 10) {
             setDiscountMessage('You get 10% discount!')
             setTextColor('green')
-            setShowConfetti(true)
-            setLastDiscountTreshold(1500)
-        } else if (total >= 1000 && lastDiscountThreshold !== 1000) {
+        } else if (discount === 7) {
             setDiscountMessage('You get 7% discount!')
             setTextColor('green')
-            setShowConfetti(true)
-            setLastDiscountTreshold(1000)
-        } else if (total >= 500 && lastDiscountThreshold !== 500) {
+        } else if (discount === 5) {
             setDiscountMessage('You get 5% discount!')
             setTextColor('green')
-            setShowConfetti(true)
-            setLastDiscountTreshold(500)
         } else {
             setDiscountMessage('Discount not available. Order more to get a discount')
+            setTextColor('cream')
         }
 
         // Hide confetti after 2 seconds
@@ -38,7 +49,7 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
             }, 5000);
             return () => clearTimeout(timer)
         }
-    }, [total, showConfetti, lastDiscountThreshold])
+    }, [total, showConfetti, currentDiscount])
 
   return (
     <div className='relative mb-8 p-4 rounded bg-blue-700 text-center'>
