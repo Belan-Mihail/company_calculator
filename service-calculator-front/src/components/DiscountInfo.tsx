@@ -26,7 +26,15 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
         } else {
             setDiscountMessage('Discount not available. Order more to get a discount')
         }
-    }, [total])
+
+        // Hide confetti after 2 seconds
+        if (showConfetti) {
+            const timer = setTimeout(() => {
+                setShowConfetti(false)
+            }, 2000);
+            return () => clearTimeout(timer)
+        }
+    }, [total, showConfetti])
 
   return (
     <div className='relative mb-8 p-4 rounded bg-blue-700 text-center'>
