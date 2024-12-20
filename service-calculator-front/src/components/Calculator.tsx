@@ -53,33 +53,34 @@ const Calculator:React.FC = () => {
 
     if (productToAdd) {
       const existingProduct = items.find((item) => item.id === productId);
-      
+
       if (!existingProduct) {
+        // If the product has not been added yet, add it with a quantity of 0
         dispatch(
           addItem({
             id: productToAdd.id,
             name: productToAdd.name,
             price: productToAdd.price,
-            quantity: 0, // Reset quantity when changing product
+            quantity: 0, // initial quantity
             quantityInStock: productToAdd.quantityInStock,
           })
         );
       }
     }
 
-    // Reset quantity for the previously selected product when changing product in the row
+    // Reset old quantity if product has changed
+    const oldProductId = rows.find((row) => row.id === rowId)?.selectedProduct;
+    if (oldProductId) {
+      dispatch(setQuantity({ id: oldProductId, quantity: 0 })); // Reset quantity for old product
+    }
+
+    // Update the row with a new product
     setRows((prevRows) =>
       prevRows.map((row) =>
         row.id === rowId ? { ...row, selectedProduct: productId } : row
       )
     );
-
-    // Set the quantity of the new product to 0 for correct calculations
-    const selectedProduct = items.find((item) => item.id === productId);
-    if (selectedProduct) {
-      dispatch(setQuantity({ id: productId, quantity: 0 })); // Reset quantity
-    }
-  };
+  }
 
   // Function for handling changeing quantity
   const handleQuantityChange = (id: number, newQuantity: number) => {
