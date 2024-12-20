@@ -8,7 +8,7 @@ interface DiscountInfoProps {
 const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
     
     const [discountMessage, setDiscountMessage] = useState<string>('');
-    
+    const [nextDiscountMessage, setNextDiscountMessage] = useState<string>('');
     const [currentDiscount, setCurrentDiscount] = useState<number>(0)
     const [showEffect, setShowEffect] = useState(false)
 
