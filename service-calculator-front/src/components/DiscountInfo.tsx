@@ -69,6 +69,9 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
         <p className={`text-xl text-white ${showEffect ? 'glow-on-hover' : ''}`}>
             Current discount: {discountMessage}
         </p>
+        {nextDiscountMessage && (
+                <p className="text-white mt-4">{nextDiscountMessage}</p>
+            )}
     </div>
   )
 }
