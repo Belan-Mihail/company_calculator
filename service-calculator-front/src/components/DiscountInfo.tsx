@@ -10,6 +10,7 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
     const [discountMessage, setDiscountMessage] = useState<string>('');
     const [textColor, setTextColor] = useState<string>('cream');
     const [currentDiscount, setCurrentDiscount] = useState<number>(0)
+    const [showEffect, setShowEffect] = useState(false)
 
     useEffect(() => {
 
