@@ -15,6 +15,7 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
     useEffect(() => {
 
         let discount:number = 0
+        let nextDiscountAmount = 0 
         if (total >= 1500) {
             discount = 10
         } else if (total >= 1000) {
@@ -33,16 +34,20 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
 
         if (discount === 10) {
             setDiscountMessage('You get 10% discount!')
-            
+            setNextDiscountMessage('Maximum discount reached!');
         } else if (discount === 7) {
             setDiscountMessage('You get 7% discount!')
+            nextDiscountAmount = 1500 - total;
+            setNextDiscountMessage(`Order $${nextDiscountAmount.toFixed(2)} more to get 10% discount.`);
             
         } else if (discount === 5) {
             setDiscountMessage('You get 5% discount!')
-            
+            nextDiscountAmount = 1000 - total;
+            setNextDiscountMessage(`Order $${nextDiscountAmount.toFixed(2)} more to get 7% discount.`);
         } else {
             setDiscountMessage('Discount not available. Order more to get a discount')
-            
+            nextDiscountAmount = 500 - total;
+            setNextDiscountMessage(`Order $${nextDiscountAmount.toFixed(2)} more to get 5% discount.`);
         }
 
         // Hide  after 5 seconds
