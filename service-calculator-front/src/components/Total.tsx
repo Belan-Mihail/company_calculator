@@ -2,6 +2,8 @@ import React from 'react'
 
 interface TotalProps {
   total: number
+  totalWithDiscount: number
+  savings: number
 }
 
 const Total:React.FC<TotalProps> = ({total}) => {
