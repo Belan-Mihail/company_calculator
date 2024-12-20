@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Confetti from 'react-confetti'
+import '../styles/DiscountInfo.css'
 
 interface DiscountInfoProps {
     total: number
