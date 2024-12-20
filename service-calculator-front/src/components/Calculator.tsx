@@ -123,6 +123,12 @@ const Calculator:React.FC = () => {
     return items.reduce((total, item) => total + item.price * item.quantity, 0)
   }
 
+  const getDiscount = (total:number) => {
+    if (total >= 1500) return 0.1
+    if (total >= 1000) return 0.07
+    if (total >= 500) return 0.05
+  }
+
   const total = calculateTotal()
 
   return (
