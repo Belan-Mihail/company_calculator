@@ -140,16 +140,22 @@ const Calculator:React.FC = () => {
     <div className="p-8">
       <DiscountInfo total={total} />
       {rows.map((row) => {
-        const availableProduct = products.filter((product) => !rows.some((r) => r.selectedProduct === product.id))
+        const availableProduct = products.filter(
+          (product) => !rows.some((r) => r.selectedProduct === product.id) || row.selectedProduct === product.id
+        );
+
         return (
           <div key={row.id} className="space-y-4">
             <div className="flex items-center space-x-4">
+              {/* Render select only if no product is selected for this row */}
               <select
                 onChange={(e) => handleProductSelect(row.id, Number(e.target.value))}
                 value={row.selectedProduct ?? ''}
                 className="border p-2"
               >
-                <option value="" disabled>Select Product</option>
+                <option value="" disabled={row.selectedProduct !== null}>
+                  {row.selectedProduct === null ? 'Select Product' : 'Product already selected'}
+                </option>
                 {availableProduct.map((product) => (
                   <option key={product.id} value={product.id}>
                     {product.name} - {product.price} $
@@ -157,6 +163,7 @@ const Calculator:React.FC = () => {
                 ))}
               </select>
 
+              {/* Render ProductItem if the product is selected */}
               {row.selectedProduct !== null && (
                 <ProductItem
                   product={items.find((item) => item.id === row.selectedProduct)!}
@@ -167,7 +174,7 @@ const Calculator:React.FC = () => {
               )}
             </div>
           </div>
-        )
+        );
       })}
       <div className="flex items-center space-x-4">
         {rows.length < products.length && (
@@ -177,7 +184,7 @@ const Calculator:React.FC = () => {
       </div>
       <Total total={total} totalWithDiscount={totalWithDiscount} savings={savings} />
     </div>
-  )
+  );
 }
 
 export default Calculator
