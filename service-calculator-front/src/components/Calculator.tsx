@@ -134,7 +134,7 @@ const Calculator:React.FC = () => {
   const discount = getDiscount(total)
   const discountAmount = total * discount
   const totalWithDiscount = total - discountAmount
-  const saving = discountAmount
+  const savings = discountAmount
 
   return (
     <div className='p-8'>
