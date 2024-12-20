@@ -26,7 +26,7 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
 
         if (discount !== currentDiscount) {
             if (discount > currentDiscount) {
-                setShowConfetti(true)
+                setShowEffect(true)
             }
             setCurrentDiscount(discount)
         }
@@ -46,14 +46,14 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
             setTextColor('cream')
         }
 
-        // Hide confetti after 2 seconds
-        if (showConfetti) {
+        // Hide  after 5 seconds
+        if (showEffect) {
             const timer = setTimeout(() => {
-                setShowConfetti(false)
+                setShowEffect(false)
             }, 5000);
             return () => clearTimeout(timer)
         }
-    }, [total, showConfetti, currentDiscount])
+    }, [total, showEffect, currentDiscount])
 
   return (
     <div className='relative mb-8 p-4 rounded bg-blue-700 text-center'>
@@ -61,12 +61,8 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
         <p>10% discount on orders over $1,500</p>
         <p>7% discount on orders over $1,000</p>
         <p>5% discount on orders over $500</p>
-        {showConfetti && 
-            <div style={{transition: 'opacity 2s easy-out', opacity: showConfetti ? 1 : 0}}>
-                <Confetti />
-            </div>
-        }
-        <p style={{ color: textColor}} className='text-xl'>
+        
+        <p style={{ color: textColor}} className={`text-xl ${showEffect ? 'glow-on-hover' : ''}`}>
             Current discount: {discountMessage}
         </p>
     </div>
