@@ -49,33 +49,37 @@ const Calculator:React.FC = () => {
 
   // Function for choosing a product in a row
   const handleProductSelect = (rowId: number, productId: number) => {
-    // Find the selected product in the products array
-    const productToAdd = products.find((p) => p.id === productId)
+    const productToAdd = products.find((p) => p.id === productId);
 
     if (productToAdd) {
-      // check selected product in items array
-      const existingProduct = items.find((item) => item.id === productId)
-
-      // Add the product to (Redux) if it is not there yet
+      const existingProduct = items.find((item) => item.id === productId);
+      
       if (!existingProduct) {
-        dispatch(addItem({
-          id: productToAdd.id,
-          name: productToAdd.name,
-          price: productToAdd.price,
-          quantity: productToAdd.quantity,
-          quantityInStock: productToAdd.quantityInStock
-        }))
+        dispatch(
+          addItem({
+            id: productToAdd.id,
+            name: productToAdd.name,
+            price: productToAdd.price,
+            quantity: 0, // Reset quantity when changing product
+            quantityInStock: productToAdd.quantityInStock,
+          })
+        );
       }
     }
 
-    
+    // Reset quantity for the previously selected product when changing product in the row
+    setRows((prevRows) =>
+      prevRows.map((row) =>
+        row.id === rowId ? { ...row, selectedProduct: productId } : row
+      )
+    );
 
-    setRows((prevRows) => 
-      prevRows.map((row) => (
-        row.id === rowId ? {...row, selectedProduct: productId} : row
-      ))
-    )
-  }
+    // Set the quantity of the new product to 0 for correct calculations
+    const selectedProduct = items.find((item) => item.id === productId);
+    if (selectedProduct) {
+      dispatch(setQuantity({ id: productId, quantity: 0 })); // Reset quantity
+    }
+  };
 
   // Function for handling changeing quantity
   const handleQuantityChange = (id: number, newQuantity: number) => {
