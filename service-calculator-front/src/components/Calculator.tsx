@@ -127,9 +127,13 @@ const Calculator:React.FC = () => {
     if (total >= 1500) return 0.1
     if (total >= 1000) return 0.07
     if (total >= 500) return 0.05
+    return 0
   }
 
   const total = calculateTotal()
+  const discount = getDiscount(total)
+  const discountAmount = total * discount
+  const totalWithDiscount = total - discountAmount
 
   return (
     <div className='p-8'>
