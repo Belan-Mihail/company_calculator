@@ -11,7 +11,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
   return (
     <div className="flex items-center space-x-4">
       <span>
-        {name}$
+        {name}
       </span>
       <input
         type="range"

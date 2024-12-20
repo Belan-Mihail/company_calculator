@@ -137,43 +137,43 @@ const Calculator:React.FC = () => {
   const savings = discountAmount
 
   return (
-    <div className='p-8'>
+    <div className="p-8">
       <DiscountInfo total={total} />
       {rows.map((row) => {
-        const availableProduct = products.filter((product) => !rows.some((row) => row.selectedProduct === product.id))
+        const availableProduct = products.filter((product) => !rows.some((r) => r.selectedProduct === product.id))
         return (
-          <div key={row.id} className='space-y-4'>
-            {row.selectedProduct === null ? (
-              <div>
-               <select
+          <div key={row.id} className="space-y-4">
+            <div className="flex items-center space-x-4">
+              <select
                 onChange={(e) => handleProductSelect(row.id, Number(e.target.value))}
                 value={row.selectedProduct ?? ''}
-                className='border p-2'
-                > 
+                className="border p-2"
+              >
                 <option value="" disabled>Select Product</option>
                 {availableProduct.map((product) => (
                   <option key={product.id} value={product.id}>
                     {product.name} - {product.price} $
                   </option>
                 ))}
-                </select>
-                
-              </div>
-            ) : (
-              <ProductItem 
-              product={items.find((item) => item.id === row.selectedProduct)!}
-              onQuantityChange={handleQuantityChange}
-              onRemove={handleRemoveItem}
-              rowId={row.id}
-              />
-            )}
+              </select>
+
+              {row.selectedProduct !== null && (
+                <ProductItem
+                  product={items.find((item) => item.id === row.selectedProduct)!}
+                  onQuantityChange={handleQuantityChange}
+                  onRemove={handleRemoveItem}
+                  rowId={row.id}
+                />
+              )}
+            </div>
           </div>
         )
       })}
-      <div className='flex items-center space-x-4'>
-        {rows.length < products.length ? (<AddButton isDisabled={isAddButtonDisabled} onAddItem={addRow} />) : ('')}
-        
-        <ResetButton isDisabled={isResetButtonDisabled} onReset={handleReset} />
+      <div className="flex items-center space-x-4">
+        {rows.length < products.length && (
+          <AddButton isDisabled={rows.some((row) => row.selectedProduct === null)} onAddItem={addRow} />
+        )}
+        <ResetButton isDisabled={rows.every((row) => row.selectedProduct === null)} onReset={handleReset} />
       </div>
       <Total total={total} totalWithDiscount={totalWithDiscount} savings={savings} />
     </div>
