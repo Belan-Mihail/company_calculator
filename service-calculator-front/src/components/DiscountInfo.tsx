@@ -80,3 +80,6 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
 }
 
 export default DiscountInfo
+
+
+
