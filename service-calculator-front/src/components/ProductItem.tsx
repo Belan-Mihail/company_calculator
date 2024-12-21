@@ -1,5 +1,6 @@
 import React from "react";
 import { ProductItemProps } from "../types/Product";
+import '../styles/ProductItem.css'
 
 const ProductItem: React.FC<ProductItemProps> = ({
   product,
@@ -23,7 +24,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
       <span>Quantity: {quantity}</span>
       <span>Price: {price}</span>
       <span>Total: {(quantity * price).toFixed(2)}</span>
-      <button className="bg-red-500" onClick={() => onRemove(id, rowId)}>Remove product</button>
+      <button className="remove-product" onClick={() => onRemove(id, rowId)}>X</button>
     </div>
   );
 };
