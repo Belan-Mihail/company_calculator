@@ -142,7 +142,7 @@ const Calculator:React.FC = () => {
   const savings = discountAmount
 
   return (
-    <div className="p-8">
+    <div className="p-8 items-center justify-center text-center flex flex-col ">
       <DiscountInfo total={total} />
       {rows.map((row) => {
         const availableProduct = products.filter(
