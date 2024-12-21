@@ -60,11 +60,14 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
     }, [total, showEffect, currentDiscount])
 
   return (
-    <div className='relative mb-8 p-4 rounded bg-blue-700 text-center'>
-        <h2>Discount Terms</h2>
-        <p>10% discount on orders over $1,500</p>
-        <p>7% discount on orders over $1,000</p>
-        <p>5% discount on orders over $500</p>
+    <div className='relative mb-8 p-4 rounded-xl bg-blue-700 text-center flex flex-col gap-4'>
+        <div>
+            <h2>Discount Terms</h2>
+            <p>10% discount on orders over $1,500</p>
+            <p>7% discount on orders over $1,000</p>
+            <p>5% discount on orders over $500</p>
+        </div>
+        
         
         <p className={`text-xl text-white ${showEffect ? 'glow-on-hover' : ''}`}>
             Current discount: {discountMessage}
