@@ -61,7 +61,7 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
 
   return (
     <div className='relative mb-8 p-4 rounded-xl bg-[#414a62] text-center flex flex-col gap-4'>
-        <div>
+        <div className='text-[#80d6b9]'>
             <h2 className='text-[#fe8924]'>Discount Terms</h2>
             <p>10% discount on orders over $1,500</p>
             <p>7% discount on orders over $1,000</p>
@@ -69,11 +69,11 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
         </div>
         
         
-        <p className={`text-xl text-white ${showEffect ? 'glow-on-hover' : ''}`}>
+        <p className={`text-xl text-[#ffea62] ${showEffect ? 'glow-on-hover' : ''}`}>
             Current discount: {discountMessage}
         </p>
         {nextDiscountMessage && (
-                <p className="text-white mt-4">{nextDiscountMessage}</p>
+                <p className="text-[#80d6b9] mt-4">{nextDiscountMessage}</p>
             )}
     </div>
   )
