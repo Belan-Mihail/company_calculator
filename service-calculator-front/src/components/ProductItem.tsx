@@ -21,7 +21,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
       <span>Quantity: {quantity}</span>
       <span>Price: {price}</span>
       <span>Total: {(quantity * price).toFixed(2)}</span>
-      <button className="remove-product" onClick={() => onRemove(id, rowId)}>X</button>
+      <button className="main-button" onClick={() => onRemove(id, rowId)}>X</button>
     </div>
   );
 };
