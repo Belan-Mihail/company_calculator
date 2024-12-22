@@ -33,6 +33,7 @@
   .main-button:hover {
     background-color: #ebebeb;
     color: #fe8924;
+    
   }
   
   .main-button:active {
@@ -40,4 +41,8 @@
     transform: translate(2px, 2px);
   }
   
+  .main-button-dis:hover {
+    color: #786e65;
+    cursor: not-allowed;
+  }
   

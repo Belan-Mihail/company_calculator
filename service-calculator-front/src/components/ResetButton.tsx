@@ -7,8 +7,8 @@ interface ResetButtonProps {
 const ResetButton: React.FC<ResetButtonProps> = ({ onReset, isDisabled }) => {
   return (
     <button
-      className={`bg-red-500 ${
-        isDisabled ? "opacity-45 cursor-not-allowed" : ""
+      className={`main-button ${
+        isDisabled ? " main-button-dis opacity-45 cursor-not-allowed" : ""
       }`}
       onClick={onReset}
       disabled={isDisabled}
