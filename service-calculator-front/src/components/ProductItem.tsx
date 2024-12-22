@@ -1,6 +1,6 @@
 import React from "react";
 import { ProductItemProps } from "../types/Product";
-import '../styles/ProductItem.css'
+
 
 const ProductItem: React.FC<ProductItemProps> = ({
   product,
