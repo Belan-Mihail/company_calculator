@@ -9,7 +9,7 @@ const AddButton: React.FC<AddButtonProps> = ({ isDisabled, onAddItem }) => {
   return (
     <button
       onClick={onAddItem}
-      className={`bg-blue-500 ${isDisabled ? "opacity-45 cursor-not-allowed" : ""}`}
+      className={`main-button ${isDisabled ? "opacity-45 cursor-not-allowed" : ""}`}
       disabled={isDisabled}
       title={isDisabled ? "Please select a product first" : ""}
     >
