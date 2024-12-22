@@ -1,10 +1,10 @@
 
 .remove-product {
   background-color: #fbeee0;
-  border: 2px solid #422800;
+  border: 2px solid #4c556e;
   border-radius: 30px;
-  box-shadow: #422800 4px 4px 0 0;
-  color: #422800;
+  box-shadow: #4c556e 4px 4px 0 0;
+  color: #786e65;
   cursor: pointer;
   display: inline-block;
   font-weight: 600;
@@ -18,18 +18,12 @@
   touch-action: manipulation;
 }
 
-.remove-product-74:hover {
+.remove-product:hover {
   background-color: #fff;
 }
 
-.remove-product-74:active {
-  box-shadow: #422800 2px 2px 0 0;
+.remove-product:active {
+  box-shadow: #4c556e 2px 2px 0 0;
   transform: translate(2px, 2px);
 }
 
-@media (min-width: 768px) {
-  .remove-product-74 {
-    min-width: 120px;
-    padding: 0 25px;
-  }
-}
