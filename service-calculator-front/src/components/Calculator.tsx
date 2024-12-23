@@ -162,6 +162,10 @@ const Calculator:React.FC = () => {
   const totalWithDiscount = total - discountAmount
   const savings = discountAmount
 
+    // Calculate final total with delivery cost
+    const deliveryCost = calculateDeliveryCost(totalWithDiscount);
+    const finalTotal = totalWithDiscount + deliveryCost;
+
   return (
     <div className="p-4 items-center justify-center text-center flex flex-col gap-2 w-auto w-max-full">
       <DiscountInfo total={total} />
