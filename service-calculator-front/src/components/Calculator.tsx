@@ -206,6 +206,38 @@ const Calculator:React.FC = () => {
           </div>
         );
       })}
+
+      {/* Delivery Options */}
+      <div className="flex flex-col gap-2 mt-4">
+        <h3 className="text-xl font-semibold">Select Delivery Option</h3>
+        <div className="flex gap-2">
+          <label>
+            <input
+              type="checkbox"
+              checked={deliveryOptions.hamburg}
+              onChange={(e) => setDeliveryOptions({ ...deliveryOptions, hamburg: e.target.checked })}
+            />
+            Hamburg Delivery (5$)
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={deliveryOptions.germany}
+              onChange={(e) => setDeliveryOptions({ ...deliveryOptions, germany: e.target.checked })}
+            />
+            Germany Delivery (10$ or 30$)
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={deliveryOptions.international}
+              onChange={(e) => setDeliveryOptions({ ...deliveryOptions, international: e.target.checked })}
+            />
+            International Delivery (individual pricing)
+          </label>
+        </div>
+      </div>
+
       <div className="flex items-center space-x-4">
         {rows.length < products.length && (
           <AddButton isDisabled={rows.some((row) => row.selectedProduct === null)} onAddItem={addRow} />
