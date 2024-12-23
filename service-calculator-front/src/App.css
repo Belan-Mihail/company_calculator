@@ -68,3 +68,16 @@
     outline: none;
     border-radius: 8px;
   }
+
+  .row-container {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%;
+    max-width: 600px; 
+    margin: 0 auto;
+  }
+  
+  .product-item {
+    flex: 1;
+    min-width: 250px; 
+  }
