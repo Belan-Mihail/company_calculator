@@ -69,11 +69,11 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
         </div>
         
         
-        <p className={`text-xl text-blue-800 ${showEffect ? 'glow-on-hover' : ''}`}>
+        <p className={`text-xl text-[#8b6300] ${showEffect ? 'glow-on-hover' : ''}`}>
             {discountMessage}
         </p>
         {nextDiscountMessage && (
-                <p className="text-blue-800 mt-4">{nextDiscountMessage}</p>
+                <p className="text-[#f74200] mt-4">{nextDiscountMessage}</p>
             )}
     </div>
   )
