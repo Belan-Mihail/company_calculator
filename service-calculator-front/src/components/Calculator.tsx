@@ -135,6 +135,20 @@ const Calculator:React.FC = () => {
     return items.reduce((total, item) => total + item.price * item.quantity, 0)
   }
 
+  // Calculate delivery cost
+  const calculateDeliveryCost = (total: number) => {
+    if (deliveryOptions.hamburg) {
+      return total >= 50 ? 0 : 5;
+    }
+    if (deliveryOptions.germany) {
+      return total >= 30 && total <= 100 ? 10 : 30;
+    }
+    if (deliveryOptions.international) {
+      return 50; // 
+    }
+    return 0;
+  };
+
   const getDiscount = (total:number) => {
     if (total >= 1500) return 0.1
     if (total >= 1000) return 0.07
