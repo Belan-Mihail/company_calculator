@@ -60,16 +60,16 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
     }, [total, showEffect, currentDiscount])
 
   return (
-    <div className='relative mb-2 p-2 rounded-xl text-center flex flex-col gap-2 text-xl'>
+    <div className='relative mb-2 p-2 rounded-xl text-center flex flex-col gap-2 text-base'>
         <div>
-            <h2 className='text-[#fe8924] text-2xl'>Discount Terms</h2>
+            <h2 className='text-[#fe8924] text-xl'>Discount Terms</h2>
             <p className='text-blue-800'>10% discount on orders over $1,500</p>
             <p className='text-blue-800'>7% discount on orders over $1,000</p>
             <p className='text-blue-800'>5% discount on orders over $500</p>
         </div>
         
         
-        <p className={`text-xl`}>
+        <p className={`text-base`}>
             {discountMessage}
         </p>
         {nextDiscountMessage && (

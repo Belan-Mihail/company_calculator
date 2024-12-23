@@ -8,7 +8,7 @@ interface TotalProps {
 
 const Total:React.FC<TotalProps> = ({total, totalWithDiscount, savings}) => {
   return (
-    <div className='mt-4'>
+    <div className='mt-2 text-base'>
       {savings > 0 ? (
         <>
         <p>Price without discount: {total.toFixed(2)} USD</p>
