@@ -10,7 +10,8 @@ const ProductItem: React.FC<ProductItemProps> = ({
 }) => {
   const { id, name, price, quantity, quantityInStock } = product;
   return (
-    <div className="flex items-center space-x-4">
+    
+    <div className="flex items-center space-x-4 product-item" style={{flex: 1}}>
       <input
         type="range"
         min="1"
