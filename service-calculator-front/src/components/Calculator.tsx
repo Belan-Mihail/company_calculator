@@ -23,6 +23,13 @@ const Calculator:React.FC = () => {
   // state for the rows of calculator, each row is an object with the field of the selected product
   const [rows, setRows] = useState<{id: number, selectedProduct: number | null}[]>([{id: 1, selectedProduct: null}])
 
+    // State for delivery options (checkboxes)
+    const [deliveryOptions, setDeliveryOptions] = useState({
+      hamburg: false,
+      germany: false,
+      international: false,
+    });
+
   // read the saved products from Localstorage
   useEffect(() => {
     const savedItems = JSON.parse(localStorage.getItem('calculatorItem') || '[]')
