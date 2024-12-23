@@ -46,3 +46,25 @@
     cursor: not-allowed;
   }
   
+  select:focus {
+    border-color: #4c556e; 
+    outline: none;
+  }
+
+  select:hover {
+    border-color: #4c556e; 
+    border-width: 2px;
+    outline: none;
+    
+  }
+
+  select:active {
+    border-color: #4c556e; 
+    outline: none;
+  }
+
+  select {
+    border-color: #4c556e;
+    outline: none;
+    border-radius: 8px;
+  }
