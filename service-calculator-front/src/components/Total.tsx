@@ -22,7 +22,10 @@ const Total:React.FC<TotalProps> = ({total, totalWithDiscount, savings, delivery
       ) : (
         <>
         <p>Total price: {total.toFixed(2)} USD </p>
-        <p>Delivery Cost: {deliveryCost.toFixed(2)} USD</p>
+        
+        {deliveryCost ? (<p>Delivery Cost: {deliveryCost.toFixed(2)} USD</p>) : ('')}
+        
+        
         <p className="font-bold">Final Total: {finalTotal.toFixed(2)} USD</p>
         </>
       )}
