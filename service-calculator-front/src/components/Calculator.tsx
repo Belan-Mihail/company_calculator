@@ -124,6 +124,7 @@ const Calculator:React.FC = () => {
 
     // Reset delivery options (uncheck all checkboxes)
     setDeliveryOptions({
+      noDelivery: true,
       hamburg: false,
       germany: false,
       eu: false
@@ -174,17 +175,28 @@ const Calculator:React.FC = () => {
     const deliveryCost = calculateDeliveryCost(totalWithDiscount);
     const finalTotal = totalWithDiscount + deliveryCost;
   
-  // Handle delivery option changes
-  const handleDeliveryOptionChange = (option: string) => {
-    setDeliveryOptions((prevOptions) => {
-      const resetOptions = {
+  
+   // Handle delivery option changes
+   const handleDeliveryOptionChange = (option: string) => {
+    if (option === 'noDelivery') {
+      setDeliveryOptions({
+        noDelivery: true,
         hamburg: false,
         germany: false,
         eu: false,
-      };
-      resetOptions[option] = true;
-      return resetOptions;
-    });
+      });
+    } else {
+      setDeliveryOptions((prevOptions) => {
+        const resetOptions = {
+          hamburg: false,
+          germany: false,
+          eu: false,
+          noDelivery: false, // Ensure "No Delivery" is unchecked
+        };
+        resetOptions[option] = true;
+        return resetOptions;
+      });
+    }
   };
 
   return (
