@@ -232,7 +232,7 @@ const Calculator:React.FC = () => {
               checked={deliveryOptions.germany}
               onChange={(e) => setDeliveryOptions({ ...deliveryOptions, germany: e.target.checked })}
             />
-            Germany Delivery (10$ or 30$)
+            Germany Delivery (30$)
           </label>
           <label>
             <input
@@ -240,7 +240,7 @@ const Calculator:React.FC = () => {
               checked={deliveryOptions.eu}
               onChange={(e) => setDeliveryOptions({ ...deliveryOptions, eu: e.target.checked })}
             />
-            International Delivery (individual pricing)
+            EU Delivery (50$)
           </label>
         </div>
       </div>
