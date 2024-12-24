@@ -148,7 +148,7 @@ const Calculator:React.FC = () => {
       return total >= 50 ? 0 : 5;
     }
     if (deliveryOptions.germany) {
-      return total >= 30 && total <= 100 ? 10 : 30;
+      return 30
     }
     if (deliveryOptions.eu) {
       return 50; // 
