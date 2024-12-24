@@ -285,7 +285,7 @@ const Calculator:React.FC = () => {
         )}
         <ResetButton isDisabled={rows.every((row) => row.selectedProduct === null)} onReset={handleReset} />
       </div>
-      <Total total={total} totalWithDiscount={totalWithDiscount} savings={savings} deliveryCost={deliveryCost} finalTotal={finalTotal} />
+      <Total total={total} totalWithDiscount={totalWithDiscount} savings={savings} deliveryCost={deliveryCost} finalTotal={finalTotal} deliveryOptions={deliveryOptions} />
     </div>
   );
 }

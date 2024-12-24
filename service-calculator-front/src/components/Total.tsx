@@ -1,21 +1,28 @@
 import React from 'react'
 
+interface deliveryOptions {
+  noDelivery: boolean
+  hamburg: boolean
+  germany: boolean
+  eu: boolean
+}
+
 interface TotalProps {
   total: number
   totalWithDiscount: number
   savings: number
   deliveryCost: number
   finalTotal: number
+  deliveryOptions: deliveryOptions
 }
 
 
 
-const Total:React.FC<TotalProps> = ({total, totalWithDiscount, savings, deliveryCost, finalTotal}) => {
+const Total:React.FC<TotalProps> = ({total, totalWithDiscount, savings, deliveryCost, finalTotal, deliveryOptions}) => {
 
   // Check if delivery cost is for Hamburg and total exceeds $50
-  const isHamburgDelivery = deliveryCost === 5 && total >= 50;
+  const isHamburgDelivery = deliveryOptions['hamburg'] === true && total >= 50;
   
-
   return (
     <div className='mt-2 text-base'>
       {savings > 0 ? (
