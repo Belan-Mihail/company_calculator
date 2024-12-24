@@ -120,6 +120,13 @@ const Calculator:React.FC = () => {
     dispatch(resetCalculator())
     localStorage.removeItem('calculatorItems')
     setRows([{id: 1, selectedProduct: null}])
+
+    // Reset delivery options (uncheck all checkboxes)
+    setDeliveryOptions({
+      hamburg: false,
+      germany: false,
+      international: false
+    })
   }
 
   // Function to calculate total
