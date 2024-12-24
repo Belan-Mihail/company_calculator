@@ -209,7 +209,7 @@ const Calculator:React.FC = () => {
 
         return (
           <div key={row.id} className="space-y-4">
-            <div className="flex items-center space-x-4 ">
+            <div className="flex flex-col sm:flex-row items-center space-x-4 ">
               {/* Render select only if no product is selected for this row */}
               <select
                 onChange={(e) => handleProductSelect(row.id, Number(e.target.value))}

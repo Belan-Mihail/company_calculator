@@ -11,7 +11,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
   const { id, name, price, quantity, quantityInStock } = product;
   return (
     
-    <div className="flex items-center w-[500px]  justify-around  " style={{flex: 1}}>
+    <div className="flex flex-col sm:flex-row mt-4 sm:mt-0 gap-2 sm:gap-0 items-center w-[500px]  justify-around  " style={{flex: 1}}>
       <input
         type="range"
         min="1"
@@ -22,7 +22,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
       <span>Quantity: {quantity}</span>
       <span>Price: {price}</span>
       <span>Total: {(quantity * price).toFixed(2)}</span>
-      <button className="main-button" onClick={() => onRemove(id, rowId)}>X</button>
+      <button className="main-button mb-2 sm:mb-0" onClick={() => onRemove(id, rowId)}>X</button>
       
     </div>
   );
