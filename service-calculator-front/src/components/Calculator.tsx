@@ -25,6 +25,7 @@ const Calculator:React.FC = () => {
 
     // State for delivery options (checkboxes)
     const [deliveryOptions, setDeliveryOptions] = useState({
+      noDelivery: true,
       hamburg: false,
       germany: false,
       eu: false,
@@ -237,7 +238,7 @@ const Calculator:React.FC = () => {
               checked={deliveryOptions.hamburg}
               onChange={() => handleDeliveryOptionChange('hamburg')}
             />
-            Hamburg Delivery (5$)
+            Hamburg (5$)
           </label>
           <label>
             <input
@@ -245,7 +246,7 @@ const Calculator:React.FC = () => {
               checked={deliveryOptions.germany}
               onChange={() => handleDeliveryOptionChange('germany')}
             />
-            Germany Delivery (30$)
+            Germany (30$)
           </label>
           <label>
             <input
@@ -253,7 +254,7 @@ const Calculator:React.FC = () => {
               checked={deliveryOptions.eu}
               onChange={() => handleDeliveryOptionChange('eu')}
             />
-            EU Delivery (50$)
+            EU (50$)
           </label>
         </div>
       </div>
