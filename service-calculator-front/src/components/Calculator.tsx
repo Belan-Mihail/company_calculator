@@ -243,7 +243,7 @@ const Calculator:React.FC = () => {
       {/* Delivery Options */}
       <div className="flex flex-col gap-2 mt-4">
         <h3 className="text-xl font-semibold">Select Delivery Option</h3>
-        <div className="flex gap-2">
+        <div className="grid grid-cols-2 gap-4">
         <label>
             <input
               type="checkbox"
@@ -279,7 +279,7 @@ const Calculator:React.FC = () => {
         </div>
       </div>
 
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-4 mt-2">
         {rows.length < products.length && (
           <AddButton isDisabled={rows.some((row) => row.selectedProduct === null)} onAddItem={addRow} />
         )}
