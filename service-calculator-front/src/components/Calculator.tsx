@@ -172,6 +172,19 @@ const Calculator:React.FC = () => {
     // Calculate final total with delivery cost
     const deliveryCost = calculateDeliveryCost(totalWithDiscount);
     const finalTotal = totalWithDiscount + deliveryCost;
+  
+  // Handle delivery option changes
+  const handleDeliveryOptionChange = (option: string) => {
+    setDeliveryOptions((prevOptions) => {
+      const resetOptions = {
+        hamburg: false,
+        germany: false,
+        eu: false,
+      };
+      resetOptions[option] = true;
+      return resetOptions;
+    });
+  };
 
   return (
     <div className="p-4 items-center justify-center text-center flex flex-col gap-2 w-auto w-max-full">
