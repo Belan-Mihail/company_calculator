@@ -27,7 +27,7 @@ const Calculator:React.FC = () => {
     const [deliveryOptions, setDeliveryOptions] = useState({
       hamburg: false,
       germany: false,
-      international: false,
+      eu: false,
     });
 
   // read the saved products from Localstorage
@@ -125,7 +125,7 @@ const Calculator:React.FC = () => {
     setDeliveryOptions({
       hamburg: false,
       germany: false,
-      international: false
+      eu: false
     })
   }
 
@@ -150,7 +150,7 @@ const Calculator:React.FC = () => {
     if (deliveryOptions.germany) {
       return total >= 30 && total <= 100 ? 10 : 30;
     }
-    if (deliveryOptions.international) {
+    if (deliveryOptions.eu) {
       return 50; // 
     }
     return 0;
@@ -237,8 +237,8 @@ const Calculator:React.FC = () => {
           <label>
             <input
               type="checkbox"
-              checked={deliveryOptions.international}
-              onChange={(e) => setDeliveryOptions({ ...deliveryOptions, international: e.target.checked })}
+              checked={deliveryOptions.eu}
+              onChange={(e) => setDeliveryOptions({ ...deliveryOptions, eu: e.target.checked })}
             />
             International Delivery (individual pricing)
           </label>
