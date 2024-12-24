@@ -244,6 +244,14 @@ const Calculator:React.FC = () => {
       <div className="flex flex-col gap-2 mt-4">
         <h3 className="text-xl font-semibold">Select Delivery Option</h3>
         <div className="flex gap-2">
+        <label>
+            <input
+              type="checkbox"
+              checked={deliveryOptions.noDelivery}
+              onChange={() => handleDeliveryOptionChange('noDelivery')}
+            />
+            No Delivery
+          </label>
           <label>
             <input
               type="checkbox"
