@@ -6,3 +6,9 @@ type State = {
     loading: boolean,
     error: string   
 }
+
+const initialState: State = {
+    products: [],
+    loading: true,
+    error: ''
+}
