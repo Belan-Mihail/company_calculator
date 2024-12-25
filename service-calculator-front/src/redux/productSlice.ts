@@ -7,6 +7,11 @@ type State = {
     error: string   
 }
 
+type Action = 
+    | { type: 'FETCH_REQUEST' }
+    | { type: 'FETCH_SUCCESS'; payload: Product[] }
+    | { type: 'FETCH_FAIL'; payload: string };
+
 // Initial State
 const initialState: State = {
     products: [],
@@ -14,13 +19,4 @@ const initialState: State = {
     error: ''
 }
 
-// Create an asynchronous action to load products from the API
-export const fetchProducts = createAsyncThunk('products/fetchProducts', 
-    async (ThunkAPI) => {
-        const response = await fetch('http://localhost:3000/api/products')
-        if (!response.ok) {
-            return ThunkAPI.rejectWithValue('Failed to fetch products')
-        }
-        return response.json()
-    }
-)
+
