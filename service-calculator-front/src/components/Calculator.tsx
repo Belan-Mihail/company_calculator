@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useReducer } from 'react'
 import { Product } from '../types/Product'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
@@ -9,19 +9,39 @@ import ResetButton from './ResetButton'
 import Total from './Total'
 import DiscountInfo from './DiscountInfo'
 
-  const products: Product[] = [
-    {id: 1, name: 'Product 1', price: 2.34, quantity: 0, quantityInStock: 350 },
-    {id: 2, name: 'Product 2', price: 3.19, quantity: 0, quantityInStock: 250 },
-    {id: 3, name: 'Product 3', price: 2.77, quantity: 0, quantityInStock: 150 },
-    {id: 4, name: 'Product 4', price: 4.80, quantity: 0, quantityInStock: 40 },
-  ]
+
+  // const products: Product[] = [
+  //   {id: 1, name: 'Product 1', price: 2.34, quantity: 0, quantityInStock: 350 },
+  //   {id: 2, name: 'Product 2', price: 3.19, quantity: 0, quantityInStock: 250 },
+  //   {id: 3, name: 'Product 3', price: 2.77, quantity: 0, quantityInStock: 150 },
+  //   {id: 4, name: 'Product 4', price: 4.80, quantity: 0, quantityInStock: 40 },
+  // ]
 
 const Calculator:React.FC = () => {
+  
   const dispatch = useDispatch()
+  const products = useSelector((state: any) => state.products.products);
   const items = useSelector((state:any) => state.calculator.items)
+
+  
 
   // state for the rows of calculator, each row is an object with the field of the selected product
   const [rows, setRows] = useState<{id: number, selectedProduct: number | null}[]>([{id: 1, selectedProduct: null}])
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      dispatch({ type: 'FETCH_REQUEST' });
+      try {
+        const response = await fetch('http://localhost:3000/api/products');
+        const data = await response.json();
+        dispatch({ type: 'FETCH_SUCCESS', payload: data });
+      } catch (error) {
+        dispatch({ type: 'FETCH_FAIL', payload: 'Failed to fetch products' });
+      }
+    };
+
+    fetchProducts();
+  }, [dispatch]);
 
     // State for delivery options (checkboxes)
     const [deliveryOptions, setDeliveryOptions] = useState({

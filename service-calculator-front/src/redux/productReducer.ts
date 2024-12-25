@@ -1,4 +1,3 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { Product } from '../types/Product'
 
 type State = {
@@ -13,13 +12,13 @@ type Action =
     | { type: 'FETCH_FAIL'; payload: string };
 
 // Initial State
-const initialState: State = {
+export const initialState: State = {
     products: [],
     loading: true,
     error: ''
 }
 
-const reducer = (state: State, action: Action) => {
+export const reducer = (state: State, action: Action) => {
     switch(action.type) {
         case 'FETCH_REQUEST':
             return {...state, loading: true}
