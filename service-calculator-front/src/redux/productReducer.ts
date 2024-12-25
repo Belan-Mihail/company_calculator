@@ -1,33 +1,35 @@
-import { Product } from '../types/Product'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Product } from '../types/Product';
 
 type State = {
-    products: Product[],
-    loading: boolean,
-    error: string   
-}
+  products: Product[];
+  loading: boolean;
+  error: string;
+};
 
-type Action = 
-    | { type: 'FETCH_REQUEST' }
-    | { type: 'FETCH_SUCCESS'; payload: Product[] }
-    | { type: 'FETCH_FAIL'; payload: string };
+const initialState: State = {
+  products: [],
+  loading: true,
+  error: '',
+};
 
-// Initial State
-export const initialState: State = {
-    products: [],
-    loading: true,
-    error: ''
-}
+const productSlice = createSlice({
+  name: 'products',
+  initialState,
+  reducers: {
+    fetchRequest(state) {
+      state.loading = true;
+    },
+    fetchSuccess(state, action: PayloadAction<Product[]>) {
+      state.products = action.payload;
+      state.loading = false;
+    },
+    fetchFail(state, action: PayloadAction<string>) {
+      state.error = action.payload;
+      state.loading = false;
+    },
+  },
+});
 
-export const reducer = (state: State, action: Action) => {
-    switch(action.type) {
-        case 'FETCH_REQUEST':
-            return {...state, loading: true}
-        case 'FETCH_SUCCESS':
-            return {...state, products: action.payload, loading: false}
-        case 'FETCH_FAIL':
-            return {...state, loading: false, error: action.payload}
-        default:
-            return state
-    }
-}
-
+export const { fetchRequest, fetchSuccess, fetchFail } = productSlice.actions;
+export default productSlice.reducer;
