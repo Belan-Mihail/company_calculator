@@ -1,12 +1,12 @@
-import express from 'express'
+import express, {Request, Response} from 'express'
 import { products } from './data/sampleProducts';
 
 const app = express();
 
 const port = 3000;
 
-app.get('/', (req, res) => {
-    res.send('Hello TS Backend!')
+app.get('/api/products', (req: Request, res: Response) => {
+    res.json(products)
 })
 
 app.listen(port, () => {
