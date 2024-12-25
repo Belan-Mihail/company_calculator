@@ -8,6 +8,7 @@ import AddButton from './AddButton'
 import ResetButton from './ResetButton'
 import Total from './Total'
 import DiscountInfo from './DiscountInfo'
+import { fetchFail, fetchRequest, fetchSuccess } from '../redux/productReducer'
 
 
   // const products: Product[] = [
@@ -30,13 +31,13 @@ const Calculator:React.FC = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      dispatch({ type: 'FETCH_REQUEST' });
+      dispatch(fetchRequest());  // 
       try {
         const response = await fetch('http://localhost:3000/api/products');
         const data = await response.json();
-        dispatch({ type: 'FETCH_SUCCESS', payload: data });
+        dispatch(fetchSuccess(data));  // 
       } catch (error) {
-        dispatch({ type: 'FETCH_FAIL', payload: 'Failed to fetch products' });
+        dispatch(fetchFail('Failed to fetch products'));  // 
       }
     };
 
