@@ -1,4 +1,5 @@
 import express from 'express'
+import { products } from './data/sampleProducts';
 
 const app = express();
 
