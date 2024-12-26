@@ -16,5 +16,14 @@ export const createProduct = async (req: Request, res: Response):Promise<void> =
     } catch (error) {
         res.status(400).json({ message: error.message})
     }
+}
 
+// get all products
+export const getAllProducts = async (req:Request, res: Response):Promise<void> => {
+    try {
+        const products = await ServiceProductModel.find()
+        res.json(products)
+    } catch (error) {
+        res.status(400).json({message: error.message})
+    }
 }
