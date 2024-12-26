@@ -4,14 +4,18 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import productRoutes from './routes/productRoutes';
 
-const app = express();
+dotenv.config();
+const app: Express = express();
 
+// Middleware
 app.use(
     cors({
       credentials: true,
       origin: ['http://localhost:5173'],
     })
   )
+app.use(express.json());
+
 
 const port = 3000;
 
