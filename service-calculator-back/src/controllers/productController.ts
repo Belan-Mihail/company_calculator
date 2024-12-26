@@ -57,7 +57,7 @@ export const getProductById = async (
 };
 
 // Update Product
-export const UpdateProduct = async (
+export const updateProduct = async (
   req: Request,
   res: Response
 ): Promise<void> => {
@@ -87,3 +87,17 @@ export const UpdateProduct = async (
     res.status(400).json({ message: error.message})
   }
 };
+
+// Delete Product
+export const deleteProduct = async (req: Request, res: Response) : Promise<void> => {
+    try {
+        const product = await ServiceProductModel.findByIdAndDelete(req.params.id)
+        if (!product) {
+            res.status(400).json({ message: 'Product not found'})
+            return
+        }
+        res.json({message: 'The product has been successfully deleted.'})
+    } catch (error) {
+        res.status(400).json({message: error.message})
+    }
+}
