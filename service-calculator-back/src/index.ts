@@ -1,6 +1,8 @@
-import express, {Request, Response} from 'express'
-import { products } from './data/sampleProducts';
+import express, { Express, Request, Response } from 'express';
+import mongoose from 'mongoose';
 import cors from 'cors';
+import dotenv from 'dotenv';
+import productRoutes from './routes/productRoutes';
 
 const app = express();
 
