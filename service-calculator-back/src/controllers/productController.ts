@@ -27,3 +27,18 @@ export const getAllProducts = async (req:Request, res: Response):Promise<void> =
         res.status(400).json({message: error.message})
     }
 }
+
+// get product by ID
+export const getProductById = async (req:Request, res: Response): Promise<void> => {
+    try {
+        const product = await ServiceProductModel.findById(req.params.id);
+        if (!product) {
+            res.status(400).json({ message: 'Product not found'})
+            return
+        }
+        res.json(product)
+    } catch (error) {
+        res.status(400).json({message: error.message})
+    }
+}
+
