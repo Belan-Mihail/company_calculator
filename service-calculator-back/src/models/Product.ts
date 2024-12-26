@@ -7,7 +7,7 @@ interface ServiceProduct extends Document {
     product_quantityInStock: number,
 }
 
-const productSchema: Schema = new Schema ({
+const serviceProductSchema: Schema = new Schema ({
     product_name: {type: String, required: true, unique: true},
     product_price: {type: Number, required: true},
     product_quantity: {type: Number, required: true, min: 0},
@@ -16,6 +16,6 @@ const productSchema: Schema = new Schema ({
 { timestamps: true }
 )
 
-const ServiceProductModel = mongoose.model<ServiceProduct>('ServiceProduct', productSchema)
+const ServiceProductModel = mongoose.model<ServiceProduct>('ServiceProduct', serviceProductSchema)
 
 export default ServiceProductModel;
