@@ -26,14 +26,11 @@ mongoose.connect(process.env.MONGO_URI as string)
   console.log('Eroor with MongoDB connection: ', error)
 })
 
+app.use('/api', productRoutes)
 
 
-const port = 3000;
-
-app.get('/api/products', (req: Request, res: Response) => {
-    res.json(products)
-})
-
+// Starting the server
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`)
 })
