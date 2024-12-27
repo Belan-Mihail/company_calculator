@@ -89,6 +89,7 @@ const Calculator:React.FC = () => {
 
   // Function for choosing a product in a row
   const handleProductSelect = (rowId: number, productId: number) => {
+    console.log(`Selecting product ${productId} for row ${rowId}`)
     const productToAdd = products.find((p) => p.id === productId);
 
     if (productToAdd) {
@@ -96,6 +97,7 @@ const Calculator:React.FC = () => {
 
       if (!existingProduct) {
         // If the product has not been added yet, add it with a quantity of 0
+        console.log("Adding new item:", productToAdd)
         dispatch(
           addItem({
             id: productToAdd.id,
@@ -124,11 +126,13 @@ const Calculator:React.FC = () => {
 
   // Function for handling changeing quantity
   const handleQuantityChange = (id: number, newQuantity: number) => {
+    console.log(`Changing quantity of product ${id} to ${newQuantity}`)
    dispatch(setQuantity({id, quantity: newQuantity}))
   }
 
   const handleRemoveItem = (productId: number, rowId: number) => {
     // delete product from store
+    console.log(`Removing item with id ${productId} from row ${rowId}`)
     dispatch(removeItem(productId))
 
     // delete priduct from rows
@@ -150,6 +154,7 @@ const Calculator:React.FC = () => {
 
   // Function for reset calculator 
   const handleReset = () => {
+    console.log("Resetting calculator")
     dispatch(resetCalculator())
     localStorage.removeItem('calculatorItems')
     setRows([{id: 1, selectedProduct: null}])
@@ -173,7 +178,10 @@ const Calculator:React.FC = () => {
 
   // Calculate the total amount to calculate the discount
   const calculateTotal = () => {
-    return items.reduce((total, item) => total + item.price * item.quantity, 0)
+   
+    const total = items.reduce((total, item) => total + item.price * item.quantity, 0)
+    console.log("Total calculated:", total)
+    return total
   }
 
   // Calculate delivery cost
