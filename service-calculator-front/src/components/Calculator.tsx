@@ -35,7 +35,17 @@ const Calculator:React.FC = () => {
       try {
         const response = await fetch('http://localhost:3000/api/products');
         const data = await response.json();
-        dispatch(fetchSuccess(data));  // 
+
+        // Convert data from the server into the format used in the frontend
+        const transformedProducts = data.map((product: any) => ({
+          id: product._id,
+          name: product.product_name,
+          price: product.product_price,
+          qunantity: product.product_quantity,
+          quantityInStock: product.product_quantityInStock
+        }))  
+
+        dispatch(fetchSuccess(transformedProducts));  // 
       } catch (error) {
         dispatch(fetchFail('Failed to fetch products'));  // 
       }
