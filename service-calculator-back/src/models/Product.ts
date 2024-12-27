@@ -1,7 +1,14 @@
 import { prop, getModelForClass, pre, modelOptions  } from '@typegoose/typegoose';
 
 @modelOptions({ schemaOptions: {timestamps: true}})
+@pre<ServiceProduct>('save', function (next) {
+    this.product_quantity = 0; 
+    next();
+  })
+
 class ServiceProduct {
+    
+
     @prop({required: true, unique: true})
     product_name: string;
 
@@ -13,13 +20,10 @@ class ServiceProduct {
 
     @prop({required: true})
     product_quantityInStock: number;
+
 }
 
 
-// Middleware to set product_quantity to 0 always
-@pre<ServiceProduct>('save', function () {
-    this.product_quantity = 0;
-})
 
 const ServiceProductModel = getModelForClass(ServiceProduct)
 
