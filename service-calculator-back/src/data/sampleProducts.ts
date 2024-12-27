@@ -1,9 +1,9 @@
 export type Product = {
-    id: number,
-    name: string,
-    price: number,
-    quantity: number,
-    quantityInStock: number,
+    
+    product_name: string,
+    product_price: number,
+    product_quantity: number,
+    product_quantityInStock: number,
 }
 
 export const products: Product[] = [
