@@ -18,7 +18,7 @@ app.use(express.json());
 
 // Connect to mongoose
 mongoose.set("strictQuery", false);
-mongoose.connect(process.env.MONGO_URI as string)
+mongoose.connect(process.env.MONGODB_URI as string)
 .then(() => {
   console.log('Connected to MongoDB')
 })
