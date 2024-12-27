@@ -1,20 +1,20 @@
-import mongoose, {Document, Schema } from "mongoose";
+import { prop, getModelForClass, pre } from '@typegoose/typegoose';
 
-interface ServiceProduct extends Document {
-    product_name: string,
-    product_price: number,
-    product_quantity: number,
-    product_quantityInStock: number,
+
+class ServiceProduct {
+    @prop({required: true, unique: true})
+    product_name: string;
+
+    @prop({required: true})
+    product_price: number;
+
+    @prop({required: true})
+    product_quantity: number;
+
+    @prop({required: true})
+    product_quantityInStock: number;
 }
 
-const serviceProductSchema: Schema = new Schema ({
-    product_name: {type: String, required: true, unique: true},
-    product_price: {type: Number, required: true},
-    product_quantity: {type: Number, required: true, min: 0},
-    product_quantityInStock: {type: Number, required: true, min: 0},
-},
-{ timestamps: true }
-)
 
 // Middleware to set product_quantity to 0 always
 serviceProductSchema.pre('save', function(next) {
