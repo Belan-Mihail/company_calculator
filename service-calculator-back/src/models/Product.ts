@@ -17,11 +17,10 @@ class ServiceProduct {
 
 
 // Middleware to set product_quantity to 0 always
-serviceProductSchema.pre('save', function(next) {
+@pre<ServiceProduct>('save', function () {
     this.product_quantity = 0;
-    next()
 })
 
-const ServiceProductModel = mongoose.model<ServiceProduct>('ServiceProduct', serviceProductSchema)
+const ServiceProductModel = getModelForClass(ServiceProduct)
 
 export default ServiceProductModel;
