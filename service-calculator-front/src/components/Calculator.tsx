@@ -37,8 +37,8 @@ const Calculator:React.FC = () => {
         const data = await response.json();
 
         // Convert data from the server into the format used in the frontend
-        const transformedProducts = data.map((product: any) => ({
-          id: product._id,
+        const transformedProducts = data.map((product: any, index: number) => ({
+          id: index + 1,
           name: product.product_name,
           price: product.product_price,
           qunantity: product.product_quantity,
@@ -47,6 +47,7 @@ const Calculator:React.FC = () => {
 
         // dispatch(fetchSuccess(transformedProducts));  // 
         setProducts(transformedProducts);
+        console.log(products)
       } catch (error) {
         dispatch(fetchFail('Failed to fetch products'));  // 
       }
@@ -54,6 +55,10 @@ const Calculator:React.FC = () => {
 
     fetchProducts();
   }, []);
+
+
+  console.log(products)
+
 
     // State for delivery options (checkboxes)
     const [deliveryOptions, setDeliveryOptions] = useState({
@@ -89,6 +94,9 @@ const Calculator:React.FC = () => {
 
   // Function for choosing a product in a row
   const handleProductSelect = (rowId: number, productId: number) => {
+    
+
+
     console.log(`Selecting product ${productId} for row ${rowId}`)
     const productToAdd = products.find((p) => p.id === productId);
 
