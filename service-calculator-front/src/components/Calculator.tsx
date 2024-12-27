@@ -21,9 +21,9 @@ import { fetchFail, fetchRequest, fetchSuccess } from '../redux/productReducer'
 const Calculator:React.FC = () => {
   
   const dispatch = useDispatch()
-  const products = useSelector((state: any) => state.products.products);
+  // const products = useSelector((state: any) => state.products.products);
   const items = useSelector((state:any) => state.calculator.items)
-
+  const [products, setProducts] = useState<Product[]>([]);
   
 
   // state for the rows of calculator, each row is an object with the field of the selected product
@@ -31,7 +31,7 @@ const Calculator:React.FC = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      dispatch(fetchRequest());  // 
+      // dispatch(fetchRequest());  // 
       try {
         const response = await fetch('http://localhost:3000/api/products');
         const data = await response.json();
@@ -45,14 +45,15 @@ const Calculator:React.FC = () => {
           quantityInStock: product.product_quantityInStock
         }))  
 
-        dispatch(fetchSuccess(transformedProducts));  // 
+        // dispatch(fetchSuccess(transformedProducts));  // 
+        setProducts(transformedProducts);
       } catch (error) {
         dispatch(fetchFail('Failed to fetch products'));  // 
       }
     };
 
     fetchProducts();
-  }, [dispatch]);
+  }, []);
 
     // State for delivery options (checkboxes)
     const [deliveryOptions, setDeliveryOptions] = useState({
@@ -259,13 +260,13 @@ const Calculator:React.FC = () => {
 
               {/* Render ProductItem if the product is selected */}
               {row.selectedProduct !== null && (
-                <ProductItem
-                  product={items.find((item) => item.id === row.selectedProduct)!}
-                  onQuantityChange={handleQuantityChange}
-                  onRemove={handleRemoveItem}
-                  rowId={row.id}
-                />
-              )}
+  <ProductItem
+    product={items.find((item) => item.id === row.selectedProduct) || {}}
+    onQuantityChange={handleQuantityChange}
+    onRemove={handleRemoveItem}
+    rowId={row.id}
+  />
+)}
             </div>
           </div>
         );
