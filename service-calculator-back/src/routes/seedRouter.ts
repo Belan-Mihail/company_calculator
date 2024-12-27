@@ -5,7 +5,7 @@ import  {products}  from '../data/sampleProducts';
 
 const seedRouter = express.Router()
 
-seedRouter.get('products/seed', asyncHandler(async (req: Request, res: Response) => {
+seedRouter.get('/seed', asyncHandler(async (req: Request, res: Response) => {
     try {
         await Product.deleteMany({})
 

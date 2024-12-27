@@ -28,7 +28,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 })
 
 app.use('/api', productRoutes)
-app.use('/api/', seedRouter)
+app.use('/api', seedRouter)
 
 
 // Starting the server
