@@ -1,6 +1,6 @@
-import { prop, getModelForClass, pre } from '@typegoose/typegoose';
+import { prop, getModelForClass, pre, modelOptions  } from '@typegoose/typegoose';
 
-
+@modelOptions({ schemaOptions: {timestamps: true}})
 class ServiceProduct {
     @prop({required: true, unique: true})
     product_name: string;
