@@ -11,13 +11,6 @@ import DiscountInfo from './DiscountInfo'
 import { fetchFail, fetchRequest, fetchSuccess } from '../redux/productReducer'
 
 
-  // const products: Product[] = [
-  //   {id: 1, name: 'Product 1', price: 2.34, quantity: 0, quantityInStock: 350 },
-  //   {id: 2, name: 'Product 2', price: 3.19, quantity: 0, quantityInStock: 250 },
-  //   {id: 3, name: 'Product 3', price: 2.77, quantity: 0, quantityInStock: 150 },
-  //   {id: 4, name: 'Product 4', price: 4.80, quantity: 0, quantityInStock: 40 },
-  // ]
-
 const Calculator:React.FC = () => {
   
   const dispatch = useDispatch()
@@ -47,7 +40,7 @@ const Calculator:React.FC = () => {
 
         // dispatch(fetchSuccess(transformedProducts));  // 
         setProducts(transformedProducts);
-        console.log(products)
+        
       } catch (error) {
         dispatch(fetchFail('Failed to fetch products'));  // 
       }
@@ -57,7 +50,7 @@ const Calculator:React.FC = () => {
   }, []);
 
 
-  console.log(products)
+  
 
 
     // State for delivery options (checkboxes)
@@ -95,9 +88,6 @@ const Calculator:React.FC = () => {
   // Function for choosing a product in a row
   const handleProductSelect = (rowId: number, productId: number) => {
     
-
-
-    console.log(`Selecting product ${productId} for row ${rowId}`)
     const productToAdd = products.find((p) => p.id === productId);
 
     if (productToAdd) {
@@ -105,7 +95,7 @@ const Calculator:React.FC = () => {
 
       if (!existingProduct) {
         // If the product has not been added yet, add it with a quantity of 0
-        console.log("Adding new item:", productToAdd)
+        
         dispatch(
           addItem({
             id: productToAdd.id,
@@ -134,13 +124,13 @@ const Calculator:React.FC = () => {
 
   // Function for handling changeing quantity
   const handleQuantityChange = (id: number, newQuantity: number) => {
-    console.log(`Changing quantity of product ${id} to ${newQuantity}`)
+    
    dispatch(setQuantity({id, quantity: newQuantity}))
   }
 
   const handleRemoveItem = (productId: number, rowId: number) => {
     // delete product from store
-    console.log(`Removing item with id ${productId} from row ${rowId}`)
+    
     dispatch(removeItem(productId))
 
     // delete priduct from rows
@@ -162,7 +152,7 @@ const Calculator:React.FC = () => {
 
   // Function for reset calculator 
   const handleReset = () => {
-    console.log("Resetting calculator")
+    
     dispatch(resetCalculator())
     localStorage.removeItem('calculatorItems')
     setRows([{id: 1, selectedProduct: null}])
@@ -176,10 +166,6 @@ const Calculator:React.FC = () => {
     })
   }
 
-  // Function to calculate total
-  const caulculateTotal = () => {
-    return items.reduce((total, item) => total + item.price * item.quantity, 0)
-  }
 
   const isAddButtonDisabled = rows.some((row) => row.selectedProduct === null) 
   const isResetButtonDisabled = rows.every((row) => row.selectedProduct === null)
@@ -188,7 +174,7 @@ const Calculator:React.FC = () => {
   const calculateTotal = () => {
    
     const total = items.reduce((total, item) => total + item.price * item.quantity, 0)
-    console.log("Total calculated:", total)
+    
     return total
   }
 
