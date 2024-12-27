@@ -6,7 +6,9 @@
     "rootDir": "./src",                     // Исходный код будет располагаться в папке src
     "esModuleInterop": true,                // Для совместимости с импортами
     "skipLibCheck": true,                   // Пропускаем проверку библиотек
-    "forceConsistentCasingInFileNames": true // Для обеспечения одинакового регистра в пути
+    "forceConsistentCasingInFileNames": true, // Для обеспечения одинакового регистра в пути
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": [
     "src/**/*.ts"                           // Включаем все TypeScript файлы в папке src

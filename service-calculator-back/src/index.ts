@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import productRoutes from './routes/productRoutes';
+import seedRouter from './routes/seedRouter';
 
 dotenv.config();
 const app: Express = express();
@@ -27,6 +28,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 })
 
 app.use('/api', productRoutes)
+app.use('/api/', seedRouter)
 
 
 // Starting the server
