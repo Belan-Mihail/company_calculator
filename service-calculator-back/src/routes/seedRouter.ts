@@ -4,12 +4,15 @@ import ServiceProductModel from "../models/Product";
 import  {products}  from '../data/sampleProducts'; 
 
 
+
 const seedRouter = express.Router()
 
 seedRouter.get('/seed', asyncHandler(async (req: Request, res: Response) => {
     try {
         await ServiceProductModel.deleteMany({})
         const createdProducts = await ServiceProductModel.insertMany(products)
+
+        
 
         
         res.json({createdProducts})

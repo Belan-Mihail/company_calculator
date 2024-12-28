@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import ServisDiscountModel from "../models/Discount";
+import ServiceDiscountModel from "../models/Discount";
 
 // create a new Discount
 export const createDiscount = async (req: Request, res: Response): Promise<void> => {
     try {
         const {discount_size, available_from} = req.body
-        const newDiscount = new ServisDiscountModel({
+        const newDiscount = new ServiceDiscountModel({
             discount_size, 
             available_from,
         })
@@ -19,7 +19,7 @@ export const createDiscount = async (req: Request, res: Response): Promise<void>
 // get allDiscount
 export const getAllDiscounts = async (req: Request, res: Response):Promise<void> => {
     try {
-        const discounts = await ServisDiscountModel.find()
+        const discounts = await ServiceDiscountModel.find()
         res.json(discounts)
     } catch (error) {
         res.status(400).json({ message: error.message})        
@@ -29,7 +29,7 @@ export const getAllDiscounts = async (req: Request, res: Response):Promise<void>
 // get discount by id
 export const getDiscountById = async (req: Request, res: Response):Promise<void> => {
     try {
-        const discount = await ServisDiscountModel.findById(req.params.id)
+        const discount = await ServiceDiscountModel.findById(req.params.id)
         if (!discount) {
             res.status(400).json({message: 'Discount nit found'})
             return
@@ -44,7 +44,7 @@ export const getDiscountById = async (req: Request, res: Response):Promise<void>
 export const updateDicount = async (req: Request, res: Response):Promise<void> => {
     try {
         const { discount_size, available_from} = req.body
-        const discount = await ServisDiscountModel.findByIdAndUpdate(req.params.id, {discount_size, available_from}, {new: true})
+        const discount = await ServiceDiscountModel.findByIdAndUpdate(req.params.id, {discount_size, available_from}, {new: true})
         if (!discount) {
             res.status(400).json({message: 'Discount not found'})
             return
@@ -59,7 +59,7 @@ export const updateDicount = async (req: Request, res: Response):Promise<void> =
 // delete Discount
 export const deleteDiscount = async (req: Request, res: Response):Promise<void> => {
     try {
-        const discount = await ServisDiscountModel.findByIdAndDelete(req.params.id)
+        const discount = await ServiceDiscountModel.findByIdAndDelete(req.params.id)
         if (!discount) {
             res.status(400).json({message: 'Discount not found'})
             return

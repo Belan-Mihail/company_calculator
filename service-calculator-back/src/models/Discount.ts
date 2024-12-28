@@ -10,6 +10,6 @@ class ServiceDiscount {
     available_from: number
 }
 
-const ServisDiscountModel = getModelForClass(ServiceDiscount)
+const ServiceDiscountModel = getModelForClass(ServiceDiscount)
 
-export default ServisDiscountModel
+export default ServiceDiscountModel
