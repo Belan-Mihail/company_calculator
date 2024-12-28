@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import productRoutes from './routes/productRoutes';
+import discountRoutes from './routes/discountRoutes';
 import seedRouter from './routes/seedRouter';
 
 dotenv.config();
@@ -28,6 +29,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 })
 
 app.use('/api', productRoutes)
+app.use('/api', discountRoutes)
 app.use('/api', seedRouter)
 
 
