@@ -39,3 +39,18 @@ export const getDiscountById = async (req: Request, res: Response):Promise<void>
         res.status(400).json({ message: error.message})        
     }
 }
+
+// update Discount
+export const updateDicount = async (req: Request, res: Response):Promise<void> => {
+    try {
+        const { discount_size, available_from} = req.body
+        const discount = await ServisDiscountModel.findByIdAndUpdate(req.params.id, {discount_size, available_from}, {new: true})
+        if (!discount) {
+            res.status(400).json({message: 'Discount not found'})
+        }
+        res.json(discount)
+    } catch (error) {
+        res.status(400).json({ message: error.message})
+        
+    }
+}
