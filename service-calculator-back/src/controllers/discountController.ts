@@ -15,3 +15,13 @@ export const createDiscount = async (req: Request, res: Response): Promise<void>
         res.status(400).json({ message: error.message})        
     }
 }
+
+// get allDiscount
+export const getAllDiscounts = async (req: Request, res: Response):Promise<void> => {
+    try {
+        const discounts = await ServiDiscountModel.find()
+        res.json(discounts)
+    } catch (error) {
+        res.status(400).json({ message: error.message})        
+    }
+}
