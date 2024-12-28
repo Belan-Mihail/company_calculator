@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import ServiDiscountModel from "../models/Discount";
+import ServisDiscountModel from "../models/Discount";
 
 // create a new Discount
 export const createDiscount = async (req: Request, res: Response): Promise<void> => {
     try {
         const {discount_size, available_from} = req.body
-        const newDiscount = new ServiDiscountModel({
+        const newDiscount = new ServisDiscountModel({
             discount_size, 
             available_from,
         })
@@ -19,8 +19,22 @@ export const createDiscount = async (req: Request, res: Response): Promise<void>
 // get allDiscount
 export const getAllDiscounts = async (req: Request, res: Response):Promise<void> => {
     try {
-        const discounts = await ServiDiscountModel.find()
+        const discounts = await ServisDiscountModel.find()
         res.json(discounts)
+    } catch (error) {
+        res.status(400).json({ message: error.message})        
+    }
+}
+
+// get discount by id
+export const getDiscountById = async (req: Request, res: Response):Promise<void> => {
+    try {
+        const discount = await ServisDiscountModel.findById(req.params.id)
+        if (!discount) {
+            res.status(400).json({message: 'Discount nit found'})
+            return
+        }
+        res.json(discount)
     } catch (error) {
         res.status(400).json({ message: error.message})        
     }
