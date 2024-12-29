@@ -212,15 +212,17 @@ const Calculator:React.FC = () => {
   };
 
   const getDiscount = (total:number) => {
-    if (total >= 1500) return 0.1
-    if (total >= 1000) return 0.07
-    if (total >= 500) return 0.05
-    return 0
+    if (discounts.length > 0) 
+      for (let discount of discounts) {
+        if (total >= discount.available_from) {
+          return discount.discount_size
+        }
+      }
   }
 
   const total = calculateTotal()
   const discount = getDiscount(total)
-  const discountAmount = total * discount
+  const discountAmount = total * discount!
   const totalWithDiscount = total - discountAmount
   const savings = discountAmount
 
