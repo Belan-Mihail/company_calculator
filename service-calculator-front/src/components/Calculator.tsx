@@ -18,12 +18,29 @@ const Calculator:React.FC = () => {
   // const products = useSelector((state: any) => state.products.products);
   const items = useSelector((state:any) => state.calculator.items)
   const [products, setProducts] = useState<Product[]>([]);
-  const [discount, setDiscount] = useState<Discount[]>([])
+  const [discounts, setDiscounts] = useState<Discount[]>([])
   
 
   // state for the rows of calculator, each row is an object with the field of the selected product
   const [rows, setRows] = useState<{id: number, selectedProduct: number | null}[]>([{id: 1, selectedProduct: null}])
 
+  // fetch discount data
+  useEffect(() => {
+    const fetchDiscount = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/api/discounts')
+        const data = await response.json()
+        setDiscounts(data)
+      } catch (error) {
+        console.error('failed to fetch discounts', error)
+      }
+    }
+
+    fetchDiscount()
+  }, [])
+  
+
+  // fetch products data
   useEffect(() => {
     const fetchProducts = async () => {
       // dispatch(fetchRequest());  // 
