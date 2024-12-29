@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import '../styles/DiscountInfo.css'
+
 
 interface DiscountInfoProps {
     total: number
-    
+
 }
 
 const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
