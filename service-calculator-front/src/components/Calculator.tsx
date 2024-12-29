@@ -9,6 +9,7 @@ import ResetButton from './ResetButton'
 import Total from './Total'
 import DiscountInfo from './DiscountInfo'
 import { fetchFail, fetchRequest, fetchSuccess } from '../redux/productReducer'
+import { Discount } from '../types/Discount'
 
 
 const Calculator:React.FC = () => {
@@ -17,6 +18,7 @@ const Calculator:React.FC = () => {
   // const products = useSelector((state: any) => state.products.products);
   const items = useSelector((state:any) => state.calculator.items)
   const [products, setProducts] = useState<Product[]>([]);
+  const [discount, setDiscount] = useState<Discount[]>([])
   
 
   // state for the rows of calculator, each row is an object with the field of the selected product
