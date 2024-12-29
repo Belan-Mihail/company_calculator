@@ -15,6 +15,14 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total, discount }) => {
     const [currentDiscount, setCurrentDiscount] = useState<number>(0)
     const [showEffect, setShowEffect] = useState(false)
 
+
+    useEffect(() => {
+        let applicableDiscount = null
+
+        
+    })
+
+
     useEffect(() => {
 
         let discount:number = 0
