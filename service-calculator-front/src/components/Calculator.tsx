@@ -212,12 +212,14 @@ const Calculator:React.FC = () => {
   };
 
   const getDiscount = (total:number) => {
-    if (discounts.length > 0) 
+    if (discounts.length > 0) {
       for (let discount of discounts) {
         if (total >= discount.available_from) {
           return discount.discount_size
         }
       }
+    }
+    return 0  
   }
 
   const total = calculateTotal()
