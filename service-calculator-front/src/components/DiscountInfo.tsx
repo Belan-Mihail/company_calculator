@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
+import { Discount } from '../types/Discount';
 
 
 interface DiscountInfoProps {
     total: number
+    discount: Discount[]
 
 }
 
-const DiscountInfo: React.FC<DiscountInfoProps> = ({ total }) => {
+const DiscountInfo: React.FC<DiscountInfoProps> = ({ total, discount }) => {
     
     const [discountMessage, setDiscountMessage] = useState<string>('');
     const [nextDiscountMessage, setNextDiscountMessage] = useState<string>('');
