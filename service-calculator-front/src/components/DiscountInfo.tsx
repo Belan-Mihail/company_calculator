@@ -19,7 +19,14 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total, discount }) => {
     useEffect(() => {
         let applicableDiscount = null
 
-        
+        // Look for necessary discount
+        for (const disc in discount) {
+            if (total >= disc.available_from) {
+                if (!applicableDiscount || disc.discount_size > applicableDiscount.discount_size) {
+                    applicableDiscount = disc
+                }
+            }
+        }
     })
 
 
