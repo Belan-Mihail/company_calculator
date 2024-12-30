@@ -6,8 +6,8 @@ const adminRouter = express.Router()
 
 adminRouter.get('/create-admin', asyncHandler(async (req: Request, res: Response) => {
     try {
-        const username = ''
-        const password = ''
+        const username = process.env.ADMIN_USERNAME
+        const password = process.env.ADMIN_PASSWORD
 
         // create a newAdmin 
         const newAdmin = new AdminModel({username, password})
