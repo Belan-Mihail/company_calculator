@@ -224,7 +224,7 @@ const Calculator:React.FC = () => {
 
   const total = calculateTotal()
   const discount = getDiscount(total)
-  const discountAmount = total * discount!
+  const discountAmount = total * (discount / 100);
   const totalWithDiscount = total - discountAmount
   const savings = discountAmount
 
