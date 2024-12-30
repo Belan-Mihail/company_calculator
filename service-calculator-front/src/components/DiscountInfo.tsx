@@ -12,10 +12,10 @@ interface DiscountInfoProps {
 
 const DiscountInfo: React.FC<DiscountInfoProps> = ({ total, discounts }) => {
     
-    const [discountMessage, setDiscountMessage] = useState<string>('');
+    
     const [nextDiscountMessage, setNextDiscountMessage] = useState<string>('');
     const [currentDiscount, setCurrentDiscount] = useState<Discount | null>(null)
-    const [showEffect, setShowEffect] = useState(false)
+    
 
 
     useEffect(() => {
