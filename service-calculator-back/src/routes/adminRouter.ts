@@ -4,10 +4,17 @@ import AdminModel from '../models/Admin';
 
 const adminRouter = express.Router()
 
-adminRouter.get('/create-admin', asyncHandler(async (req: Request, res: Response) => {
+adminRouter.get('/create-admin', asyncHandler(async (req: Request, res: Response):Promise<void> => {
     try {
         const username = process.env.ADMIN_USERNAME
         const password = process.env.ADMIN_PASSWORD
+
+        // check if admin exist
+        const existingAdmin = await AdminModel.findOne({username})
+        if (existingAdmin) {
+            res.status(400).json({message: 'Admin already exist!'})
+            return
+        }
 
         // create a newAdmin 
         const newAdmin = new AdminModel({username, password})
