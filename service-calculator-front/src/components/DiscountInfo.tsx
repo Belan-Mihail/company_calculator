@@ -38,7 +38,7 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total, discounts }) => {
             const nextThreshold = discounts.find(disc => disc.available_from > total)
             if (nextThreshold) {
                 nextDiscountAmount = nextThreshold.available_from - total 
-                setDiscountMessage(`Order ${nextDiscountAmount.toFixed(2)} more to get ${nextThreshold.discount_size}% discount`)
+                setNextDiscountMessage(`Order ${nextDiscountAmount.toFixed(2)} more to get ${nextThreshold.discount_size}% discount`)
             } else {
                 setNextDiscountMessage('You have reached the maximum discount')
             }
