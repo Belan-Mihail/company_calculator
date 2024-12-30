@@ -22,7 +22,7 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total, discounts }) => {
         let applicableDiscount = null
 
         // Look for necessary discount
-        for (const disc in discounts) {
+        for (const disc of discounts) {
             if (total >= disc.available_from) {
                 if (!applicableDiscount || disc.discount_size > applicableDiscount.discount_size) {
                     applicableDiscount = disc
