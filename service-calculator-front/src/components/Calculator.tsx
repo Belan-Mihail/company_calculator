@@ -258,7 +258,7 @@ const Calculator:React.FC = () => {
 
   return (
     <div className="p-4 items-center justify-center text-center flex flex-col gap-2 w-auto w-max-full">
-      <DiscountInfo total={total} discount={discount} />
+      <DiscountInfo total={total} discounts={discounts} />
       {rows.map((row) => {
         const availableProduct = products.filter(
           (product) => !rows.some((r) => r.selectedProduct === product.id) || row.selectedProduct === product.id

@@ -5,12 +5,12 @@ import { Discount } from '../types/Discount';
 
 interface DiscountInfoProps {
     total: number
-    discount: Discount[]
+    discounts: Discount[]
 
 }
 
 
-const DiscountInfo: React.FC<DiscountInfoProps> = ({ total, discount }) => {
+const DiscountInfo: React.FC<DiscountInfoProps> = ({ total, discounts }) => {
     
     const [discountMessage, setDiscountMessage] = useState<string>('');
     const [nextDiscountMessage, setNextDiscountMessage] = useState<string>('');
@@ -22,13 +22,15 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total, discount }) => {
         let applicableDiscount = null
 
         // Look for necessary discount
-        for (const disc in discount) {
+        for (const disc in discounts) {
             if (total >= disc.available_from) {
                 if (!applicableDiscount || disc.discount_size > applicableDiscount.discount_size) {
                     applicableDiscount = disc
                 }
             }
         }
+
+
     })
 
 
