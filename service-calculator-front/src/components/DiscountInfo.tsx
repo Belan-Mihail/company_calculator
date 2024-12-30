@@ -14,7 +14,7 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total, discounts }) => {
     
     const [discountMessage, setDiscountMessage] = useState<string>('');
     const [nextDiscountMessage, setNextDiscountMessage] = useState<string>('');
-    const [currentDiscount, setCurrentDiscount] = useState<number>(0)
+    const [currentDiscount, setCurrentDiscount] = useState<Discount | null>(null)
     const [showEffect, setShowEffect] = useState(false)
 
 
@@ -30,7 +30,7 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total, discounts }) => {
             }
         }
 
-        setCurrentDiscount(applicableDiscount!.discount_size)
+        setCurrentDiscount(applicableDiscount!)
 
         // next discount message
         let nextDiscountAmount = 0
@@ -57,7 +57,7 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total, discounts }) => {
         
         
         <p className={`text-base font-semibold`}>
-            {discountMessage}
+            {currentDiscount ? `You get ${currentDiscount.discount_size} discount!` : `Discount not available. Order more to get a discount`}
         </p>
         {nextDiscountMessage && (
                 <p className="text-[#f74200] mt-2">{nextDiscountMessage}</p>
