@@ -5,11 +5,11 @@ import { Request, Response, NextFunction } from 'express'
 interface CustomRequest extends Request {
     user?: {
         username: string,
-        password: string
+        _id: string
     }
 }
 
-const authenticAdmin = (req: CustomRequest, res: Response, next: NextFunction) => {
+export const authenticAdmin = (req: CustomRequest, res: Response, next: NextFunction) => {
     const token = req.header('Autorization')?.replace('Bearer ', '')
     if (!token) {
         return res.status(401).json({message: 'No token provided'})
