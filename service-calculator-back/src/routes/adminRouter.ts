@@ -36,4 +36,11 @@ adminRouter.post('/login', asyncHandler(async (req:Request, res: Response) => {
         res.status(400).json({message: 'Admin not found!'})
         return
     } 
+
+    // Check password
+    const isMatch = await admin.comparePassword(password)
+    if (!isMatch) {
+        res.status(400).json({ message: 'Invaliad password'})
+        return
+    }
 }))
