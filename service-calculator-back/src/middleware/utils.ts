@@ -20,6 +20,6 @@ export const authenticAdmin = (req: CustomRequest, res: Response, next: NextFunc
         req.user = decoded as { username: string; _id: string }
         next()
     } catch (error) {
-        res.status(401).json({ message: 'Invalid token' })
+        return res.status(401).json({ message: 'Invalid token' })
     }
 }

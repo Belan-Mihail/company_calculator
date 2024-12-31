@@ -1,4 +1,4 @@
-import express, { Request, Response, Router } from 'express';
+import express, { Request, Response, Router, NextFunction } from 'express';
 import asyncHandler from 'express-async-handler';
 import AdminModel from '../models/Admin';
 import jwt from 'jsonwebtoken';
@@ -62,11 +62,15 @@ adminRouter.post('/login', asyncHandler(async (req:Request, res: Response) => {
 }))
 
 // adminRouter for dashboard 
-adminRouter.get('/dashboard', authenticAdmin, (req: CustomRequest, res: Response) => {
-    res.status(200).json({
-        message: 'Welcome to Dashboard page',
-        user: req.user
-    })
-})
+adminRouter.get('/dashboard', authenticAdmin, async (req: CustomRequest, res: Response, next: NextFunction) => {
+    try {
+        res.status(200).json({
+            message: 'Welcome to Dashboard page',
+            user: req.user
+        });
+    } catch (error) {
+        next(error); // Передаем ошибку в обработчик ошибок, если что-то пойдет не так
+    }
+});
 
 export default adminRouter
