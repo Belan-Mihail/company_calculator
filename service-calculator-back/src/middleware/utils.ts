@@ -9,10 +9,11 @@ export interface CustomRequest extends Request {
     }
 }
 
-export const authenticAdmin = (req: CustomRequest, res: Response, next: NextFunction) => {
+export const authenticAdmin = (req: CustomRequest, res: Response, next: NextFunction): void => {
     const token = req.header('Authorization')?.replace('Bearer ', '');
     if (!token) {
-        return res.status(401).json({message: 'No token provided'})
+        res.status(401).json({message: 'No token provided'})
+        return
     }
 
     try {
@@ -20,6 +21,6 @@ export const authenticAdmin = (req: CustomRequest, res: Response, next: NextFunc
         req.user = decoded as { username: string; _id: string }
         next()
     } catch (error) {
-        return res.status(401).json({ message: 'Invalid token' })
+        res.status(401).json({ message: 'Invalid token' })
     }
 }

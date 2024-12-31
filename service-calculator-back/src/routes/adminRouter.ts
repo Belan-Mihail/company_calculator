@@ -62,15 +62,15 @@ adminRouter.post('/login', asyncHandler(async (req:Request, res: Response) => {
 }))
 
 // adminRouter for dashboard 
-adminRouter.get('/dashboard', authenticAdmin, async (req: CustomRequest, res: Response, next: NextFunction) => {
+adminRouter.get('/dashboard', authenticAdmin, asyncHandler(async (req: CustomRequest, res: Response, next: NextFunction) => {
     try {
         res.status(200).json({
             message: 'Welcome to Dashboard page',
             user: req.user
         });
     } catch (error) {
-        next(error); // Передаем ошибку в обработчик ошибок, если что-то пойдет не так
+        next(error); 
     }
-});
+}));
 
 export default adminRouter
