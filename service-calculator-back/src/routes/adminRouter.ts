@@ -29,4 +29,11 @@ adminRouter.get('/create-admin', asyncHandler(async (req: Request, res: Response
 // Admin login logic
 adminRouter.post('/login', asyncHandler(async (req:Request, res: Response) => {
     const {username, password} = req.body
+
+    // Find admin by name
+    const admin = await AdminModel.findOne({ username })
+    if (!admin) {
+        res.status(400).json({message: 'Admin not found!'})
+        return
+    } 
 }))
