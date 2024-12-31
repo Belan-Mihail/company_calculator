@@ -25,3 +25,8 @@ adminRouter.get('/create-admin', asyncHandler(async (req: Request, res: Response
         res.status(500).json({message: error.message})
     }
 }))
+
+// Admin login logic
+adminRouter.post('/login', asyncHandler(async (req:Request, res: Response) => {
+    const {username, password} = req.body
+}))
