@@ -50,4 +50,11 @@ adminRouter.post('/login', asyncHandler(async (req:Request, res: Response) => {
         _id: admin.id,
         username: admin.username,    
     }, process.env.JWT_SECRET || 'somethingsecret', {expiresIn: '12h'})
+
+
+    // Token as response
+    res.status(200).json({
+        message: 'Login successful',
+        token: token
+    })
 }))
