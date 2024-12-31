@@ -1,6 +1,7 @@
 import express, { Request, Response, Router } from 'express';
 import asyncHandler from 'express-async-handler';
 import AdminModel from '../models/Admin';
+import jwt from 'jsonwebtoken';
 
 const adminRouter = express.Router()
 
@@ -43,4 +44,10 @@ adminRouter.post('/login', asyncHandler(async (req:Request, res: Response) => {
         res.status(400).json({ message: 'Invaliad password'})
         return
     }
+
+    // Create JWT token
+    const token = jwt.sign({
+        _id: admin.id,
+        username: admin.username,    
+    }, process.env.JWT_SECRET || 'somethingsecret', {expiresIn: '12h'})
 }))
