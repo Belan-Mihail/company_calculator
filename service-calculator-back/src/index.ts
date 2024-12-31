@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import productRoutes from './routes/productRoutes';
 import discountRoutes from './routes/discountRoutes';
 import seedRouter from './routes/seedRouter';
+import adminRouter from './routes/adminRouter';
 
 dotenv.config();
 const app: Express = express();
@@ -31,6 +32,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 app.use('/api', productRoutes)
 app.use('/api', discountRoutes)
 app.use('/api', seedRouter)
+app.use('/api/admin', adminRouter)
 
 
 // Starting the server

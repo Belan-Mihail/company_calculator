@@ -58,3 +58,5 @@ adminRouter.post('/login', asyncHandler(async (req:Request, res: Response) => {
         token: token
     })
 }))
+
+export default adminRouter
