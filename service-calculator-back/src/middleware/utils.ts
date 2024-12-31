@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 import { Request, Response, NextFunction } from 'express'
 
 // Extend for Request
-interface CustomRequest extends Request {
+export interface CustomRequest extends Request {
     user?: {
         username: string,
         _id: string
@@ -10,7 +10,7 @@ interface CustomRequest extends Request {
 }
 
 export const authenticAdmin = (req: CustomRequest, res: Response, next: NextFunction) => {
-    const token = req.header('Autorization')?.replace('Bearer ', '')
+    const token = req.header('Authorization')?.replace('Bearer ', '');
     if (!token) {
         return res.status(401).json({message: 'No token provided'})
     }
