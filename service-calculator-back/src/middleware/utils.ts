@@ -17,7 +17,7 @@ export const authenticAdmin = (req: CustomRequest, res: Response, next: NextFunc
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET || 'somethingsecret')
-        req.user = decoded
+        req.user = decoded as { username: string; _id: string }
         next()
     } catch (error) {
         res.status(401).json({ message: 'Invalid token' })
