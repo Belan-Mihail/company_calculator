@@ -3,7 +3,7 @@ import asyncHandler from 'express-async-handler';
 import AdminModel from '../models/Admin';
 import jwt from 'jsonwebtoken';
 import { authenticAdmin } from '../middleware/utils';
-import { CustomRequest } from '../middleware/utils';
+import { CustomRequest } from '../types/CustomRequest';
 
 const adminRouter = express.Router()
 
