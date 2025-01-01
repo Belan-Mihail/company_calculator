@@ -1,13 +1,6 @@
 import jwt from 'jsonwebtoken'
 import { Request, Response, NextFunction } from 'express'
-
-// Extend for Request
-export interface CustomRequest extends Request {
-    user?: {
-        username: string,
-        _id: string
-    }
-}
+import { CustomRequest } from '../types/CustomRequest';
 
 export const authenticAdmin = (req: CustomRequest, res: Response, next: NextFunction): void => {
     const token = req.header('Authorization')?.replace('Bearer ', '');
