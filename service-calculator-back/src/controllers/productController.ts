@@ -1,9 +1,10 @@
   import { Request, Response } from "express";
   import ServiceProductModel from "../models/Product";
+  import { CustomRequest } from "../types/CustomRequest";
 
   // Create a new product
   export const createProduct = async (
-    req: Request,
+    req: CustomRequest,
     res: Response
   ): Promise<void> => {
     try {
@@ -41,7 +42,7 @@
 
   // get product by ID
   export const getProductById = async (
-    req: Request,
+    req: CustomRequest,
     res: Response
   ): Promise<void> => {
     try {
@@ -58,7 +59,7 @@
 
   // Update Product
   export const updateProduct = async (
-    req: Request,
+    req: CustomRequest,
     res: Response
   ): Promise<void> => {
     try {
@@ -89,7 +90,7 @@
   };
 
   // Delete Product
-  export const deleteProduct = async (req: Request, res: Response) : Promise<void> => {
+  export const deleteProduct = async (req: CustomRequest, res: Response) : Promise<void> => {
       try {
           const product = await ServiceProductModel.findByIdAndDelete(req.params.id)
           if (!product) {
