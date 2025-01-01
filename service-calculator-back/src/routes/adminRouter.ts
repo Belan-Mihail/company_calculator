@@ -73,4 +73,8 @@ adminRouter.get('/dashboard', authenticAdmin, asyncHandler(async (req: CustomReq
     }
 }));
 
+adminRouter.post('/logout', authenticAdmin, asyncHandler(async (req: CustomRequest, res: Response) => {
+    res.status(200).json({message: 'Logged out successfully'})
+}))
+
 export default adminRouter
