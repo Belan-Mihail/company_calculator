@@ -6,13 +6,14 @@ import {
   updateProduct,
   deleteProduct,
 } from '../controllers/productController';
+import { authenticAdmin } from '../middleware/utils'; 
 
 const router:Router = Router()
 
-router.post('/products', createProduct)
+router.post('/products', authenticAdmin, createProduct)
 router.get('/products', getAllProducts)
-router.get('/products/:id', getProductById)
-router.put('/products/id', updateProduct)
-router.delete('/products/:id', deleteProduct)
+router.get('/products/:id', authenticAdmin, getProductById)
+router.put('/products/id', authenticAdmin, updateProduct)
+router.delete('/products/:id', authenticAdmin, deleteProduct)
 
 export default router
