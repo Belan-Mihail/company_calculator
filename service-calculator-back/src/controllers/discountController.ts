@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
 import ServiceDiscountModel from "../models/Discount";
+import { CustomRequest } from "../types/CustomRequest";
 
 // create a new Discount
-export const createDiscount = async (req: Request, res: Response): Promise<void> => {
+export const createDiscount = async (req: CustomRequest, res: Response): Promise<void> => {
     try {
         const {discount_size, available_from} = req.body
         const newDiscount = new ServiceDiscountModel({
@@ -27,7 +28,7 @@ export const getAllDiscounts = async (req: Request, res: Response):Promise<void>
 }
 
 // get discount by id
-export const getDiscountById = async (req: Request, res: Response):Promise<void> => {
+export const getDiscountById = async (req: CustomRequest, res: Response):Promise<void> => {
     try {
         const discount = await ServiceDiscountModel.findById(req.params.id)
         if (!discount) {
@@ -41,7 +42,7 @@ export const getDiscountById = async (req: Request, res: Response):Promise<void>
 }
 
 // update Discount
-export const updateDicount = async (req: Request, res: Response):Promise<void> => {
+export const updateDicount = async (req: CustomRequest, res: Response):Promise<void> => {
     try {
         const { discount_size, available_from} = req.body
         const discount = await ServiceDiscountModel.findByIdAndUpdate(req.params.id, {discount_size, available_from}, {new: true})
@@ -57,7 +58,7 @@ export const updateDicount = async (req: Request, res: Response):Promise<void> =
 }
 
 // delete Discount
-export const deleteDiscount = async (req: Request, res: Response):Promise<void> => {
+export const deleteDiscount = async (req: CustomRequest, res: Response):Promise<void> => {
     try {
         const discount = await ServiceDiscountModel.findByIdAndDelete(req.params.id)
         if (!discount) {
