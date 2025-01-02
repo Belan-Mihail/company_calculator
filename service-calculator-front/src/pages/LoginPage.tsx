@@ -37,7 +37,12 @@ const LoginPage = () => {
 
 
   return (
-    <div>LoginPage</div>
+    <div className='flex flex-col items-center justify-center m-8 rounded main mx-auto mt-10 w-max'>
+        <form className='' onSubmit={handleSubmit}>
+            <h2>Login as Admin</h2>
+            
+        </form>
+    </div>
   )
 }
 
