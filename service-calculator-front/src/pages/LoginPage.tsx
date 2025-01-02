@@ -31,6 +31,10 @@ const LoginPage = () => {
         }
     }
 
+    const handleReturnToMainPage = () => {
+        navigate('/')
+    }
+
 
   return (
     <div>LoginPage</div>
