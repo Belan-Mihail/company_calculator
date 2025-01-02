@@ -40,7 +40,10 @@ const LoginPage = () => {
     <div className='flex flex-col items-center justify-center m-8 rounded main mx-auto mt-10 w-max'>
         <form className='' onSubmit={handleSubmit}>
             <h2>Login as Admin</h2>
-            
+            <div>
+                <label htmlFor="">Username:</label>
+                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className='' placeholder='Enter username'/>
+            </div>
         </form>
     </div>
   )
