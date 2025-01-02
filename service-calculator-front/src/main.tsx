@@ -5,6 +5,8 @@ import App from './App.tsx'
 import { Provider } from 'react-redux';
 import { store } from './redux/store.ts'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import LoginPage from './pages/LoginPage.tsx';
+import PageNotFound from './pages/PageNotFound.tsx';
 
 // Define routes
 
@@ -12,6 +14,14 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+  },
+  {
+    path: '/login',
+    element: <LoginPage />,
+  },
+  {
+    path: '*',
+    element: <PageNotFound />,
   },
   
 ])
