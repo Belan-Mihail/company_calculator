@@ -7,6 +7,7 @@ import { store } from './redux/store.ts'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LoginPage from './pages/LoginPage.tsx';
 import PageNotFound from './pages/PageNotFound.tsx';
+import Dashboard from './pages/Dashboard.tsx';
 
 // Define routes
 
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <LoginPage />,
+  },
+  {
+    path: '/dashboard',
+    element: <Dashboard />,
   },
   {
     path: '*',
