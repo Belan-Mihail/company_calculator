@@ -9,7 +9,12 @@ const AdminLoginButton:React.FC = () => {
     }
 
   return (
-    <div>AdminLoginButton</div>
+    <>
+        <button className='main-button' onClick={handleClick}>
+        Log as Admin
+    </button>
+    </>
+    
   )
 }
 
