@@ -44,6 +44,10 @@ const LoginPage = () => {
                 <label htmlFor="">Username:</label>
                 <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className='' placeholder='Enter username'/>
             </div>
+            <div>
+                <label htmlFor="">Password:</label>
+                <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} className='' placeholder='Enter password' />
+            </div>
         </form>
     </div>
   )
