@@ -57,7 +57,7 @@ const LoginPage = () => {
             </div>
             <div className='flex gap-2'>
                 <label htmlFor="">Password:</label>
-                <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} className='' placeholder='Enter password' />
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className='' placeholder='Enter password' />
             </div>
             <div className='flex justify-between items-center my-2 p-4 gap-4'>
                 <button type='submit' className='main-button p-2'>Login as Admin</button>
