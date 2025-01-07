@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css'
 const LoginPage = () => {
     const [username, setUsername] = useState<string>('')
     const [password, setPassword] = useState<string>('')
-    const [error, setErorr] = useState('')
     const navigate = useNavigate()
 
      
@@ -27,13 +26,19 @@ const LoginPage = () => {
             if (!response.ok) {
                 // show error message
                 toast.error(data.message || 'Something went wrong')
-                
+                // clear form
+                setUsername('')
+                setPassword('')
+                return
             }
 
             localStorage.setItem('token', data.token)
             navigate('/dashboard')
         } catch (error: any) {
-            setErorr(error.message || 'Something went wrong')
+            // Show an error notification if there is a problem with the request
+            toast.error(error.message || 'Something went wrong')
+            setUsername('')
+            setPassword('')
         }
     }
 
