@@ -12,7 +12,12 @@ const Dashboard = () => {
   }
   
   return (
-    <div>Dashboard</div>
+    <div>
+      <h2 className='my-4'>Dashboard Page</h2>
+      <div>
+        <button className='main' type='button' onClick={handleReturnToMainPage}>Back to Main Page</button>
+      </div>
+    </div>
   )
 }
 
