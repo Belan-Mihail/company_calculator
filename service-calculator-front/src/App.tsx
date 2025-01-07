@@ -3,6 +3,7 @@ import './index.css'
 import './App.css'
 import Calculator from './components/Calculator'
 import AdminLoginButton from './components/AdminLoginButton'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
   
@@ -14,6 +15,17 @@ function App() {
         
       </div>
       <AdminLoginButton />
+      <ToastContainer 
+        position="top-right" 
+        autoClose={5000} 
+        hideProgressBar={true} 
+        newestOnTop={true} 
+        closeOnClick={true} 
+        rtl={false} 
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
     
   )
