@@ -48,9 +48,9 @@ const LoginPage = () => {
                 <label htmlFor="">Password:</label>
                 <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} className='' placeholder='Enter password' />
             </div>
-            <div className='flex justify-between items-center my-2'>
-                <button type='submit' className='main'>Login as Admin</button>
-                <button type='button' className='main' onClick={handleReturnToMainPage}>Back to Main Page</button>
+            <div className='flex justify-between items-center my-2 p-4 gap-4'>
+                <button type='submit' className='main p-2'>Login as Admin</button>
+                <button type='button' className='main p-2' onClick={handleReturnToMainPage}>Back to Main Page</button>
             </div>
         </form>
     </div>
