@@ -40,11 +40,11 @@ const LoginPage = () => {
     <div className='flex flex-col items-center justify-center m-8 rounded main mx-auto mt-10 w-max'>
         <form className='flex flex-col items-center justify-center p-4 ' onSubmit={handleSubmit}>
             <h2>Login as Admin</h2>
-            <div>
+            <div className='flex gap-2'>
                 <label htmlFor="">Username:</label>
                 <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className='' placeholder='Enter username'/>
             </div>
-            <div>
+            <div className='flex gap-2'>
                 <label htmlFor="">Password:</label>
                 <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} className='' placeholder='Enter password' />
             </div>
