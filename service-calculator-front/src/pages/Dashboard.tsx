@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Product } from '../types/Product'
 import { Discount } from '../types/Discount'
@@ -29,6 +29,13 @@ const fetchDiscounts = async () => {
     console.log(error)
   }
 }
+
+useEffect(() => {
+  fetchProducts()
+  fetchDiscounts()
+ 
+}, [])
+
 
   const handleReturnToMainPage = () => {
     navigate('/')
