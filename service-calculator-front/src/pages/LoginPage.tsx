@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const LoginPage = () => {
@@ -24,6 +24,7 @@ const LoginPage = () => {
             const data = await response.json()
 
             if (!response.ok) {
+                console.log("Error: ", data.message);
                 // show error message
                 toast.error(data.message || 'Something went wrong')
                 // clear form
@@ -49,6 +50,17 @@ const LoginPage = () => {
 
   return (
     <div className='flex flex-col items-center justify-center m-8 rounded main mx-auto mt-10 w-max'>
+        <ToastContainer 
+        position="top-right" 
+        autoClose={3000} 
+        hideProgressBar={true} 
+        newestOnTop={true} 
+        closeOnClick={true} 
+        rtl={false} 
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
         <form className='flex flex-col items-center justify-center p-4 ' onSubmit={handleSubmit}>
             <h2>Login as Admin</h2>
             <div className='flex gap-2'>
