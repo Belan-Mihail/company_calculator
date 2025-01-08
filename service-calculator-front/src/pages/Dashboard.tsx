@@ -85,6 +85,16 @@ useEffect(() => {
       <div>
         <button className='main' type='button' onClick={handleReturnToMainPage}>Back to Main Page</button>
       </div>
+      <div>
+        <h3>Current Products</h3>
+        {products.length > 0 ? (
+          <div>
+            Products
+          </div>
+        ) : (
+          <p>There are no products available</p>
+        )}
+      </div>
     </div>
   )
 }
