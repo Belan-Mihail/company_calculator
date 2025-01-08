@@ -78,6 +78,7 @@ useEffect(() => {
   const handleAddDiscount = () => {
     navigate('/add-discount')
   }
+  // !!!!!!!!!!!!!!!!!!!! edt toast
   
   return (
     <div>
@@ -89,7 +90,16 @@ useEffect(() => {
         <h3>Current Products</h3>
         {products.length > 0 ? (
           <div>
-            Products
+            {/* edit as table */}
+            {products.map((product) => (
+              <div key={product.id} className='flex items-center justify-between gap-4'>
+                <p>{product.name}</p>
+                <p>Price: {product.price}$</p>
+                <p>Quantity On Stock: {product.quantityInStock}$</p>
+                <button onClick={() => handleEditProduct}>Edit Product</button>
+                <button onClick={() => handleDeleteProduct}>Delete Product</button>
+              </div>
+            ))}
           </div>
         ) : (
           <p>There are no products available</p>
