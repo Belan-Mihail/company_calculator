@@ -70,6 +70,10 @@ useEffect(() => {
   const handleEditDiscount = (discountId: string) => {
     navigate(`/edit-discounts/${discountId}`)
   }
+
+  const handleAddProduct = () => {
+    navigate('/add-priduct')
+  }
   
   return (
     <div>
