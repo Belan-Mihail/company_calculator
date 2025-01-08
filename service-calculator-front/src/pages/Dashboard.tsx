@@ -92,7 +92,7 @@ useEffect(() => {
           <div>
             {/* edit as table */}
             {products.map((product) => (
-              <div key={product.id} className='flex items-center justify-between gap-4'>
+              <div key={product._id} className='flex items-center justify-between gap-4'>
                 <p>{product.name}</p>
                 <p>Price: {product.price}$</p>
                 <p>Quantity On Stock: {product.quantityInStock}$</p>
@@ -104,8 +104,27 @@ useEffect(() => {
         ) : (
           <p>There are no products available</p>
         )}
+        <button onClick={handleAddProduct}>Add Product</button>
       </div>
-      <button onClick={handleAddProduct}>Add Product</button>
+      <div>
+        <h3>Current Discount</h3>
+        {discounts.length > 0 ? (
+          <div>
+            {/* edit as table */}
+            {discounts.map((discount) => (
+              <div key={discount._id} className='flex items-center justify-between gap-4'>
+                <p>Discount Size: {discount.discount_size}</p>
+                <p>Discount available from: {discount.available_from}</p>
+                <button onClick={() => handleEditDiscount}>Edit Discount</button>
+                <button onClick={() => handleDeleteDiscount}>Delete Discount</button>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p>There are no products available</p>
+        )}
+        <button onClick={handleAddProduct}>Add Product</button>
+      </div>
     </div>
   )
 }
