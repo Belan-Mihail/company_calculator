@@ -7,8 +7,18 @@ const Dashboard = () => {
   const navigate = useNavigate()
 
 //  states for products and discounts
-const [product, setProduct] = useState<Product[]>([])
-const [discount, setDiscount] = useState<Discount[]>([])
+const [products, setProducts] = useState<Product[]>([])
+const [discounts, setDiscounts] = useState<Discount[]>([])
+
+const fetchProducts = async () => {
+  try {
+    const response = await fetch('http://localhost:3000/api/products')
+    const data = await response.json()
+    setProducts(data)
+  } catch (error) {
+    console.log(error)
+  }
+}
 
   const handleReturnToMainPage = () => {
     navigate('/')
