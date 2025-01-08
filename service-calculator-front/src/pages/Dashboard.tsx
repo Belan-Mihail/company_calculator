@@ -41,7 +41,7 @@ useEffect(() => {
     navigate('/')
   }
 
-  const handleDeleteProduct = async (productId:string) => {
+  const handleDeleteProduct = async (productId:number) => {
     try {
         const response = await fetch(`http://localhost:3000/api/products/${productId}`, {method: 'DELETE'})
         if (response.ok) {
@@ -63,7 +63,7 @@ useEffect(() => {
     }
   }
 
-  const handleEditProduct = (productId: string) => {
+  const handleEditProduct = (productId: number) => {
     navigate(`/edit-products/${productId}`)
   }
 
@@ -96,8 +96,8 @@ useEffect(() => {
                 <p>{product.name}</p>
                 <p>Price: {product.price}$</p>
                 <p>Quantity On Stock: {product.quantityInStock}$</p>
-                <button onClick={() => handleEditProduct}>Edit Product</button>
-                <button onClick={() => handleDeleteProduct}>Delete Product</button>
+                <button onClick={() => handleEditProduct(product.id)}>Edit Product</button>
+                <button onClick={() => handleDeleteProduct(product.id)}>Delete Product</button>
               </div>
             ))}
           </div>
@@ -115,15 +115,15 @@ useEffect(() => {
               <div key={discount._id} className='flex items-center justify-between gap-4'>
                 <p>Discount Size: {discount.discount_size}</p>
                 <p>Discount available from: {discount.available_from}</p>
-                <button onClick={() => handleEditDiscount}>Edit Discount</button>
-                <button onClick={() => handleDeleteDiscount}>Delete Discount</button>
+                <button onClick={() => handleEditDiscount(discount._id)}>Edit Discount</button>
+                <button onClick={() => handleDeleteDiscount(discount._id)}>Delete Discount</button>
               </div>
             ))}
           </div>
         ) : (
           <p>There are no products available</p>
         )}
-        <button onClick={handleAddProduct}>Add Product</button>
+        <button onClick={handleAddDiscount}>Add Discount</button>
       </div>
     </div>
   )
