@@ -72,7 +72,11 @@ useEffect(() => {
   }
 
   const handleAddProduct = () => {
-    navigate('/add-priduct')
+    navigate('/add-product')
+  }
+
+  const handleAddDiscount = () => {
+    navigate('/add-discount')
   }
   
   return (
