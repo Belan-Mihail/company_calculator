@@ -40,6 +40,17 @@ useEffect(() => {
   const handleReturnToMainPage = () => {
     navigate('/')
   }
+
+  const handleDeleteProduct = async (productId:string) => {
+    try {
+        const response = await fetch(`http://localhost:3000/api/products/${productId}`, {method: 'DELETE'})
+        if (response.ok) {
+          fetchProducts()
+        }
+    } catch (error) {
+      console.log(error)
+    }
+  }
   
   return (
     <div>
