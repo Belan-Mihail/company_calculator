@@ -92,7 +92,7 @@ useEffect(() => {
           <div>
             {/* edit as table */}
             {products.map((product) => (
-              <div key={product._id} className='flex items-center justify-between gap-4'>
+              <div key={product.id} className='flex items-center justify-between gap-4'>
                 <p>{product.name}</p>
                 <p>Price: {product.price}$</p>
                 <p>Quantity On Stock: {product.quantityInStock}$</p>
