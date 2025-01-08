@@ -95,6 +95,7 @@ useEffect(() => {
           <p>There are no products available</p>
         )}
       </div>
+      <button onClick={handleAddProduct}>Add Product</button>
     </div>
   )
 }
