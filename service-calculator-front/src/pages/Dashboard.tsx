@@ -51,6 +51,17 @@ useEffect(() => {
       console.log(error)
     }
   }
+
+  const handleDeleteDiscount = async (discountId: string) => {
+    try {
+      const response = await fetch(`http://localhost:3000/api/discounts/${discountId}`, {method: 'DELETE'})
+      if (response.ok) {
+        fetchDiscounts()
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
   
   return (
     <div>
