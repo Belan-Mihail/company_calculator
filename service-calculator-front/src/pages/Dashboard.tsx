@@ -20,6 +20,16 @@ const fetchProducts = async () => {
   }
 }
 
+const fetchDiscounts = async () => {
+  try {
+    const response = await fetch('http://localhost:3000/api/discounts')
+    const data = await response.json()
+    setDiscounts(data)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
   const handleReturnToMainPage = () => {
     navigate('/')
   }
