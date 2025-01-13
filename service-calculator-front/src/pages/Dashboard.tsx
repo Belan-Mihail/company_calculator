@@ -90,7 +90,15 @@ useEffect(() => {
         <h3>Current Products</h3>
         {products.length > 0 ? (
           <table className='table-auto w-full'>
-            
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity In Stock</th>
+                <th>Edit Product</th>
+                <th>Delete Product</th>
+              </tr>
+            </thead>
           </table>
         ) : (
           <p>There are no products available</p>
