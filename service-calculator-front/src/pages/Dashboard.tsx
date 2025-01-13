@@ -114,7 +114,10 @@ useEffect(() => {
         ) : (
           <p>There are no products available</p>
         )}
-        <button className='main w-max p-2' type='button' onClick={handleAddProduct}>Add Product</button>
+        <div className='flex justify-center'>
+          <button className='main w-max p-2' type='button' onClick={handleAddProduct}>Add Product</button>
+        </div>
+        
       </div>
       <div>
         <h3>Current Discount</h3>
