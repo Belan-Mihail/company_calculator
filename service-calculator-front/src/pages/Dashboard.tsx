@@ -84,23 +84,14 @@ useEffect(() => {
     <div className='flex flex-col items-center justify-center m-8 p-4 gap-4 rounded main mx-auto mt-10 w-max'>
       <h2 className='my-4'>Dashboard Page</h2>
       <div>
-        <button className='main' type='button' onClick={handleReturnToMainPage}>Back to Main Page</button>
+        <button className='main p-2' type='button' onClick={handleReturnToMainPage}>Back to Main Page</button>
       </div>
       <div className='flex flex-col gap-2 p-4'>
         <h3>Current Products</h3>
         {products.length > 0 ? (
-          <div>
-            {/* edit as table */}
-            {products.map((product) => (
-              <div key={product.product_id} className='flex items-center justify-around gap-4'>
-                <p>{product.product_name}</p>
-                <p>Price: {product.product_price}$</p>
-                <p>Quantity On Stock: {product.product_quantityInStock}$</p>
-                <button className='main' type='button' onClick={() => handleEditProduct(product.product_id)}>Edit Product</button>
-                <button className='main' type='button' onClick={() => handleDeleteProduct(product.product_id)}>Delete Product</button>
-              </div>
-            ))}
-          </div>
+          <table className='table-auto w-full'>
+            
+          </table>
         ) : (
           <p>There are no products available</p>
         )}
