@@ -94,19 +94,19 @@ useEffect(() => {
           <div>
             {/* edit as table */}
             {products.map((product) => (
-              <div key={product.id} className='flex items-center justify-around gap-4'>
+              <div key={product.product_id} className='flex items-center justify-around gap-4'>
                 <p>{product.product_name}</p>
                 <p>Price: {product.product_price}$</p>
                 <p>Quantity On Stock: {product.product_quantityInStock}$</p>
-                <button onClick={() => handleEditProduct(product.id)}>Edit Product</button>
-                <button onClick={() => handleDeleteProduct(product.id)}>Delete Product</button>
+                <button className='main' type='button' onClick={() => handleEditProduct(product.product_id)}>Edit Product</button>
+                <button className='main' type='button' onClick={() => handleDeleteProduct(product.product_id)}>Delete Product</button>
               </div>
             ))}
           </div>
         ) : (
           <p>There are no products available</p>
         )}
-        <button onClick={handleAddProduct}>Add Product</button>
+        <button className='main' type='button' onClick={handleAddProduct}>Add Product</button>
       </div>
       <div>
         <h3>Current Discount</h3>
@@ -117,15 +117,15 @@ useEffect(() => {
               <div key={discount._id} className='flex items-center justify-between gap-4'>
                 <p>Discount Size: {discount.discount_size}</p>
                 <p>Discount available from: {discount.available_from}</p>
-                <button onClick={() => handleEditDiscount(discount._id)}>Edit Discount</button>
-                <button onClick={() => handleDeleteDiscount(discount._id)}>Delete Discount</button>
+                <button className='main' type='button' onClick={() => handleEditDiscount(discount._id)}>Edit Discount</button>
+                <button className='main' type='button' onClick={() => handleDeleteDiscount(discount._id)}>Delete Discount</button>
               </div>
             ))}
           </div>
         ) : (
           <p>There are no products available</p>
         )}
-        <button onClick={handleAddDiscount}>Add Discount</button>
+        <button className='main' type='button' onClick={handleAddDiscount}>Add Discount</button>
       </div>
     </div>
   )
