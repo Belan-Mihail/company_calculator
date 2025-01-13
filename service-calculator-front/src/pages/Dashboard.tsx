@@ -81,7 +81,7 @@ useEffect(() => {
   // !!!!!!!!!!!!!!!!!!!! edt toast
   
   return (
-    <div className='flex flex-col items-center justify-center m-8 p-4 gap-4 rounded main mx-auto mt-10 w-max'>
+    <div className='flex flex-col items-center justify-center m-8 p-4 gap-2 rounded main mx-auto mt-10 w-max'>
       <h2 className='text-xl font-bold'>Dashboard Page</h2>
       <div>
         <button className='main-button' type='button' onClick={handleReturnToMainPage}>Back to Main Page</button>
@@ -105,8 +105,8 @@ useEffect(() => {
                   <td className='text-center border border-gray-500 p-2'>{product.product_name}</td>
                   <td className='text-center border border-gray-500 p-2'>{product.product_price}</td>
                   <td className='text-center border border-gray-500 p-2'>{product.product_quantityInStock}</td>
-                  <td className='text-center border border-gray-500 p-2 cursor-pointer' onClick={() => handleEditProduct(product.product_id)}>Edit product</td>
-                  <td className='text-center border border-gray-500 p-2 cursor-pointer' onClick={() => handleDeleteProduct(product.product_id)}>Delete Product</td>
+                  <td className='text-center border border-gray-500 p-2 cursor-pointer hover:text-[#fe8924] hover:bg-[#e6e9f1]' onClick={() => handleEditProduct(product.product_id)}>Edit product</td>
+                  <td className='text-center border border-gray-500 p-2 cursor-pointer hover:text-[#fe8924] hover:bg-[#e6e9f1]' onClick={() => handleDeleteProduct(product.product_id)}>Delete Product</td>
                 </tr>
               ))}
             </tbody>
@@ -128,7 +128,7 @@ useEffect(() => {
                 <th className='text-center text-white border-2 border-gray-600 border-r-white p-2'>Discount Size</th>
                 <th className='text-center text-white border-2 border-gray-600 border-r-white p-2'>Available From</th>
                 <th className='text-center text-white border-2 border-gray-600 border-r-white p-2'>Edit Action</th>
-                <th className='text-center text-white border-2 border-gray-600 border-r-white p-2'>Delete Action</th>
+                <th className='text-center text-white border-2 border-gray-600 border-l-white p-2'>Delete Action</th>
               </tr>
             </thead>
             
@@ -137,8 +137,8 @@ useEffect(() => {
                 <tr key={discount._id} >
                   <td className='text-center border border-gray-500 p-2'>{discount.discount_size}</td>
                   <td className='text-center border border-gray-500 p-2'>{discount.available_from}</td>
-                  <td onClick={() => handleEditDiscount(discount._id)} className='text-center border border-gray-500 p-2 cursor-pointer'>Edit Discount</td>
-                  <td onClick={() => handleDeleteDiscount(discount._id)} className='text-center border border-gray-500 p-2 cursor-pointer'>Delete Discount</td>
+                  <td onClick={() => handleEditDiscount(discount._id)} className='text-center border border-gray-500 p-2 cursor-pointer hover:text-[#fe8924] hover:bg-[#e6e9f1]'>Edit Discount</td>
+                  <td onClick={() => handleDeleteDiscount(discount._id)} className='text-center border border-gray-500 p-2 cursor-pointer hover:text-[#fe8924] hover:bg-[#e6e9f1]'>Delete Discount</td>
                 </tr>
               ))}
             </tbody>
