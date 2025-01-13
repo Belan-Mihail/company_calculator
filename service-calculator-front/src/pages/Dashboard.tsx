@@ -101,7 +101,7 @@ useEffect(() => {
             </thead>
             <tbody>
               {products.map((product) => (
-                <tr key={product.product_id}>
+                <tr key={product._id}>
                   <td className='text-center border border-gray-500 p-2'>{product.product_name}</td>
                   <td className='text-center border border-gray-500 p-2'>{product.product_price}</td>
                   <td className='text-center border border-gray-500 p-2'>{product.product_quantityInStock}</td>
@@ -115,7 +115,7 @@ useEffect(() => {
           <p>There are no products available</p>
         )}
         <div className='flex justify-center'>
-          <button className='main w-max p-2' type='button' onClick={handleAddProduct}>Add Product</button>
+          <button className='main p-2' type='button' onClick={handleAddProduct}>Add Product</button>
         </div>
         
       </div>
@@ -147,7 +147,10 @@ useEffect(() => {
         ) : (
           <p>There are no products available</p>
         )}
-        <button className='main' type='button' onClick={handleAddDiscount}>Add Discount</button>
+        <div className='flex justify-center'>
+          <button className='main p-2' type='button' onClick={handleAddDiscount}>Add Discount</button>
+        </div>
+        
       </div>
     </div>
   )
