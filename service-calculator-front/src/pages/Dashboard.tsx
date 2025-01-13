@@ -91,7 +91,7 @@ useEffect(() => {
         {products.length > 0 ? (
           <table className='table-auto w-full'>
             <thead>
-              <tr className='bg-gray-600 '>
+              <tr className='bg-gray-600'>
                 <th className='text-center text-white border-2 border-gray-600 border-r-white p-2'>Product Name</th>
                 <th className='text-center text-white border-2 border-gray-600 border-r-white p-2'>Price</th>
                 <th className='text-center text-white border-2 border-gray-600 border-r-white p-2'>Quantity In Stock</th>
@@ -119,11 +119,18 @@ useEffect(() => {
         </div>
         
       </div>
-      <div>
+      <div className='flex flex-col gap-2 p-4'>
         <h3 className='text-lg font-bold'>Current Discount</h3>
         {discounts.length > 0 ? (
           <table className='table-auto w-full'>
-            
+            <thead>
+              <tr className='bg-gray-600'>
+                <th className='text-center text-white border-2 border-gray-600 border-r-white p-2'>Discount Size</th>
+                <th className='text-center text-white border-2 border-gray-600 border-r-white p-2'>Available From</th>
+                <th className='text-center text-white border-2 border-gray-600 border-r-white p-2'>Edit Discount</th>
+                <th className='text-center text-white border-2 border-gray-600 border-r-white p-2'>Delete Discount</th>
+              </tr>
+            </thead>
             {discounts.map((discount) => (
               <div key={discount._id} className='flex items-center justify-between gap-4'>
                 <p>Discount Size: {discount.discount_size}</p>
