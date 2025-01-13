@@ -82,12 +82,12 @@ useEffect(() => {
   
   return (
     <div className='flex flex-col items-center justify-center m-8 p-4 gap-4 rounded main mx-auto mt-10 w-max'>
-      <h2 className='my-4'>Dashboard Page</h2>
+      <h2 className='text-xl font-bold'>Dashboard Page</h2>
       <div>
         <button className='main p-2' type='button' onClick={handleReturnToMainPage}>Back to Main Page</button>
       </div>
       <div className='flex flex-col gap-2 p-4'>
-        <h3>Current Products</h3>
+        <h3 className='text-lg font-bold'>Current Products</h3>
         {products.length > 0 ? (
           <table className='table-auto w-full'>
             <thead>
