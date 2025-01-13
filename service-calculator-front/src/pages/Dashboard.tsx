@@ -92,21 +92,21 @@ useEffect(() => {
           <table className='table-auto w-full'>
             <thead>
               <tr>
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Quantity In Stock</th>
-                <th>Edit Product</th>
-                <th>Delete Product</th>
+                <th className='text-center border border-gray-300'>Product Name</th>
+                <th className='text-center border border-gray-300'>Price</th>
+                <th className='text-center border border-gray-300'>Quantity In Stock</th>
+                <th className='text-center border border-gray-300'>Edit Product</th>
+                <th className='text-center border border-gray-300'>Delete Product</th>
               </tr>
             </thead>
             <tbody>
               {products.map((product) => (
                 <tr key={product.product_id}>
-                  <td>{product.product_name}</td>
-                  <td>{product.product_price}</td>
-                  <td>{product.product_quantityInStock}</td>
-                  <td onClick={() => handleEditProduct(product.product_id)}>Edit product</td>
-                  <td onClick={() => handleDeleteProduct(product.product_id)}>Delete Product</td>
+                  <td className='text-center border border-gray-300'>{product.product_name}</td>
+                  <td className='text-center border border-gray-300'>{product.product_price}</td>
+                  <td className='text-center border border-gray-300'>{product.product_quantityInStock}</td>
+                  <td className='text-center border border-gray-300' onClick={() => handleEditProduct(product.product_id)}>Edit product</td>
+                  <td className='text-center border border-gray-300' onClick={() => handleDeleteProduct(product.product_id)}>Delete Product</td>
                 </tr>
               ))}
             </tbody>
