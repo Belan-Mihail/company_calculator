@@ -120,10 +120,10 @@ useEffect(() => {
         
       </div>
       <div>
-        <h3>Current Discount</h3>
+        <h3 className='text-lg font-bold'>Current Discount</h3>
         {discounts.length > 0 ? (
-          <div>
-            {/* edit as table */}
+          <table className='table-auto w-full'>
+            
             {discounts.map((discount) => (
               <div key={discount._id} className='flex items-center justify-between gap-4'>
                 <p>Discount Size: {discount.discount_size}</p>
@@ -132,7 +132,7 @@ useEffect(() => {
                 <button className='main' type='button' onClick={() => handleDeleteDiscount(discount._id)}>Delete Discount</button>
               </div>
             ))}
-          </div>
+          </table>
         ) : (
           <p>There are no products available</p>
         )}
