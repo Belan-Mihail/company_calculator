@@ -99,6 +99,17 @@ useEffect(() => {
                 <th>Delete Product</th>
               </tr>
             </thead>
+            <tbody>
+              {products.map((product) => (
+                <tr key={product.product_id}>
+                  <td>{product.product_name}</td>
+                  <td>{product.product_price}</td>
+                  <td>{product.product_quantityInStock}</td>
+                  <td onClick={() => handleEditProduct(product.product_id)}>Edit product</td>
+                  <td onClick={() => handleDeleteProduct(product.product_id)}>Delete Product</td>
+                </tr>
+              ))}
+            </tbody>
           </table>
         ) : (
           <p>There are no products available</p>
