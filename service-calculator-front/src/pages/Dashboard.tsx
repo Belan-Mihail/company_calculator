@@ -131,14 +131,18 @@ useEffect(() => {
                 <th className='text-center text-white border-2 border-gray-600 border-r-white p-2'>Delete Discount</th>
               </tr>
             </thead>
-            {discounts.map((discount) => (
-              <div key={discount._id} className='flex items-center justify-between gap-4'>
-                <p>Discount Size: {discount.discount_size}</p>
-                <p>Discount available from: {discount.available_from}</p>
-                <button className='main' type='button' onClick={() => handleEditDiscount(discount._id)}>Edit Discount</button>
-                <button className='main' type='button' onClick={() => handleDeleteDiscount(discount._id)}>Delete Discount</button>
-              </div>
-            ))}
+            
+            <tbody>
+              {discounts.map((discount) => (
+                <tr key={discount._id} >
+                  <td className='text-center border border-gray-500 p-2'>{discount.discount_size}</td>
+                  <td className='text-center border border-gray-500 p-2'>{discount.available_from}</td>
+                  <td onClick={() => handleEditDiscount(discount._id)} className='text-center border border-gray-500 p-2'>Edit Discount</td>
+                  <td onClick={() => handleDeleteDiscount(discount._id)} className='text-center border border-gray-500 p-2'>Delete Discount</td>
+                </tr>
+              ))}
+            </tbody>
+            
           </table>
         ) : (
           <p>There are no products available</p>
