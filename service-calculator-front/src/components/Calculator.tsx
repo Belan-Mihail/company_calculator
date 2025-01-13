@@ -30,6 +30,7 @@ const Calculator:React.FC = () => {
       try {
         const response = await fetch('http://localhost:3000/api/discounts')
         const data = await response.json()
+        
         setDiscounts(data)
       } catch (error) {
         console.error('failed to fetch discounts', error)

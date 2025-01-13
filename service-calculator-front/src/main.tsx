@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage.tsx';
 import PageNotFound from './pages/PageNotFound.tsx';
 import Dashboard from './pages/Dashboard.tsx';
 
+
 // Define routes
 
 const router = createBrowserRouter([

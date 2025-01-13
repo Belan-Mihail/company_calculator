@@ -14,6 +14,7 @@ const fetchProducts = async () => {
   try {
     const response = await fetch('http://localhost:3000/api/products')
     const data = await response.json()
+    console.log(data)
     setProducts(data)
   } catch (error) {
     console.log(error)
@@ -24,6 +25,7 @@ const fetchDiscounts = async () => {
   try {
     const response = await fetch('http://localhost:3000/api/discounts')
     const data = await response.json()
+    
     setDiscounts(data)
   } catch (error) {
     console.log(error)
@@ -92,10 +94,10 @@ useEffect(() => {
           <div>
             {/* edit as table */}
             {products.map((product) => (
-              <div key={product.id} className='flex items-center justify-between gap-4'>
-                <p>{product.name}</p>
-                <p>Price: {product.price}$</p>
-                <p>Quantity On Stock: {product.quantityInStock}$</p>
+              <div key={product.id} className='flex items-center justify-around gap-4'>
+                <p>{product.product_name}</p>
+                <p>Price: {product.product_price}$</p>
+                <p>Quantity On Stock: {product.product_quantityInStock}$</p>
                 <button onClick={() => handleEditProduct(product.id)}>Edit Product</button>
                 <button onClick={() => handleDeleteProduct(product.id)}>Delete Product</button>
               </div>
