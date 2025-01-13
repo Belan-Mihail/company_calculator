@@ -14,7 +14,6 @@ const fetchProducts = async () => {
   try {
     const response = await fetch('http://localhost:3000/api/products')
     const data = await response.json()
-    console.log(data)
     setProducts(data)
   } catch (error) {
     console.log(error)
@@ -25,7 +24,6 @@ const fetchDiscounts = async () => {
   try {
     const response = await fetch('http://localhost:3000/api/discounts')
     const data = await response.json()
-    
     setDiscounts(data)
   } catch (error) {
     console.log(error)
@@ -88,7 +86,7 @@ useEffect(() => {
       <div>
         <button className='main' type='button' onClick={handleReturnToMainPage}>Back to Main Page</button>
       </div>
-      <div>
+      <div className='flex flex-col gap-2 p-4'>
         <h3>Current Products</h3>
         {products.length > 0 ? (
           <div>
@@ -106,7 +104,7 @@ useEffect(() => {
         ) : (
           <p>There are no products available</p>
         )}
-        <button className='main' type='button' onClick={handleAddProduct}>Add Product</button>
+        <button className='main w-max p-2' type='button' onClick={handleAddProduct}>Add Product</button>
       </div>
       <div>
         <h3>Current Discount</h3>
