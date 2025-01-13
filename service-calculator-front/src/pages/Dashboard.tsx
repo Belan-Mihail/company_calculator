@@ -84,7 +84,7 @@ useEffect(() => {
     <div className='flex flex-col items-center justify-center m-8 p-4 gap-4 rounded main mx-auto mt-10 w-max'>
       <h2 className='text-xl font-bold'>Dashboard Page</h2>
       <div>
-        <button className='main p-2' type='button' onClick={handleReturnToMainPage}>Back to Main Page</button>
+        <button className='main-button' type='button' onClick={handleReturnToMainPage}>Back to Main Page</button>
       </div>
       <div className='flex flex-col gap-2 p-4'>
         <h3 className='text-lg font-bold'>Current Products</h3>
@@ -115,7 +115,7 @@ useEffect(() => {
           <p>There are no products available</p>
         )}
         <div className='flex justify-center'>
-          <button className='main p-2' type='button' onClick={handleAddProduct}>Add Product</button>
+          <button className='main-button' type='button' onClick={handleAddProduct}>Add Product</button>
         </div>
         
       </div>
@@ -148,7 +148,7 @@ useEffect(() => {
           <p>There are no products available</p>
         )}
         <div className='flex justify-center'>
-          <button className='main p-2' type='button' onClick={handleAddDiscount}>Add Discount</button>
+          <button className='main-button' type='button' onClick={handleAddDiscount}>Add Discount</button>
         </div>
         
       </div>
