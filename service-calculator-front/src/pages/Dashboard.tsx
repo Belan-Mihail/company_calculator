@@ -83,7 +83,7 @@ useEffect(() => {
   // !!!!!!!!!!!!!!!!!!!! edt toast
   
   return (
-    <div>
+    <div className='flex flex-col items-center justify-center m-8 p-4 gap-4 rounded main mx-auto mt-10 w-max'>
       <h2 className='my-4'>Dashboard Page</h2>
       <div>
         <button className='main' type='button' onClick={handleReturnToMainPage}>Back to Main Page</button>
