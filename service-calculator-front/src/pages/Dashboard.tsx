@@ -91,22 +91,22 @@ useEffect(() => {
         {products.length > 0 ? (
           <table className='table-auto w-full'>
             <thead>
-              <tr>
-                <th className='text-center border border-gray-300'>Product Name</th>
-                <th className='text-center border border-gray-300'>Price</th>
-                <th className='text-center border border-gray-300'>Quantity In Stock</th>
-                <th className='text-center border border-gray-300'>Edit Product</th>
-                <th className='text-center border border-gray-300'>Delete Product</th>
+              <tr className='bg-gray-600 '>
+                <th className='text-center text-white border-2 border-gray-600 p-2'>Product Name</th>
+                <th className='text-center text-white border-2 border-gray-600 p-2'>Price</th>
+                <th className='text-center text-white border-2 border-gray-600 p-2'>Quantity In Stock</th>
+                <th className='text-center text-white border-2 border-gray-600 p-2'>Edit Product</th>
+                <th className='text-center text-white border-2 border-gray-600 p-2'>Delete Product</th>
               </tr>
             </thead>
             <tbody>
               {products.map((product) => (
                 <tr key={product.product_id}>
-                  <td className='text-center border border-gray-300'>{product.product_name}</td>
-                  <td className='text-center border border-gray-300'>{product.product_price}</td>
-                  <td className='text-center border border-gray-300'>{product.product_quantityInStock}</td>
-                  <td className='text-center border border-gray-300' onClick={() => handleEditProduct(product.product_id)}>Edit product</td>
-                  <td className='text-center border border-gray-300' onClick={() => handleDeleteProduct(product.product_id)}>Delete Product</td>
+                  <td className='text-center border border-gray-500 p-2'>{product.product_name}</td>
+                  <td className='text-center border border-gray-500 p-2'>{product.product_price}</td>
+                  <td className='text-center border border-gray-500 p-2'>{product.product_quantityInStock}</td>
+                  <td className='text-center border border-gray-500 p-2' onClick={() => handleEditProduct(product.product_id)}>Edit product</td>
+                  <td className='text-center border border-gray-500 p-2' onClick={() => handleDeleteProduct(product.product_id)}>Delete Product</td>
                 </tr>
               ))}
             </tbody>
