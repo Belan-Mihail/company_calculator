@@ -92,11 +92,11 @@ useEffect(() => {
           <table className='table-auto w-full'>
             <thead>
               <tr className='bg-gray-600 '>
-                <th className='text-center text-white border-2 border-gray-600 p-2'>Product Name</th>
-                <th className='text-center text-white border-2 border-gray-600 p-2'>Price</th>
-                <th className='text-center text-white border-2 border-gray-600 p-2'>Quantity In Stock</th>
-                <th className='text-center text-white border-2 border-gray-600 p-2'>Edit Product</th>
-                <th className='text-center text-white border-2 border-gray-600 p-2'>Delete Product</th>
+                <th className='text-center text-white border-2 border-gray-600 border-r-white p-2'>Product Name</th>
+                <th className='text-center text-white border-2 border-gray-600 border-r-white p-2'>Price</th>
+                <th className='text-center text-white border-2 border-gray-600 border-r-white p-2'>Quantity In Stock</th>
+                <th className='text-center text-white border-2 border-gray-600 border-r-white p-2'>Edit Product</th>
+                <th className='text-center text-white border-2 border-gray-600 border-l-white p-2'>Delete Product</th>
               </tr>
             </thead>
             <tbody>
