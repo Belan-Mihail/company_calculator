@@ -85,6 +85,10 @@ const AddProduct: React.FC = () => {
                 <label htmlFor="productPrice" className='block text-sm font-semibold'>Product Price</label>
                 <input type="number" id='productPrice' name='productPrice' value={formData.productPrice} onChange={handleChange} placeholder='Enter product price' />
             </div>
+            <div className='mb-4'>
+                <label htmlFor="productQuantityInStock" className='block text-sm font-semibold'>Quantity in stock</label>
+                <input type="number" id='productQuantityInStock' name='productQuantityInStock' value={formData.productQuantityInStock} onChange={handleChange} placeholder='Enter product quantity in stock' />
+            </div>
         </form>
     </div>
   )
