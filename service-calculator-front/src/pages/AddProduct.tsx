@@ -29,6 +29,16 @@ const AddProduct: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
+
+        // Validate form fields 
+        if (!formData.productName || !formData.productPrice || !formData.productQuantityInStock) {
+            setFormData((prevData) => ({
+                ...prevData, errorMessage: 'All fields are required!',
+            }))
+            return
+        }
+
+
     }
     
 
