@@ -89,6 +89,7 @@ const AddProduct: React.FC = () => {
                 <label htmlFor="productQuantityInStock" className='block text-sm font-semibold'>Quantity in stock</label>
                 <input type="number" id='productQuantityInStock' name='productQuantityInStock' value={formData.productQuantityInStock} onChange={handleChange} placeholder='Enter product quantity in stock' />
             </div>
+            {formData.errorMessage && <p className='text-red-500'>{formData.errorMessage}</p>}
         </form>
     </div>
   )
