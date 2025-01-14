@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LoginPage from './pages/LoginPage.tsx';
 import PageNotFound from './pages/PageNotFound.tsx';
 import Dashboard from './pages/Dashboard.tsx';
+import AddProduct from './pages/AddProduct.tsx';
 
 
 // Define routes
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: '/dashboard',
     element: <Dashboard />,
+  },
+  {
+    path: '/add-product',
+    element: <AddProduct />,
   },
   {
     path: '*',
