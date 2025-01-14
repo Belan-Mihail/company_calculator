@@ -38,7 +38,14 @@ const AddProduct: React.FC = () => {
             return
         }
 
-
+        try {
+            
+        } catch (error) {
+            console.log("Error:", error)
+            setFormData((prevData) => ({
+                ...prevData, errorMessage: 'Something went wrong'
+            }))
+        }
     }
     
 
