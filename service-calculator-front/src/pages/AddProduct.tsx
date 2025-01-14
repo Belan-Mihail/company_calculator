@@ -74,6 +74,14 @@ const AddProduct: React.FC = () => {
   return (
     <div className='flex flex-col items-center  justify-center m-8 p-4 gap-2 rounded-lg main mx-auto mt-10 w-max'>
         <h2 className='text-xl font-bold'>Add New Product</h2>
+        <form onSubmit={handleSubmit} className='w-full max-w-lg'>
+            <div className='mb-4'>
+                <label htmlFor="productName" className='block text-sm font-semibold'>
+                    Product Name
+                </label>
+                <input type="text" id='productName' name='productName' value={formData.productName} onChange={handleChange} placeholder='Enter product name' />
+            </div>
+        </form>
     </div>
   )
 }
