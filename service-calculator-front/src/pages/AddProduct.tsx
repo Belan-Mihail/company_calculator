@@ -39,6 +39,20 @@ const AddProduct: React.FC = () => {
         }
 
         try {
+            // Make Api request to add the product 
+            const response = await fetch('http://localhost:3000/api/products', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    product_name: formData.productName,
+                    product_price: formData.productPrice,
+                    product_quantity: 0,
+                    product_quantityInStock: formData.productQuantityInStock,
+                }),
+            })
+
             
         } catch (error) {
             console.log("Error:", error)
