@@ -94,8 +94,9 @@ const AddProduct: React.FC = () => {
                 <input type="number" id='productQuantityInStock' name='productQuantityInStock' value={formData.productQuantityInStock} onChange={handleChange} placeholder='Enter product quantity in stock' />
             </div>
             {formData.errorMessage && <p className='text-red-500'>{formData.errorMessage}</p>}
-            <div className='flex justify-center'>
+            <div className='flex flex-col gap-4 justify-center'>
                 <button type='submit' className='main-button'>Add Product</button>
+                <button type='button' className='main-button'>Return to Main Page</button>
             </div>
         </form>
     </div>
