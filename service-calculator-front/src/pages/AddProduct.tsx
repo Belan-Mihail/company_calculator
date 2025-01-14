@@ -26,6 +26,10 @@ const AddProduct: React.FC = () => {
             ...prevData, [name]: value
         }))
     }
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+    }
     
 
   return (
