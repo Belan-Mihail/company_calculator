@@ -53,7 +53,15 @@ const AddProduct: React.FC = () => {
                 }),
             })
 
-            
+            if (response.ok) {
+                navigate('/dashboard')
+            } else {
+                const data = await response.json()
+                setFormData((prevData) => ({
+                    ...prevData,
+                    errorMessage: data.message || 'Failed add product',
+                }))
+            }
         } catch (error) {
             console.log("Error:", error)
             setFormData((prevData) => ({
