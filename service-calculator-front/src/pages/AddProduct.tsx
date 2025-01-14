@@ -8,9 +8,15 @@ interface ProductFormData {
     errorMessage: string
 }
 
-const AddProduct = () => {
+const AddProduct: React.FC = () => {
     const navigate = useNavigate()
 
+    const [formData, setFormData] = useState<ProductFormData>({
+        productName: '',
+        productPrice: 0,
+        productQuantityInStock: 0,
+        errorMessage: '',
+    })
     
 
   return (
