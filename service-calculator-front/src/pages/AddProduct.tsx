@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
 
 interface ProductFormData {
     productName: string,
@@ -32,9 +33,7 @@ const AddProduct: React.FC = () => {
 
         // Validate form fields 
         if (!formData.productName || !formData.productPrice || !formData.productQuantityInStock) {
-            setFormData((prevData) => ({
-                ...prevData, errorMessage: 'All fields are required!',
-            }))
+            toast.error('All fields are required!')
             return
         }
 
@@ -45,10 +44,7 @@ const AddProduct: React.FC = () => {
         const quantityInStock = parseInt(formData.productQuantityInStock, 10)
 
         if (isNaN(price) || isNaN(quantityInStock)) {
-            setFormData((prevData) => ({
-                ...prevData,
-                errorMessage: 'Price and quantity in stock must be valid numbers.'
-            }))
+            toast.error('Price and quantity in stock must be valid numbers.')
         }
 
         try {
@@ -67,19 +63,15 @@ const AddProduct: React.FC = () => {
             })
 
             if (response.ok) {
+                toast.success('Product added successfully!')
                 navigate('/dashboard')
             } else {
                 const data = await response.json()
-                setFormData((prevData) => ({
-                    ...prevData,
-                    errorMessage: data.message || 'Failed add product',
-                }))
+                toast.error(data.message || 'Failed add product')
             }
         } catch (error) {
             console.log("Error:", error)
-            setFormData((prevData) => ({
-                ...prevData, errorMessage: 'Something went wrong'
-            }))
+            toast.error('Something went wrong')
         }
     }
 
@@ -106,12 +98,13 @@ const AddProduct: React.FC = () => {
                 <label htmlFor="productQuantityInStock" className='block text-sm font-semibold'>Quantity in stock</label>
                 <input type="text" id='productQuantityInStock' name='productQuantityInStock' value={formData.productQuantityInStock} onChange={handleChange} placeholder='Enter product quantity in stock' />
             </div>
-            {formData.errorMessage && <p className='text-red-500'>{formData.errorMessage}</p>}
+            
             <div className='flex flex-col gap-4 justify-center'>
                 <button type='submit' className='main-button'>Add Product</button>
                 <button onClick={handleReturnToMainPage} type='button' className='main-button'>Return to Main Page</button>
             </div>
         </form>
+        <ToastContainer />
     </div>
   )
 }
