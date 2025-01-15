@@ -9,6 +9,11 @@ interface ProductFormData {
     
 }
 
+interface ValidationErrors {
+    productPriceError: string | null,
+    productQuantityInStockErorr: string | null
+}
+
 const AddProduct: React.FC = () => {
     const navigate = useNavigate()
 
