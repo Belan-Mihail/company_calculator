@@ -24,7 +24,7 @@ const AddProduct: React.FC = () => {
         productQuantityInStock: '',
         
     })
-    
+
     // State to manage validation error messages
     const [validationErorrs, setValidationErrors] = useState<ValidationErrors>({
         productPriceError: null,
@@ -38,6 +38,15 @@ const AddProduct: React.FC = () => {
             ...prevData, [name]: value
         }))
     }
+
+     // Validate input fields
+     const validateFields = () => {
+        let isValid = true
+        const newValidationErrors: ValidationErrors = {
+            productPriceError: null,
+            productQuantityInStockErorr: null
+        }
+     }
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
