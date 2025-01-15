@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom'
 
 interface ProductFormData {
     productName: string,
-    productPrice: number,
-    productQuantityInStock: number,
+    productPrice: string,
+    productQuantityInStock: string,
     errorMessage: string
 }
 
@@ -87,11 +87,11 @@ const AddProduct: React.FC = () => {
             </div>
             <div className='mb-4'>
                 <label htmlFor="productPrice" className='block text-sm font-semibold'>Product Price</label>
-                <input type="number" id='productPrice' name='productPrice' value={formData.productPrice} onChange={handleChange} placeholder='Enter product price' />
+                <input type="text" id='productPrice' name='productPrice' value={formData.productPrice} onChange={handleChange} placeholder='Enter product price' />
             </div>
             <div className='mb-4'>
                 <label htmlFor="productQuantityInStock" className='block text-sm font-semibold'>Quantity in stock</label>
-                <input type="number" id='productQuantityInStock' name='productQuantityInStock' value={formData.productQuantityInStock} onChange={handleChange} placeholder='Enter product quantity in stock' />
+                <input type="text" id='productQuantityInStock' name='productQuantityInStock' value={formData.productQuantityInStock} onChange={handleChange} placeholder='Enter product quantity in stock' />
             </div>
             {formData.errorMessage && <p className='text-red-500'>{formData.errorMessage}</p>}
             <div className='flex flex-col gap-4 justify-center'>
