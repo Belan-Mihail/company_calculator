@@ -46,6 +46,22 @@ const AddProduct: React.FC = () => {
             productPriceError: null,
             productQuantityInStockErorr: null
         }
+
+        const price = parseFloat(formData.productPrice)
+        const quantityInStock = parseInt(formData.productQuantityInStock, 10)
+
+        if (isNaN(price)) {
+            newValidationErrors.productPriceError = 'Price must be a valid number'
+            isValid = false
+        }
+
+        if (isNaN(quantityInStock)) {
+            newValidationErrors.productQuantityInStockErorr = 'Quantity must be a valid number'
+            isValid = false
+        }
+
+        setValidationErrors(newValidationErrors)
+        return isValid
      }
 
     const handleSubmit = async (e: React.FormEvent) => {
