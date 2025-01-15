@@ -14,8 +14,8 @@ const AddProduct: React.FC = () => {
     // State to hold form values with proper types
     const [formData, setFormData] = useState<ProductFormData>({
         productName: '',
-        productPrice: 0,
-        productQuantityInStock: 0,
+        productPrice: '',
+        productQuantityInStock: '',
         errorMessage: '',
     })
 
@@ -96,7 +96,7 @@ const AddProduct: React.FC = () => {
             {formData.errorMessage && <p className='text-red-500'>{formData.errorMessage}</p>}
             <div className='flex flex-col gap-4 justify-center'>
                 <button type='submit' className='main-button'>Add Product</button>
-                <button type='button' className='main-button'>Return to Main Page</button>
+                <button onClick={handleReturnToMainPage} type='button' className='main-button'>Return to Main Page</button>
             </div>
         </form>
     </div>
