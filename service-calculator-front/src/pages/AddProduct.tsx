@@ -73,17 +73,16 @@ const AddProduct: React.FC = () => {
             return
         }
 
-
-
-        // Convert product price and quantity in stock to numbers
-        const price = parseFloat(formData.productPrice)
-        const quantityInStock = parseInt(formData.productQuantityInStock, 10)
-
-        if (isNaN(price) || isNaN(quantityInStock)) {
-            toast.error('Price and quantity in stock must be valid numbers.')
+        // Validate form fields before submitting
+        if (!validateFields()) {
+            return
         }
 
         try {
+            // Convert product price and quantity in stock to numbers
+            const price = parseFloat(formData.productPrice)
+            const quantityInStock = parseInt(formData.productQuantityInStock, 10)
+
             // Make Api request to add the product 
             const response = await fetch('http://localhost:3000/api/products', {
                 method: 'POST',
