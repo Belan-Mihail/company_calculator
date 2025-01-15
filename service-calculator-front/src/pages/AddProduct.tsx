@@ -38,9 +38,18 @@ const AddProduct: React.FC = () => {
             return
         }
 
+
+
         // Convert product price and quantity in stock to numbers
         const price = parseFloat(formData.productPrice)
         const quantityInStock = parseInt(formData.productQuantityInStock, 10)
+
+        if (isNaN(price) || isNaN(quantityInStock)) {
+            setFormData((prevData) => ({
+                ...prevData,
+                errorMessage: 'Price and quantity in stock must be valid numbers.'
+            }))
+        }
 
         try {
             // Make Api request to add the product 
@@ -51,9 +60,9 @@ const AddProduct: React.FC = () => {
                 },
                 body: JSON.stringify({
                     product_name: formData.productName,
-                    product_price: formData.productPrice,
+                    product_price: price,
                     product_quantity: 0,
-                    product_quantityInStock: formData.productQuantityInStock,
+                    product_quantityInStock: quantityInStock,
                 }),
             })
 
