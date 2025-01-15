@@ -52,7 +52,7 @@ const LoginPage = () => {
     <div className='flex flex-col items-center justify-center m-8 rounded main mx-auto mt-10 w-max'>
         <ToastContainer 
         position="top-right" 
-        autoClose={3000} 
+        autoClose={2000} 
         hideProgressBar={true} 
         newestOnTop={true} 
         closeOnClick={true} 

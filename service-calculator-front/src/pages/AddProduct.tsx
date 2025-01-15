@@ -99,10 +99,20 @@ const AddProduct: React.FC = () => {
 
             if (response.ok) {
                 toast.success('Product added successfully!')
+                setFormData({
+                    productName: '',
+                    productPrice: '',
+                    productQuantityInStock: ''
+                })
                 navigate('/dashboard')
             } else {
                 const data = await response.json()
                 toast.error(data.message || 'Failed add product')
+                setFormData({
+                    productName: '',
+                    productPrice: '',
+                    productQuantityInStock: ''
+                })
             }
         } catch (error) {
             console.log("Error:", error)
