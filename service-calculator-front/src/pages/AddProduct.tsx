@@ -6,7 +6,7 @@ interface ProductFormData {
     productName: string,
     productPrice: string,
     productQuantityInStock: string,
-    errorMessage: string
+    
 }
 
 const AddProduct: React.FC = () => {
@@ -17,7 +17,7 @@ const AddProduct: React.FC = () => {
         productName: '',
         productPrice: '',
         productQuantityInStock: '',
-        errorMessage: '',
+        
     })
 
     // handle form field changes
