@@ -24,6 +24,12 @@ const AddProduct: React.FC = () => {
         productQuantityInStock: '',
         
     })
+    
+    // State to manage validation error messages
+    const [validationErorrs, setValidationErrors] = useState<ValidationErrors>({
+        productPriceError: null,
+        productQuantityInStockErorr: null
+    })
 
     // handle form field changes
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
