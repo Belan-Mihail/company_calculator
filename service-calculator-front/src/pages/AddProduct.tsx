@@ -38,6 +38,10 @@ const AddProduct: React.FC = () => {
             return
         }
 
+        // Convert product price and quantity in stock to numbers
+        const price = parseFloat(formData.productPrice)
+        const quantityInStock = parseInt(formData.productQuantityInStock, 10)
+
         try {
             // Make Api request to add the product 
             const response = await fetch('http://localhost:3000/api/products', {
