@@ -11,7 +11,7 @@ interface ProductFormData {
 
 interface ValidationErrors {
     productPriceError: string | null,
-    productQuantityInStockErorr: string | null
+    productQuantityInStockError: string | null
 }
 
 const AddProduct: React.FC = () => {
@@ -26,9 +26,9 @@ const AddProduct: React.FC = () => {
     })
 
     // State to manage validation error messages
-    const [validationErorrs, setValidationErrors] = useState<ValidationErrors>({
+    const [validationErrors, setValidationErrors] = useState<ValidationErrors>({
         productPriceError: null,
-        productQuantityInStockErorr: null
+        productQuantityInStockError: null
     })
 
     // handle form field changes
@@ -44,7 +44,7 @@ const AddProduct: React.FC = () => {
         let isValid = true
         const newValidationErrors: ValidationErrors = {
             productPriceError: null,
-            productQuantityInStockErorr: null
+            productQuantityInStockError: null
         }
 
         const price = parseFloat(formData.productPrice)
@@ -56,7 +56,7 @@ const AddProduct: React.FC = () => {
         }
 
         if (isNaN(quantityInStock)) {
-            newValidationErrors.productQuantityInStockErorr = 'Quantity must be a valid number'
+            newValidationErrors.productQuantityInStockError = 'Quantity must be a valid number'
             isValid = false
         }
 
@@ -128,10 +128,16 @@ const AddProduct: React.FC = () => {
             <div className='mb-4'>
                 <label htmlFor="productPrice" className='block text-sm font-semibold'>Product Price</label>
                 <input type="text" id='productPrice' name='productPrice' value={formData.productPrice} onChange={handleChange} placeholder='Enter product price' />
+                {validationErrors.productPriceError && (
+                        <p className="text-red-500 text-xs">{validationErrors.productPriceError}</p>
+                    )}
             </div>
             <div className='mb-4'>
                 <label htmlFor="productQuantityInStock" className='block text-sm font-semibold'>Quantity in stock</label>
                 <input type="text" id='productQuantityInStock' name='productQuantityInStock' value={formData.productQuantityInStock} onChange={handleChange} placeholder='Enter product quantity in stock' />
+                {validationErrors.productQuantityInStockError && (
+                        <p className="text-red-500 text-xs">{validationErrors.productQuantityInStockError}</p>
+                    )}
             </div>
             
             <div className='flex flex-col gap-4 justify-center'>
