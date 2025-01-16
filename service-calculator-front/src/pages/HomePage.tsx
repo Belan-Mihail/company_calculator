@@ -5,7 +5,7 @@ import '../index.css'
 import '../App.css'
 
 const HomePage:React.FC = () => {
-    
+    const token = localStorage.getItem('token')
 
   return (
     <div className='flex flex-col items-center justify-center'>
