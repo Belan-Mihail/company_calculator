@@ -3,6 +3,7 @@ import Calculator from '../components/Calculator'
 import AdminLoginButton from '../components/AdminLoginButton'
 import '../index.css'
 import '../App.css'
+import DashboardButton from '../components/DashboardButton'
 
 const HomePage:React.FC = () => {
     const token = localStorage.getItem('token')
@@ -13,8 +14,12 @@ const HomePage:React.FC = () => {
         <Calculator />
         
       </div>
+      {!token ? (
+        <AdminLoginButton />
+      ) : (
+        <DashboardButton />
+      )}
       
-      <AdminLoginButton />
     </div>
   )
 }
