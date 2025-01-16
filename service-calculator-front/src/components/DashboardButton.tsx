@@ -9,7 +9,9 @@ const DashboardButton: React.FC = () => {
     }
 
   return (
-    <div>DashboardButton</div>
+    <>
+        <button className='main-button' onClick={handleClick}>Go to Dashboard</button>
+    </>
   )
 }
 
