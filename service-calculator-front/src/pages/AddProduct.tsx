@@ -78,6 +78,8 @@ const AddProduct: React.FC = () => {
             return
         }
 
+        const token = localStorage.getItem('token') // Retrieve token from localStorage
+
         try {
             // Convert product price and quantity in stock to numbers
             const price = parseFloat(formData.productPrice)
@@ -88,6 +90,7 @@ const AddProduct: React.FC = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
                     product_name: formData.productName,
