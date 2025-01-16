@@ -1,6 +1,7 @@
 
 import React from 'react'
 import LogoutButton from './components/LogoutButton'
+import { Outlet } from 'react-router-dom'
 
 const App: React.FC = () => {
   const token = localStorage.getItem('token')
@@ -13,7 +14,7 @@ const App: React.FC = () => {
         </div>
         
       )}
-      
+      <Outlet />
     </div>
   )
 }
