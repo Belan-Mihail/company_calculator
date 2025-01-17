@@ -1,8 +1,10 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../hooks/AuthContext';
 
 const LogoutButton:React.FC = () => {
     const navigate = useNavigate()
+    const { logout } = useAuth(); 
 
     const handleLogout = async () => {
         try {
@@ -17,7 +19,7 @@ const LogoutButton:React.FC = () => {
 
             if (response.ok) {
                  // If logout is successful, clear the local token and redirect to login page
-                 localStorage.removeItem('token')
+                 logout()
                  navigate('/')
             } else {
                 const data = await response.json()
