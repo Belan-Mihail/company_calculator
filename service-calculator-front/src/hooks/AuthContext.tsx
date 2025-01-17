@@ -34,3 +34,12 @@ export const AuthProvider: React.FC = ({ children }) => {
         </AuthContext.Provider>
     )
 }
+
+// Hook for using context
+export const useAuth = (): AuthContextType => {
+    const context = useContext(AuthContext)
+    if (!context) {
+        throw new Error('useAuth must be used withing AuthProvider')
+    }
+    return context
+}
