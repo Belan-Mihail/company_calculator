@@ -18,4 +18,9 @@ export const AuthProvider: React.FC = ({ children }) => {
         const storedToken = localStorage.getItem('token')
         setToken(storedToken)
     }, [])
+
+    const login = (token: string) => {
+        localStorage.setItem('token', token)
+        setToken(token)
+    }
 }
