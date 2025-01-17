@@ -27,4 +27,10 @@ export const AuthProvider: React.FC = ({ children }) => {
     const logout = () => {
         localStorage.removeItem('token')
     }
+
+    return (
+        <AuthContext.Provider value={{ token, login, logout}}>
+            {children}
+        </AuthContext.Provider>
+    )
 }
