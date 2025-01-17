@@ -8,8 +8,8 @@ interface ConfirmLogoutModulProps {
 const ConfirmLogoutModal: React.FC<ConfirmLogoutModulProps> = ({onConfirm, onCancel}) => {
    
   return (
-    <div className='fixed z-50 main'>
-        <div className='rounded shadow-xl'>
+    <div className='fixed z-50 main p-4 flex justify-center items-center w-60 h-60 left-[40%]'>
+        <div className='round'>
             <h2 className='text-xl mb-2'>Are you sure you want to exit?</h2>
             <div className='flex gap-4'>
                 <button className='main-button' onClick={onConfirm}>Confirm</button>

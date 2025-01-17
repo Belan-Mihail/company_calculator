@@ -13,7 +13,7 @@ const App: React.FC = () => {
   return (
     <div>
       {token && (
-        <div className=' fixed top-2.5 right-2.5'>
+        <div className='fixed top-2.5 right-2.5'>
           <LogoutButton />
         </div>
         

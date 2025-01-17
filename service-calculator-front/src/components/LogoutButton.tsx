@@ -44,13 +44,15 @@ const LogoutButton:React.FC = () => {
 
   return (
     <div>
-        <button className='main-button' onClick={handleModalOpen}>Logout</button>
+        
 
-        {isModalOpen && (
+        {isModalOpen ? (
             <ConfirmLogoutModal 
             onConfirm={handleLogout}
             onCancel={handleModalClose}
             />
+        ) : (
+            <button className='main-button' onClick={handleModalOpen}>Logout</button>
         )}
     </div>
     
