@@ -7,6 +7,10 @@ interface AuthContextType {
     logout: () => void
 }
 
+// create context with default value
+const AuthContext = createContext<AuthContextType | undefined>(undefined)
+
+
 const AuthContext = () => {
   return (
     <div>AuthContext</div>
