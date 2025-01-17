@@ -7,6 +7,10 @@ const LogoutButton:React.FC = () => {
     const navigate = useNavigate()
     const { logout } = useAuth(); 
 
+    const handleModalOpen = () => {
+        setIsModalOpen(true)
+    }
+
     const handleLogout = async () => {
         try {
             // Make a request to the backend to log the user out
