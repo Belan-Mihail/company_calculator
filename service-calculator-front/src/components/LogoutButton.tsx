@@ -37,6 +37,7 @@ const LogoutButton:React.FC = () => {
         } catch (error) {
             console.log(error)
         }
+        setIsModalOpen(false)
     }
 
 
