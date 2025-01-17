@@ -13,6 +13,13 @@ const App: React.FC = () => {
       setToken(localStorage.getItem('token'))
     }
 
+    window.addEventListener('storage', handleStorageChange)
+
+    // clean Listener
+    return () => {
+      window.removeEventListener('storage', handleStorageChange)
+    }
+
   }, [])
 
   return (
