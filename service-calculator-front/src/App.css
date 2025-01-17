@@ -82,4 +82,11 @@
     min-width: 250px; 
   }
 
-  
+  @keyframes modal-fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.fixed {
+    animation: modal-fade-in 0.3s ease-in-out;
+}
