@@ -8,9 +8,12 @@ const App: React.FC = () => {
 
   // Check for the token on initial mount and whenever the localStorage changes
   useEffect(() => {
-    const storedToken = localStorage.getItem('token')
-    setToken(storedToken)
-  }, [token])
+    
+    const handleStorageChange = () => {
+      setToken(localStorage.getItem('token'))
+    }
+
+  }, [])
 
   return (
     <div>
