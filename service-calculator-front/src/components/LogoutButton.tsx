@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/AuthContext';
+import ConfirmLogoutModal from './ConfirmLogoutModal';
 
 const LogoutButton:React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -42,7 +43,17 @@ const LogoutButton:React.FC = () => {
 
 
   return (
-    <button className='main-button' onClick={handleLogout}>Logout</button>
+    <div>
+        <button className='main-button' onClick={handleModalOpen}>Logout</button>
+
+        {isModalOpen && (
+            <ConfirmLogoutModal 
+            onConfirm={handleLogout}
+            onCancel={handleModalClose}
+            />
+        )}
+    </div>
+    
   )
 }
 
