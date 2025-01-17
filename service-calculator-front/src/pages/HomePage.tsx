@@ -4,9 +4,10 @@ import AdminLoginButton from '../components/AdminLoginButton'
 import '../index.css'
 import '../App.css'
 import DashboardButton from '../components/DashboardButton'
+import { useAuth } from '../hooks/AuthContext'
 
 const HomePage:React.FC = () => {
-    const token = localStorage.getItem('token')
+    const { token } = useAuth();
 
   return (
     <div className='flex flex-col items-center justify-center'>
