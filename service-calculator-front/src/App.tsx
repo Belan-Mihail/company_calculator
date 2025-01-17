@@ -4,13 +4,13 @@ import LogoutButton from './components/LogoutButton'
 import { Outlet } from 'react-router-dom'
 
 const App: React.FC = () => {
-  const [token, setToken] = useState<string | null>(null)
+  const [token, setToken] = useState<string | null>(localStorage.getItem('token'))
 
   // Check for the token on initial mount and whenever the localStorage changes
   useEffect(() => {
     const storedToken = localStorage.getItem('token')
     setToken(storedToken)
-  })
+  }, [token])
 
   return (
     <div>
