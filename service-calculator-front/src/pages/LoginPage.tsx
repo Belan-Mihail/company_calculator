@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { useAuth } from '../hooks/AuthContext'
 
 const LoginPage = () => {
     const [username, setUsername] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const navigate = useNavigate()
+    const { login } = useAuth();
 
      
 
@@ -33,7 +35,7 @@ const LoginPage = () => {
                 return
             }
 
-            localStorage.setItem('token', data.token)
+            login(data.token)
             navigate('/dashboard')
         } catch (error: any) {
             // Show an error notification if there is a problem with the request
