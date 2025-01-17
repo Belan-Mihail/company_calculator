@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/AuthContext';
 
 const LogoutButton:React.FC = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false)
     const navigate = useNavigate()
     const { logout } = useAuth(); 
 
