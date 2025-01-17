@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard.tsx';
 import AddProduct from './pages/AddProduct.tsx';
 import HomePage from './pages/HomePage.tsx';
 import App from './App.tsx'; // Global Layout
+import { AuthProvider } from './hooks/AuthContext.tsx';
 
 // Define routes
 const router = createBrowserRouter([
@@ -43,6 +44,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </Provider>
 )
