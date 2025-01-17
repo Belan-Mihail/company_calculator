@@ -5,7 +5,10 @@ import { Outlet } from 'react-router-dom'
 import { useAuth } from './hooks/AuthContext';
 
 const App: React.FC = () => {
+  
   const { token } = useAuth();
+
+ 
 
   return (
     <div>

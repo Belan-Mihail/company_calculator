@@ -9,6 +9,8 @@ import { useAuth } from '../hooks/AuthContext'
 const HomePage:React.FC = () => {
     const { token } = useAuth();
 
+   
+
   return (
     <div className='flex flex-col items-center justify-center'>
       <div className='flex flex-col items-center justify-center m-8 rounded main mx-auto mt-10 w-max'>
