@@ -10,11 +10,9 @@ interface AuthContextType {
 // create context with default value
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
+// context provider
+export const AuthProvider: React.FC = ({ children }) => {
+    const [token, setToken] = useState<string | null>(localStorage.getItem('token'))
 
-const AuthContext = () => {
-  return (
-    <div>AuthContext</div>
-  )
+    
 }
-
-export default AuthContext
