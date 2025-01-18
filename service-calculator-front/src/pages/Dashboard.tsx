@@ -72,6 +72,7 @@ useEffect(() => {
   }
 
   const handleDeleteDiscount = async (discountId: string) => {
+    const deleteAction = async () => {
     try {
       const response = await fetch(`http://localhost:3000/api/discounts/${discountId}`, {method: 'DELETE'})
       if (response.ok) {
@@ -80,7 +81,8 @@ useEffect(() => {
     } catch (error) {
       console.log(error)
     }
-    
+  }
+  showModal('Are you sure you want to delete this discount?', deleteAction)
   }
 
   const handleEditProduct = (productId: number) => {
