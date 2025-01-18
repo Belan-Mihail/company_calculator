@@ -79,7 +79,10 @@ useEffect(() => {
   const handleDeleteDiscount = async (discountId: string) => {
     const deleteAction = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/discounts/${discountId}`, {method: 'DELETE'})
+      const response = await fetch(`http://localhost:3000/api/discounts/${discountId}`, {method: 'DELETE', headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+    }})
       if (response.ok) {
         fetchDiscounts()
       }
