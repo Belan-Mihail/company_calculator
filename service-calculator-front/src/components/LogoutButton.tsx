@@ -50,6 +50,7 @@ const LogoutButton:React.FC = () => {
             <ConfirmModal 
             onConfirm={handleLogout}
             onCancel={handleModalClose}
+            headerText='Are you sure you want to exit?'
             />
         ) : (
             <button className='main-button' onClick={handleModalOpen}>Logout</button>
