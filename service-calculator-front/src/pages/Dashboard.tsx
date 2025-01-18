@@ -135,8 +135,8 @@ useEffect(() => {
                   <td className='text-center border border-gray-500 p-2'>{product.product_name}</td>
                   <td className='text-center border border-gray-500 p-2'>{product.product_price}</td>
                   <td className='text-center border border-gray-500 p-2'>{product.product_quantityInStock}</td>
-                  <td className='text-center border border-gray-500 p-2 cursor-pointer hover:text-[#fe8924] hover:bg-[#e6e9f1]' onClick={() => handleEditProduct(product.product_id)}>Edit product</td>
-                  <td className='text-center border border-gray-500 p-2 cursor-pointer hover:text-[#fe8924] hover:bg-[#e6e9f1]' onClick={() => handleDeleteProduct(product.product_id)}>Delete Product</td>
+                  <td className='text-center border border-gray-500 p-2 cursor-pointer hover:text-[#fe8924] hover:bg-[#e6e9f1]' onClick={() => handleEditProduct(product._id)}>Edit product</td>
+                  <td className='text-center border border-gray-500 p-2 cursor-pointer hover:text-[#fe8924] hover:bg-[#e6e9f1]' onClick={() => handleDeleteProduct(product._id)}>Delete Product</td>
                 </tr>
               ))}
             </tbody>
