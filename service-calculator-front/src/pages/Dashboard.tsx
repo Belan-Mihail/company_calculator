@@ -47,6 +47,11 @@ useEffect(() => {
     setIsModalVisible(true)
   }
 
+  const hideModal = () => {
+    setIsModalVisible(false)
+    setModalMessage('')
+  }
+
 
   const handleReturnToMainPage = () => {
     navigate('/')
