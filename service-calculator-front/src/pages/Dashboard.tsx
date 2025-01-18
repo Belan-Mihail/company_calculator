@@ -59,6 +59,7 @@ useEffect(() => {
     } catch (error) {
       console.log(error)
     }
+    setIsModalOpen(false)
   }
 
   const handleDeleteDiscount = async (discountId: string) => {
@@ -70,6 +71,7 @@ useEffect(() => {
     } catch (error) {
       console.log(error)
     }
+    setIsModalOpen(false)
   }
 
   const handleEditProduct = (productId: number) => {
