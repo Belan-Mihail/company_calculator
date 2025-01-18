@@ -11,6 +11,10 @@ const [products, setProducts] = useState<Product[]>([])
 const [discounts, setDiscounts] = useState<Discount[]>([])
 const [isModalOpen, setIsModalOpen] = useState(false)
 
+const handleModalOpen = () => {
+  setIsModalOpen(false)
+}
+
 const fetchProducts = async () => {
   try {
     const response = await fetch('http://localhost:3000/api/products')
