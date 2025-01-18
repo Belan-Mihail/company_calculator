@@ -9,15 +9,9 @@ const Dashboard = () => {
 //  states for products and discounts
 const [products, setProducts] = useState<Product[]>([])
 const [discounts, setDiscounts] = useState<Discount[]>([])
-const [isModalOpen, setIsModalOpen] = useState(false)
 
-const handleModalOpen = () => {
-  setIsModalOpen(true)
-}
 
-const handleModalClose = () => {
-  setIsModalOpen(false)
-}
+
 
 const fetchProducts = async () => {
   try {
@@ -59,7 +53,7 @@ useEffect(() => {
     } catch (error) {
       console.log(error)
     }
-    setIsModalOpen(false)
+    
   }
 
   const handleDeleteDiscount = async (discountId: string) => {
@@ -71,7 +65,7 @@ useEffect(() => {
     } catch (error) {
       console.log(error)
     }
-    setIsModalOpen(false)
+    
   }
 
   const handleEditProduct = (productId: number) => {
