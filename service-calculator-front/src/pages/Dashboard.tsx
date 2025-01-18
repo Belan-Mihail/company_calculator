@@ -11,7 +11,7 @@ const [products, setProducts] = useState<Product[]>([])
 const [discounts, setDiscounts] = useState<Discount[]>([])
 const [modalMessage, setModalMessage] = useState('')
 const [deleteCallback, setDeleteCallback] = useState<() => void>(() => () => {})
-const [isModalVisible, setIsModalVisable] = useState(false)
+const [isModalVisible, setIsModalVisible] = useState(false)
 
 
 
@@ -40,6 +40,12 @@ useEffect(() => {
   fetchDiscounts()
  
 }, [])
+
+  const showModal = (message: string, onConfirm: () => void) => {
+    setModalMessage(message)
+    setDeleteCallback(() => onConfirm)
+    setIsModalVisible(true)
+  }
 
 
   const handleReturnToMainPage = () => {
