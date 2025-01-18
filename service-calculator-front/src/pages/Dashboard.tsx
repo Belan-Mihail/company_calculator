@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Product } from '../types/Product'
 import { Discount } from '../types/Discount'
 import ConfirmModal from '../components/ConfirmModal'
+import { useAuth } from '../hooks/AuthContext'
 
 const Dashboard = () => {
   const navigate = useNavigate()
@@ -14,7 +15,7 @@ const [modalMessage, setModalMessage] = useState('')
 const [deleteCallback, setDeleteCallback] = useState<() => void>(() => () => {})
 const [isModalVisible, setIsModalVisible] = useState(false)
 
-
+const { token } = useAuth();
 
 const fetchProducts = async () => {
   try {
@@ -61,7 +62,10 @@ useEffect(() => {
   const handleDeleteProduct = async (productId:number) => {
     const deleteAction = async () => {
     try {
-        const response = await fetch(`http://localhost:3000/api/products/${productId}`, {method: 'DELETE'})
+        const response = await fetch(`http://localhost:3000/api/products/${productId}`, {method: 'DELETE', headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+      }})
         if (response.ok) {
           fetchProducts()
         }
