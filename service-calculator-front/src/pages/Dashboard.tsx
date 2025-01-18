@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Product } from '../types/Product'
 import { Discount } from '../types/Discount'
+import ConfirmModal from '../components/ConfirmModal'
 
 const Dashboard = () => {
   const navigate = useNavigate()
@@ -174,6 +175,17 @@ useEffect(() => {
         </div>
         
       </div>
+      {/* modal */}
+      {isModalVisible && (
+        <ConfirmModal
+          headerText={modalMessage}
+          onConfirm={() => {
+            deleteCallback()
+            hideModal()
+          }}
+          onCancel={hideModal}
+        />
+      )}
     </div>
   )
 }
