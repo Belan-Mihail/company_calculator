@@ -1,11 +1,11 @@
 import React from 'react'
 
-interface ConfirmLogoutModulProps {
+interface ConfirmModulProps {
     onConfirm: () => void
     onCancel: () => void
 }
 
-const ConfirmLogoutModal: React.FC<ConfirmLogoutModulProps> = ({onConfirm, onCancel}) => {
+const ConfirmModal: React.FC<ConfirmModulProps> = ({onConfirm, onCancel}) => {
    
   return (
     <div className='fixed main z-50 w-80 h-80 left-1/2 transform -translate-x-1/2 top-16 p-4 flex justify-center items-center'>
@@ -20,4 +20,4 @@ const ConfirmLogoutModal: React.FC<ConfirmLogoutModulProps> = ({onConfirm, onCan
   )
 }
 
-export default ConfirmLogoutModal
+export default ConfirmModal
