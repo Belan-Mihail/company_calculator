@@ -11,6 +11,7 @@ const [products, setProducts] = useState<Product[]>([])
 const [discounts, setDiscounts] = useState<Discount[]>([])
 const [modalMessage, setModalMessage] = useState('')
 const [deleteCallback, setDeleteCallback] = useState<() => void>(() => () => {})
+const [isModalVisible, setIsModalVisable] = useState(false)
 
 
 
