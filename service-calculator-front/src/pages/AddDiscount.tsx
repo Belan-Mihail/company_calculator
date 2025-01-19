@@ -19,6 +19,13 @@ const AddDiscount:React.FC = () => {
         discount_available_from: '',
     })
 
+    
+    // State to manage validation error messages
+    const [validationErrors, setValidationErrors] = useState<ValidationErrors>({
+        discountSizeError: null,
+        discountAvailableFromError: null,
+    })
+
   return (
     <div>AddDiscount</div>
   )
