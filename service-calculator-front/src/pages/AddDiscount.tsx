@@ -114,6 +114,10 @@ const AddDiscount:React.FC = () => {
         }
     }
 
+    const handleReturnToMainPage = () => {
+        navigate('/')
+    }
+
   return (
     <div>AddDiscount</div>
   )
