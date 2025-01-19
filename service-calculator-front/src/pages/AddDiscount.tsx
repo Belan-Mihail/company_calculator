@@ -34,6 +34,18 @@ const AddDiscount:React.FC = () => {
         }))
     }
 
+    // validate form fields
+    const validateFields = () => {
+        let isValid = true
+        const newValidationErrors:ValidationErrors = {
+            discountSizeError: null,
+            discountAvailableFromError: null,
+        }
+
+        const discount_size = parseInt(formData.discount_size, 10)
+        const discount_available_from = parseInt(formData.discount_available_from, 10)
+    }
+
   return (
     <div>AddDiscount</div>
   )
