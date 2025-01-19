@@ -26,6 +26,14 @@ const AddDiscount:React.FC = () => {
         discountAvailableFromError: null,
     })
 
+    // handle form field changes
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const {name, value} = e.target
+        setFormData((prevData) => ({
+            ...prevData, [name]: value
+        }))
+    }
+
   return (
     <div>AddDiscount</div>
   )
