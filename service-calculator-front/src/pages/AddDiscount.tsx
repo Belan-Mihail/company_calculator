@@ -76,7 +76,42 @@ const AddDiscount:React.FC = () => {
 
         const token = localStorage.getItem('token') // Retrieve token from localStorage
 
-        
+        try {
+            // Convert form data to numbers
+            const discount_size = parseInt(formData.discount_size, 10)
+            const discount_available_from = parseInt(formData.discount_available_from, 10)
+
+            // Make Api request to add the discount
+            const response = await fetch('http://localhost:3000/api/discounts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    discount_size, discount_available_from
+                })
+            }) 
+
+            if (response.ok) {
+                toast.success('Discount added successfully')
+                setFormData({
+                    discount_size: '',
+                    discount_available_from: ''
+                })
+                navigate('/dashboard')
+            } else {
+                const data = await response.json()
+                toast.error(data.message || 'Failed add discount')
+                setFormData({
+                    discount_size: '',
+                    discount_available_from: ''
+                })
+            }
+        } catch (error) {
+            console.log(error)
+            toast.error('Something went wrong!')
+        }
     }
 
   return (
