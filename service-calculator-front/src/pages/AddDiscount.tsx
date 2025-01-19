@@ -44,6 +44,16 @@ const AddDiscount:React.FC = () => {
 
         const discount_size = parseInt(formData.discount_size, 10)
         const discount_available_from = parseInt(formData.discount_available_from, 10)
+
+        if(isNaN(discount_size)) {
+            newValidationErrors.discountSizeError = 'Discount size must be a valid number'
+            isValid = false
+        }
+
+        if(isNaN(discount_available_from)) {
+            newValidationErrors.discountAvailableFromError = 'This amount must be a valid number'
+            isValid = false
+        }
     }
 
   return (
