@@ -2,7 +2,12 @@ import React from 'react'
 
 interface DiscountFormData {
     discount_size: string
-    discount_availible_from: string
+    discount_available_from: string
+}
+
+interface ValidationErrors {
+    discountSizeError: string | null
+    discountAvailableFromError: string | null
 }
 
 const AddDiscount = () => {
