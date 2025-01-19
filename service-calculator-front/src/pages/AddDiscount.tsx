@@ -54,6 +54,13 @@ const AddDiscount:React.FC = () => {
             newValidationErrors.discountAvailableFromError = 'This amount must be a valid number'
             isValid = false
         }
+
+        setValidationErrors(newValidationErrors)
+        return isValid
+    }
+
+    const handleSubmit = (e:React.FormEvent) => {
+        e.preventDefault()
     }
 
   return (
