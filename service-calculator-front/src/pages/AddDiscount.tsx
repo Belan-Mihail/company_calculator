@@ -68,6 +68,15 @@ const AddDiscount:React.FC = () => {
             toast.error('All fields are required!')
             return
         }
+
+        // Validate form fields before submitting
+        if(!validateFields()) {
+            return
+        }
+
+        const token = localStorage.getItem('token') // Retrieve token from localStorage
+
+        
     }
 
   return (
