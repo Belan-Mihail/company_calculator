@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 interface DiscountFormData {
     discount_size: string
@@ -61,6 +62,12 @@ const AddDiscount:React.FC = () => {
 
     const handleSubmit = (e:React.FormEvent) => {
         e.preventDefault()
+
+        // Validate form fields 
+        if (!formData.discount_size || !formData.discount_available_from) {
+            toast.error('All fields are required!')
+            return
+        }
     }
 
   return (
