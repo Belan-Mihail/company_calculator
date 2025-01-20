@@ -45,6 +45,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     const logout = () => {
         localStorage.removeItem('token')
+        localStorage.removeItem('tokenExpirationTime')
         setToken(null)
     }
 
