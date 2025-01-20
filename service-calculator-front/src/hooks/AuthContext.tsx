@@ -17,7 +17,18 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     useEffect(() => {
         const storedToken = localStorage.getItem('token')
-        setToken(storedToken)
+        const storedExpirationTime = localStorage.getItem('tokenExpirationTime')
+
+        if (storedToken && storedExpirationTime) {
+            const expirationTime = parseInt(storedExpirationTime, 10)
+            if (expirationTime > Date.now()) {
+               setToken(storedToken) 
+            } else {
+                localStorage.removeItem('token')
+                localStorage.removeItem('tokenExpirationTime')
+            }
+        }
+        
     }, [])
 
     const login = (token: string) => {
