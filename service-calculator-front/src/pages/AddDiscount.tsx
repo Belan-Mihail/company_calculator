@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
+import { useAuth } from '../hooks/AuthContext'
 
 interface DiscountFormData {
     discount_size: string
@@ -14,6 +15,14 @@ interface ValidationErrors {
 
 const AddDiscount:React.FC = () => {
     const navigate = useNavigate()
+
+    const { token } = useAuth();
+    
+    useEffect(() => {
+      if (!token) {
+        navigate('/login')
+      }
+    }, [token, navigate])
 
     const [formData, setFormData] = useState<DiscountFormData>({
         discount_size: '',
@@ -74,8 +83,7 @@ const AddDiscount:React.FC = () => {
             return
         }
 
-        const token = localStorage.getItem('token') // Retrieve token from localStorage
-
+        
         try {
             // Convert form data to numbers
             const discount_size = parseInt(formData.discount_size, 10)
