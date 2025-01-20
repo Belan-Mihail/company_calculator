@@ -14,8 +14,13 @@ const [discounts, setDiscounts] = useState<Discount[]>([])
 const [modalMessage, setModalMessage] = useState('')
 const [deleteCallback, setDeleteCallback] = useState<() => void>(() => () => {})
 const [isModalVisible, setIsModalVisible] = useState(false)
-
 const { token } = useAuth();
+
+useEffect(() => {
+  if (!token) {
+    navigate('/login')
+  }
+}, [token, navigate])
 
 const fetchProducts = async () => {
   try {
