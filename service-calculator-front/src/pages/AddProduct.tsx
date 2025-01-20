@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
+import { useAuth } from '../hooks/AuthContext'
 
 interface ProductFormData {
     productName: string,
@@ -16,6 +17,13 @@ interface ValidationErrors {
 
 const AddProduct: React.FC = () => {
     const navigate = useNavigate()
+    const { token } = useAuth();
+    
+    useEffect(() => {
+      if (!token) {
+        navigate('/login')
+      }
+    }, [token, navigate])
 
     // State to hold form values with proper types
     const [formData, setFormData] = useState<ProductFormData>({
@@ -78,7 +86,7 @@ const AddProduct: React.FC = () => {
             return
         }
 
-        const token = localStorage.getItem('token') // Retrieve token from localStorage
+        
 
         try {
             // Convert product price and quantity in stock to numbers
