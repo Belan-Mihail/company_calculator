@@ -1,4 +1,5 @@
 import React, {createContext, useContext, useState, useEffect} from 'react'
+import {jwtDecode} from 'jwt-decode';
 
 // type for context
 interface AuthContextType {
@@ -20,7 +21,14 @@ export const AuthProvider: React.FC = ({ children }) => {
     }, [])
 
     const login = (token: string) => {
+        // decod token
+        const decodedToken = jwtDecode(token) 
+
+        // catch expiration time from token
+        const expirationTime = decodedToken.exp * 1000
+
         localStorage.setItem('token', token)
+        localStorage.setItem('tokenExpirationTime', expirationTime.toString())
         setToken(token)
     }
 
