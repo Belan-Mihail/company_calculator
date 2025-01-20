@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -8,9 +8,13 @@ const LoginPage = () => {
     const [username, setUsername] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const navigate = useNavigate()
-    const { login } = useAuth();
+    const { login, token } = useAuth();
 
-     
+    useEffect(() => {
+        if (token) {
+            navigate('/dashboard')
+        }
+    }, [token, navigate])
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
