@@ -120,31 +120,27 @@ const AddDiscount:React.FC = () => {
 
   return (
     <div className='flex flex-col items-center  justify-center m-8 p-4 gap-2 rounded-lg main mx-auto mt-10 w-max'>
-        <h2 className='text-xl font-bold'>Add New Product</h2>
+        <h2 className='text-xl font-bold'>Add New Discount</h2>
         <form onSubmit={handleSubmit} className='w-full max-w-lg'>
             <div className='mb-4'>
-                <label htmlFor="productName" className='block text-sm font-semibold'>
-                    Product Name
+                <label htmlFor="discountSize" className='block text-sm font-semibold'>
+                    Discount Size
                 </label>
-                <input type="text" id='productName' name='productName' value={formData.productName} onChange={handleChange} placeholder='Enter product name' />
-            </div>
-            <div className='mb-4'>
-                <label htmlFor="productPrice" className='block text-sm font-semibold'>Product Price</label>
-                <input type="text" id='productPrice' name='productPrice' value={formData.productPrice} onChange={handleChange} placeholder='Enter product price' />
-                {validationErrors.productPriceError && (
-                        <p className="text-red-500 text-xs">{validationErrors.productPriceError}</p>
+                <input type="text" id='discountSize' name='discountSize' value={formData.discount_size} onChange={handleChange} placeholder='Enter discount size' />
+                {validationErrors.discountSizeError && (
+                        <p className="text-red-500 text-xs">{validationErrors.discountSizeError}</p>
                     )}
             </div>
             <div className='mb-4'>
-                <label htmlFor="productQuantityInStock" className='block text-sm font-semibold'>Quantity in stock</label>
-                <input type="text" id='productQuantityInStock' name='productQuantityInStock' value={formData.productQuantityInStock} onChange={handleChange} placeholder='Enter product quantity in stock' />
-                {validationErrors.productQuantityInStockError && (
-                        <p className="text-red-500 text-xs">{validationErrors.productQuantityInStockError}</p>
+                <label htmlFor="discountAvailableFrom" className='block text-sm font-semibold'>Available From</label>
+                <input type="text" id='discountAvailableFrom' name='discountAvailableFrom' value={formData.discount_available_from} onChange={handleChange} placeholder='Enter initial value' />
+                {validationErrors.discountAvailableFromError && (
+                        <p className="text-red-500 text-xs">{validationErrors.discountAvailableFromError}</p>
                     )}
             </div>
-            
+                        
             <div className='flex flex-col gap-4 justify-center'>
-                <button type='submit' className='main-button'>Add Product</button>
+                <button type='submit' className='main-button'>Add Discount</button>
                 <button onClick={handleReturnToMainPage} type='button' className='main-button'>Return to Main Page</button>
             </div>
         </form>
