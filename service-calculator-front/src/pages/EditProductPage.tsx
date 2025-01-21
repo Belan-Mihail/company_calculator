@@ -134,6 +134,17 @@ const EditProductPage:React.FC = () => {
         navigate('/')
      }
 
+     const handleCancel = () => {
+        setProductData({
+            id: 0,
+        name: '',
+        price: 0,
+        quantity: 0,
+        quantityInStock: 0,
+        })
+        navigate('/dashboard')
+     }
+
 
   return (
     <div className='flex flex-col items-center  justify-center m-8 p-4 gap-2 rounded-lg main mx-auto mt-10 w-max'>
