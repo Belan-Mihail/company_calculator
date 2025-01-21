@@ -58,6 +58,21 @@ const EditProductPage:React.FC = () => {
         }
     }, [token, productId, navigate])
 
+     // function to validate form fields
+     const validateFields = () => {
+        let isValid = true
+        const NewValidationErrors: any = {
+            productNameError: null,
+            productPriceError: null,
+            productQuantityInStockError: null
+        }
+
+        if (productData.name.trim()) {
+            NewValidationErrors.productNameError = 'Product name is required'
+            isValid = false
+        }
+     }
+
 
   return (
     <div>EditProductPage</div>
