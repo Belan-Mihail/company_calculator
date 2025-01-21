@@ -117,7 +117,8 @@ const EditProductPage:React.FC = () => {
                 toast.error( data.message || 'Failed to update product')
             }
         } catch (error) {
-            
+            console.log(error)
+            toast.error('Something went wrong')
         }
      }
 
