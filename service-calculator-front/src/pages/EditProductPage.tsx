@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAuth } from '../hooks/AuthContext'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Product } from '../types/Product'
@@ -26,6 +26,15 @@ const EditProductPage:React.FC = () => {
         productNameError: null,
         productPriceError: null,
         productQuantityInStockError: null
+    })
+
+    // Fetch product details on component mount
+    useEffect(() => {
+        // check token or redirect user to login page
+        if (!token) {
+            navigate('/login')
+            return
+        }
     })
 
 
