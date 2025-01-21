@@ -6,7 +6,7 @@ import { Product } from '../types/Product'
 interface productData {
     productName: string,
     productPrice: number,
-    producQuantityInStock: number
+    productQuantityInStock: number
 }
 
 const EditProductPage:React.FC = () => {
@@ -14,7 +14,12 @@ const EditProductPage:React.FC = () => {
     const {productId} = useParams()
     const navigate = useNavigate()
 
-    
+    // state to manage product form data
+    const [productData, setProductData] = useState<productData>({
+        productName: '',
+        productPrice: 0,
+        productQuantityInStock: 0,
+    })
 
 
   return (
