@@ -122,6 +122,14 @@ const EditProductPage:React.FC = () => {
         }
      }
 
+     // Handler for changes in form fields
+     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const {name, value} = e.target
+        setProductData((prevData) => ({
+            ...prevData, [name]: value
+        }))
+     }
+
 
   return (
     <div>EditProductPage</div>
