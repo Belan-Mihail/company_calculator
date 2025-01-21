@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useAuth } from '../hooks/AuthContext'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Product } from '../types/Product'
-import { toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 
 
 const EditProductPage:React.FC = () => {
@@ -137,31 +137,31 @@ const EditProductPage:React.FC = () => {
 
   return (
     <div className='flex flex-col items-center  justify-center m-8 p-4 gap-2 rounded-lg main mx-auto mt-10 w-max'>
-        <h2 className='text-xl font-bold'>Add New Product</h2>
+        <h2 className='text-xl font-bold'>Ecit Product</h2>
         <form onSubmit={handleSubmit} className='w-full max-w-lg'>
             <div className='mb-4'>
                 <label htmlFor="productName" className='block text-sm font-semibold'>
                     Product Name
                 </label>
-                <input type="text" id='productName' name='productName' value={formData.productName} onChange={handleChange} placeholder='Enter product name' />
+                <input type="text" id='productName' name='name' value={productData.name} onChange={handleChange} placeholder='Enter product name' />
             </div>
             <div className='mb-4'>
                 <label htmlFor="productPrice" className='block text-sm font-semibold'>Product Price</label>
-                <input type="text" id='productPrice' name='productPrice' value={formData.productPrice} onChange={handleChange} placeholder='Enter product price' />
+                <input type="text" id='productPrice' name='price' value={productData.price} onChange={handleChange} placeholder='Enter product price' />
                 {validationErrors.productPriceError && (
                         <p className="text-red-500 text-xs">{validationErrors.productPriceError}</p>
                     )}
             </div>
             <div className='mb-4'>
                 <label htmlFor="productQuantityInStock" className='block text-sm font-semibold'>Quantity in stock</label>
-                <input type="text" id='productQuantityInStock' name='productQuantityInStock' value={formData.productQuantityInStock} onChange={handleChange} placeholder='Enter product quantity in stock' />
+                <input type="text" id='productQuantityInStock' name='quantityInStock' value={productData.quantityInStock} onChange={handleChange} placeholder='Enter product quantity in stock' />
                 {validationErrors.productQuantityInStockError && (
                         <p className="text-red-500 text-xs">{validationErrors.productQuantityInStockError}</p>
                     )}
             </div>
             
             <div className='flex flex-col gap-4 justify-center'>
-                <button type='submit' className='main-button'>Add Product</button>
+                <button type='submit' className='main-button'>Edit Product</button>
                 <button onClick={handleReturnToMainPage} type='button' className='main-button'>Return to Main Page</button>
             </div>
         </form>
