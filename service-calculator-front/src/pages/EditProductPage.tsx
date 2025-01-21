@@ -86,6 +86,15 @@ const EditProductPage:React.FC = () => {
         return isValid
      }
 
+     const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+
+        // viladate form fields
+        if (!validateFields()) {
+            return
+        }
+     }
+
 
   return (
     <div>EditProductPage</div>
