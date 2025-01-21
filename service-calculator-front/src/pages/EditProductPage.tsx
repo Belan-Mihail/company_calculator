@@ -4,11 +4,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { Product } from '../types/Product'
 import { toast } from 'react-toastify'
 
-interface productData {
-    productName: string,
-    productPrice: number,
-    productQuantityInStock: number
-}
 
 const EditProductPage:React.FC = () => {
     const {token} = useAuth()
@@ -16,10 +11,12 @@ const EditProductPage:React.FC = () => {
     const navigate = useNavigate()
 
     // state to manage product form data
-    const [productData, setProductData] = useState<productData>({
-        productName: '',
-        productPrice: 0,
-        productQuantityInStock: 0,
+    const [productData, setProductData] = useState<Product>({
+        id: 0,
+        name: '',
+        price: 0,
+        quantity: 0,
+        quantityInStock: 0,
     })
 
     // state to manage validation errors
