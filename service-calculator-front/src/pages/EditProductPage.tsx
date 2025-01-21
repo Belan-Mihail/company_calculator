@@ -71,6 +71,19 @@ const EditProductPage:React.FC = () => {
             NewValidationErrors.productNameError = 'Product name is required'
             isValid = false
         }
+
+        if (isNaN(productData.price) || productData.price <= 0) {
+            NewValidationErrors.productPriceError = 'Price must be a valid number greater than 0.'
+            isValid = false
+        }
+
+        if (isNaN(productData.quantityInStock) || productData.quantityInStock <= 0) {
+            NewValidationErrors.productQuantityInStockError = 'Quantity in stock must be a valid number greater than or equal to 0.'
+            isValid = false
+        }
+
+        setValidationErrors(NewValidationErrors)
+        return isValid
      }
 
 
