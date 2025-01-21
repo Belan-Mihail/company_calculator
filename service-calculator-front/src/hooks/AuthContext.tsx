@@ -26,7 +26,10 @@ export const AuthProvider: React.FC = ({ children }) => {
             } else {
                 localStorage.removeItem('token')
                 localStorage.removeItem('tokenExpirationTime')
+                setToken(null)
             }
+        } else {
+            setToken(null)
         }
         
     }, [])
