@@ -93,6 +93,32 @@ const EditProductPage:React.FC = () => {
         if (!validateFields()) {
             return
         }
+
+        try {
+            const response = await fetch(`http://localhost:3000/api/products/${productId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'apllication/json',
+                    'Authorization': `Bearer ${token}` 
+                }, 
+                body: JSON.stringify({
+                    product_name: productData.name,
+                    product_price: productData.price,
+                    product_quantity: 0,
+                    product_quantityInStock: productData.quantityInStock
+                })
+            })
+
+            if (response.ok) {
+                toast.success('Product updated successfully!')
+                navigate('/dashboard')
+            } else {
+                const data = await response.json()
+                toast.error( data.message || 'Failed to update product')
+            }
+        } catch (error) {
+            
+        }
      }
 
 
