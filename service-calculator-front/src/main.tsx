@@ -11,6 +11,7 @@ import AddProduct from './pages/AddProduct.tsx';
 import HomePage from './pages/HomePage.tsx';
 import App from './App.tsx'; // Global Layout
 import { AuthProvider } from './hooks/AuthContext.tsx';
+import AddDiscount from './pages/AddDiscount.tsx';
 
 // Define routes
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/add-product',
         element: <AddProduct />,
+      },
+      {
+        path: '/add-discount',
+        element: <AddDiscount />,
       },
       {
         path: '*',
