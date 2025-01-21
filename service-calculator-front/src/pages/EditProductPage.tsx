@@ -21,6 +21,13 @@ const EditProductPage:React.FC = () => {
         productQuantityInStock: 0,
     })
 
+    // state to manage validation errors
+    const [validationErrors, setValidationErrors] = useState({
+        productNameError: null,
+        productPriceError: null,
+        productQuantityInStockError: null
+    })
+
 
   return (
     <div>EditProductPage</div>
