@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useAuth } from '../hooks/AuthContext'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Product } from '../types/Product'
+import { toast } from 'react-toastify'
 
 interface productData {
     productName: string,
@@ -35,7 +36,30 @@ const EditProductPage:React.FC = () => {
             navigate('/login')
             return
         }
-    })
+
+        const fetchProduct = async () => {
+            try {
+                const response = await fetch(`http://localhost:3000/api/products/${productId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                const data = await response.json()
+                if (response.ok) {
+                    setProductData(data)
+                } else {
+                    toast.error(data.message || 'Error fetching product')
+                }
+            } catch (error) {
+                console.log(error)
+                toast.error('Failed to fetch product')
+            }
+        }
+
+        if (productId) {
+            fetchProduct()
+        }
+    }, [token, productId, navigate])
 
 
   return (
