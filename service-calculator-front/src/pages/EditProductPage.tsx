@@ -7,7 +7,7 @@ import { toast, ToastContainer } from 'react-toastify'
 
 const EditProductPage:React.FC = () => {
     const {token} = useAuth()
-    const {productId} = useParams()
+    const { productId } = useParams<{ productId: string }>()
     const navigate = useNavigate()
 
     // state to manage product form data
@@ -26,6 +26,7 @@ const EditProductPage:React.FC = () => {
         productQuantityInStockError: null
     })
 
+    console.log(productId)
     // Fetch product details on component mount
     useEffect(() => {
         // check token or redirect user to login page
@@ -42,6 +43,7 @@ const EditProductPage:React.FC = () => {
                     }
                 });
                 const data = await response.json()
+                console.log(data)
                 if (response.ok) {
                     setProductData(data)
                 } else {
