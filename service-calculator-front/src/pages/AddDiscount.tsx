@@ -87,7 +87,7 @@ const AddDiscount:React.FC = () => {
         try {
             // Convert form data to numbers
             const discount_size = parseInt(formData.discount_size, 10)
-            const discount_available_from = parseInt(formData.discount_available_from, 10)
+            const available_from = parseInt(formData.discount_available_from, 10)
 
             // Make Api request to add the discount
             const response = await fetch('http://localhost:3000/api/discounts', {
@@ -97,7 +97,7 @@ const AddDiscount:React.FC = () => {
                     'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
-                    discount_size, discount_available_from
+                    discount_size, available_from
                 })
             }) 
 
@@ -134,14 +134,14 @@ const AddDiscount:React.FC = () => {
                 <label htmlFor="discountSize" className='block text-sm font-semibold'>
                     Discount Size
                 </label>
-                <input type="text" id='discountSize' name='discountSize' value={formData.discount_size} onChange={handleChange} placeholder='Enter discount size' />
+                <input type="text" id='discountSize' name='discount_size' value={formData.discount_size} onChange={handleChange} placeholder='Enter discount size' />
                 {validationErrors.discountSizeError && (
                         <p className="text-red-500 text-xs">{validationErrors.discountSizeError}</p>
                     )}
             </div>
             <div className='mb-4'>
                 <label htmlFor="discountAvailableFrom" className='block text-sm font-semibold'>Available From</label>
-                <input type="text" id='discountAvailableFrom' name='discountAvailableFrom' value={formData.discount_available_from} onChange={handleChange} placeholder='Enter initial value' />
+                <input type="text" id='discountAvailableFrom' name='discount_available_from' value={formData.discount_available_from} onChange={handleChange} placeholder='Enter initial value' />
                 {validationErrors.discountAvailableFromError && (
                         <p className="text-red-500 text-xs">{validationErrors.discountAvailableFromError}</p>
                     )}
