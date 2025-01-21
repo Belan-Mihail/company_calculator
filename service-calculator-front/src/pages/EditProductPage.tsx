@@ -130,6 +130,10 @@ const EditProductPage:React.FC = () => {
         }))
      }
 
+     const handleReturnToMainPage = () => {
+        navigate('/')
+     }
+
 
   return (
     <div>EditProductPage</div>
