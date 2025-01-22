@@ -40,6 +40,7 @@ const LoginPage = () => {
             }
 
             login(data.token)
+            toast.success('Hello')
             navigate('/dashboard')
         } catch (error: any) {
             // Show an error notification if there is a problem with the request
@@ -57,7 +58,7 @@ const LoginPage = () => {
   return (
     <div className='flex flex-col items-center justify-center m-8 rounded main mx-auto mt-10 w-max'>
         <ToastContainer 
-        position="top-right" 
+        position="top-left" 
         autoClose={2000} 
         hideProgressBar={true} 
         newestOnTop={true} 

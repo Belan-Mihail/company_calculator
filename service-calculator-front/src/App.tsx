@@ -3,6 +3,8 @@ import React from 'react'
 import LogoutButton from './components/LogoutButton'
 import { Outlet } from 'react-router-dom'
 import { useAuth } from './hooks/AuthContext';
+import { ToastContainer } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
 
 const App: React.FC = () => {
   
@@ -19,6 +21,7 @@ const App: React.FC = () => {
         
       )}
       <Outlet />
+      <ToastContainer />
     </div>
   )
 }
