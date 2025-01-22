@@ -63,7 +63,7 @@
     res: Response
   ): Promise<void> => {
     try {
-      console.log("Request body:", req.body);
+      
       const {
         product_name,
         product_price,

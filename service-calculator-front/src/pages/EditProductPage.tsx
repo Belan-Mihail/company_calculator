@@ -96,18 +96,17 @@ const EditProductPage:React.FC = () => {
 
      const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        console.log('Form submitted'); 
+        
         
 
         // viladate form fields
         if (!validateFields()) {
-            console.log('false')
-            console.log(validationErrors)
+            
             return
         }
 
         try {
-            console.log('Sending request...');
+            
             const response = await fetch(`http://localhost:3000/api/products/${productId}`, {
                 method: 'PUT',
                 headers: {
@@ -121,11 +120,6 @@ const EditProductPage:React.FC = () => {
                     product_quantityInStock: productData.quantityInStock
                 })
             })
-
-            console.log('Request sent, waiting for response...');
-            console.log(response)
-            const responseData = await response.json(); 
-            console.log(responseData); 
 
             if (response.ok) {
                 toast.success('Product updated successfully!')
