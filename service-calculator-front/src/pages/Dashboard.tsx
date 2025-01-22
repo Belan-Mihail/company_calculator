@@ -4,6 +4,8 @@ import { Product } from '../types/Product'
 import { Discount } from '../types/Discount'
 import ConfirmModal from '../components/ConfirmModal'
 import { useAuth } from '../hooks/AuthContext'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Dashboard = () => {
   const navigate = useNavigate()
@@ -198,6 +200,17 @@ useEffect(() => {
           onCancel={hideModal}
         />
       )}
+      <ToastContainer 
+              position="top-left" 
+              autoClose={2000} 
+              hideProgressBar={true} 
+              newestOnTop={true} 
+              closeOnClick={true} 
+              rtl={false} 
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
     </div>
   )
 }

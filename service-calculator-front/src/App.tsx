@@ -21,7 +21,17 @@ const App: React.FC = () => {
         
       )}
       <Outlet />
-      <ToastContainer />
+      <ToastContainer 
+              position="top-left" 
+              autoClose={2000} 
+              hideProgressBar={true} 
+              newestOnTop={true} 
+              closeOnClick={true} 
+              rtl={false} 
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+             />
     </div>
   )
 }

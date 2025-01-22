@@ -57,7 +57,7 @@ const LoginPage = () => {
 
   return (
     <div className='flex flex-col items-center justify-center m-8 rounded main mx-auto mt-10 w-max'>
-        <ToastContainer 
+        {/* <ToastContainer 
         position="top-left" 
         autoClose={2000} 
         hideProgressBar={true} 
@@ -67,7 +67,7 @@ const LoginPage = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-      />
+      /> */}
         <form className='flex flex-col items-center justify-center p-4 ' onSubmit={handleSubmit}>
             <h2>Login as Admin</h2>
             <div className='flex gap-2'>
