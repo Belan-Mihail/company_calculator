@@ -12,7 +12,7 @@ const router:Router = Router()
 
 router.post('/products', authenticAdmin, createProduct)
 router.get('/products', getAllProducts)
-router.get('/products/:id', authenticAdmin, getProductById)
+router.get('/products/:id', getProductById)
 router.put('/products/:id', authenticAdmin, updateProduct)
 router.delete('/products/:id', authenticAdmin, deleteProduct)
 

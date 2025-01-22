@@ -97,6 +97,8 @@ const EditProductPage:React.FC = () => {
      const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
 
+        console.log("Form submitted");
+
         // viladate form fields
         if (!validateFields()) {
             return
@@ -106,7 +108,7 @@ const EditProductPage:React.FC = () => {
             const response = await fetch(`http://localhost:3000/api/products/${productId}`, {
                 method: 'PUT',
                 headers: {
-                    'Content-Type': 'apllication/json',
+                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}` 
                 }, 
                 body: JSON.stringify({
@@ -132,11 +134,12 @@ const EditProductPage:React.FC = () => {
 
      // Handler for changes in form fields
      const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const {name, value} = e.target
-        setProductData((prevData) => ({
-            ...prevData, [name]: value
-        }))
-     }
+        const { name, value } = e.target;
+        setProductData(prevData => ({
+            ...prevData,
+            [name]: value
+        }));
+    };
 
      const handleReturnToMainPage = () => {
         navigate('/')
