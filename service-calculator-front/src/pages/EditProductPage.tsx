@@ -75,7 +75,7 @@ const EditProductPage:React.FC = () => {
             productQuantityInStockError: null
         }
 
-        if (productData.name.trim()) {
+        if (!productData.name.trim()) {
             NewValidationErrors.productNameError = 'Product name is required'
             isValid = false
         }
