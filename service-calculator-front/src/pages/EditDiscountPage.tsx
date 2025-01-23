@@ -10,6 +10,12 @@ const EditDiscountPage = () => {
   const navigate = useNavigate()
   const DiscountId = useParams<{discountId: string}>()
 
+  // state to manage Discount from data
+  const [discountData, setDiscountData] = useState<Discount>({
+    discount_size: 0,
+    available_from: 0
+  })
+
   return (
     <div>EditDiscountPage</div>
   )
