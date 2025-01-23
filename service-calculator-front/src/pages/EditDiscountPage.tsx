@@ -6,6 +6,10 @@ import {toast, toastContainer } from 'react-toastify'
 
 
 const EditDiscountPage = () => {
+  const {token} = useAuth()
+  const navigate = useNavigate()
+  const DiscountId = useParams<{discountId: string}>()
+
   return (
     <div>EditDiscountPage</div>
   )
