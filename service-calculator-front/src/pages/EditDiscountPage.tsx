@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {ChangeEvent, useEffect, useState} from 'react'
 import { useAuth } from '../hooks/AuthContext'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Discount } from '../types/Discount'
@@ -86,6 +86,18 @@ const EditDiscountPage = () => {
 
     setValidationErrors(NewValidationError)
     return isValid
+  }
+
+  // submit form function
+  const handleSubmit = async (e:React.FormEvent) => {
+    e.preventDefault()
+
+    // viladate form fields
+    if (!validateFields()) {
+      return
+    }
+
+    
   }
 
   return (
