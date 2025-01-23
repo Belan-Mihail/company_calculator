@@ -13,7 +13,7 @@ interface ValidationErrors {
 const EditDiscountPage = () => {
   const {token} = useAuth()
   const navigate = useNavigate()
-  const DiscountId = useParams<{discountId: string}>()
+  const discountId = useParams<{discountId: string}>()
 
   // state to manage Discount from data
   const [discountData, setDiscountData] = useState<Discount>({
@@ -36,13 +36,35 @@ const EditDiscountPage = () => {
 
     const fetchDiscount = async () => {
       try {
-        
+        const response = await fetch(`http://localhost:3000/api/discounts/${discountId}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        })
+
+        const data = await response.json()
+
+        if (response.ok) {
+          setDiscountData({
+            discount_size: data.discount_size,
+            available_from: data.available_from
+          })
+        } else {
+          toast.error( data.message || 'Error fetching discount')
+        }
+
       } catch (error) {
         console.log(error)
         toast.error('Something went wrong!')
       }
     }
-  })
+
+    if (discountId) {
+      fetchDiscount()
+    }
+  }, [token, discountId, navigate])
 
   return (
     <div>EditDiscountPage</div>
