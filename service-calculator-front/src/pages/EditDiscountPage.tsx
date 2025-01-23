@@ -97,7 +97,31 @@ const EditDiscountPage = () => {
       return
     }
 
-    
+    try {
+      const response = await fetch(`http://localhost:3000/api/discounts/${discountId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type' : 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          discount_size: discountData.discount_size,
+          available_from: discountData.available_from
+        })
+      })
+
+      
+      if (response.ok) {
+          toast.success('Discount updated successfully!')
+          navigate('/dashboard')
+      } else {
+        const data = await response.json()
+        toast.error(data.message || 'Failed to update discount')
+      }
+    } catch (error) {
+      console.log(error)
+      toast.error('Something went wrong!')
+    }
   }
 
   return (
