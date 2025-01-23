@@ -66,6 +66,28 @@ const EditDiscountPage = () => {
     }
   }, [token, discountId, navigate])
 
+  // function to validate form fields
+  const validateFields = () => {
+    let isValid = true
+    const NewValidationError: any = {
+      discountSizeError: null,
+    discountAvailableFromError: null
+    }
+
+    if (isNaN(discountData.discount_size) || discountData.discount_size < 0) {
+      NewValidationError.discountSizeError = 'Discount size must be a valid number greater than 0.'
+      isValid = false
+    }
+
+    if (isNaN(discountData.available_from) || discountData.available_from < 0) {
+      NewValidationError.discountAvailableFromError = 'Discount available from amoung must be a valid number greater than 0.'
+      isValid = false
+    }
+
+    setValidationErrors(NewValidationError)
+    return isValid
+  }
+
   return (
     <div>EditDiscountPage</div>
   )
