@@ -51,7 +51,7 @@ const DiscountInfo: React.FC<DiscountInfoProps> = ({ total, discounts }) => {
         <div>
             <h2 className='text-xl font-semibold'>Discount Terms</h2>
             {discounts.map((disc, index) => (
-                <p key={index}>{disc.discount_size}% discount on orders over {disc.discount_size}</p>
+                <p key={index}>{disc.discount_size}% discount on orders over {disc.available_from}</p>
             ))}
         </div>
         
