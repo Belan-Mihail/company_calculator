@@ -27,6 +27,23 @@ const EditDiscountPage = () => {
     discountAvailableFromError: null
   })
 
+  // Fetch discount details on component mount
+  useEffect(() => {
+    if (!token) {
+      navigate('/login')
+      return
+    }
+
+    const fetchDiscount = async () => {
+      try {
+        
+      } catch (error) {
+        console.log(error)
+        toast.error('Something went wrong!')
+      }
+    }
+  })
+
   return (
     <div>EditDiscountPage</div>
   )
