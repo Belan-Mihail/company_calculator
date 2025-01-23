@@ -1,4 +1,9 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import { useAuth } from '../hooks/AuthContext'
+import { useNavigate, useParams } from 'react-router-dom'
+import { Discount } from '../types/Discount'
+import {toast, toastContainer } from 'react-toastify'
+
 
 const EditDiscountPage = () => {
   return (
