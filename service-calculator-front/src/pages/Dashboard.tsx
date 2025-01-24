@@ -6,6 +6,7 @@ import ConfirmModal from '../components/ConfirmModal'
 import { useAuth } from '../hooks/AuthContext'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import ReturnToMainButton from '../components/ReturnToMainButton'
 
 const Dashboard = () => {
   const navigate = useNavigate()
@@ -62,10 +63,6 @@ useEffect(() => {
   }
 
 
-  const handleReturnToMainPage = () => {
-    navigate('/')
-  }
-
   const handleDeleteProduct = async (productId:number) => {
     const deleteAction = async () => {
     try {
@@ -121,7 +118,7 @@ useEffect(() => {
     <div className='flex flex-col items-center justify-center m-8 p-4 gap-2 rounded main mx-auto mt-10 w-max'>
       <h2 className='text-xl font-bold'>Dashboard Page</h2>
       <div>
-        <button className='main-button' type='button' onClick={handleReturnToMainPage}>Back to Main Page</button>
+        <ReturnToMainButton />
       </div>
       <div className='flex flex-col gap-2 p-4'>
         <h3 className='text-lg font-bold'>Current Products</h3>
