@@ -65,6 +65,14 @@ const EditProductPage:React.FC = () => {
                         quantity: data.product_quantity,
                         quantityInStock: data.product_quantityInStock,
                     })
+
+                    setInitialProductData({
+                        id: data.id,
+                        name: data.product_name,
+                        price: data.product_price,
+                        quantity: data.product_quantity,
+                        quantityInStock: data.product_quantityInStock,
+                    })
                 } else {
                     toast.error(data.message || 'Error fetching product')
                 }
