@@ -133,6 +133,14 @@ const EditDiscountPage = () => {
     }))
   }
 
+  // Handler for Cancel button Click
+  const handleCancel = () => {
+    setDiscountData({
+      discount_size: 0,
+      available_from: 0
+    })
+  }
+
   return (
     <div>EditDiscountPage</div>
   )
