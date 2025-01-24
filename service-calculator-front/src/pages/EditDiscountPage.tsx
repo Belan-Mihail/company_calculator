@@ -124,6 +124,15 @@ const EditDiscountPage = () => {
     }
   }
 
+  // Handler for changes in form fields
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const {name, value} = e.target
+    setDiscountData(prevData => ({
+      ...prevData,
+      [name]: value
+    }))
+  }
+
   return (
     <div>EditDiscountPage</div>
   )
