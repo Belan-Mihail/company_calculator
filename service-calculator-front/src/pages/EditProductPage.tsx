@@ -3,6 +3,7 @@ import { useAuth } from '../hooks/AuthContext'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Product } from '../types/Product'
 import { toast, ToastContainer } from 'react-toastify'
+import ReturnToMainButton from '../components/ReturnToMainButton'
 
 
 const EditProductPage:React.FC = () => {
@@ -143,9 +144,6 @@ const EditProductPage:React.FC = () => {
         }));
     };
 
-     const handleReturnToMainPage = () => {
-        navigate('/')
-     }
 
      const handleCancel = () => {
         setProductData({
@@ -187,7 +185,7 @@ const EditProductPage:React.FC = () => {
             <div className='flex flex-col gap-4 justify-center'>
                 <button type='submit' className='main-button'>Edit Product</button>
                 <button type='button' className='main-button' onClick={handleCancel}>Cancel</button>
-                <button onClick={handleReturnToMainPage} type='button' className='main-button'>Return to Main Page</button>
+                <ReturnToMainButton />
             </div>
         </form>
         <ToastContainer />
