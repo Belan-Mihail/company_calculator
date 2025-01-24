@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import { useAuth } from '../hooks/AuthContext'
+import ReturnToMainButton from '../components/ReturnToMainButton'
 
 interface DiscountFormData {
     discount_size: string
@@ -122,10 +123,6 @@ const AddDiscount:React.FC = () => {
         }
     }
 
-    const handleReturnToMainPage = () => {
-        navigate('/')
-    }
-
   return (
     <div className='flex flex-col items-center  justify-center m-8 p-4 gap-2 rounded-lg main mx-auto mt-10 w-max'>
         <h2 className='text-xl font-bold'>Add New Discount</h2>
@@ -149,7 +146,7 @@ const AddDiscount:React.FC = () => {
                         
             <div className='flex flex-col gap-4 justify-center'>
                 <button type='submit' className='main-button'>Add Discount</button>
-                <button onClick={handleReturnToMainPage} type='button' className='main-button'>Return to Main Page</button>
+                <ReturnToMainButton />
             </div>
         </form>
         <ToastContainer />
