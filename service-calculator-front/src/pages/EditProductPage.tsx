@@ -158,10 +158,16 @@ const EditProductPage:React.FC = () => {
      // Handler for changes in form fields
      const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        setProductData(prevData => ({
-            ...prevData,
-            [name]: value
-        }));
+        setProductData(prevData => {
+            const NewProductData = {
+                ...prevData,
+                [name]: value
+            }
+
+            // Check if any field has changed
+            setIsFieldsChanged(JSON.stringify(NewProductData) !== JSON.stringify(initialProductData))
+            return NewProductData
+        })
     };
 
     const handleCancel = () => {
