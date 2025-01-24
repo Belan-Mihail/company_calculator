@@ -20,6 +20,15 @@ const EditProductPage:React.FC = () => {
         quantityInStock: 0,
     })
 
+    // state to manage initial product data
+    const [initialProductData, setInitialProductData] = useState<Product>({
+        id: 0,
+        name: '',
+        price: 0,
+        quantity: 0,
+        quantityInStock: 0
+    })
+
     // state to manage validation errors
     const [validationErrors, setValidationErrors] = useState({
         productNameError: null,
@@ -144,8 +153,7 @@ const EditProductPage:React.FC = () => {
         }));
     };
 
-
-     const handleCancel = () => {
+    const handleCancel = () => {
         setProductData({
             id: 0,
         name: '',
@@ -153,7 +161,7 @@ const EditProductPage:React.FC = () => {
         quantity: 0,
         quantityInStock: 0,
         })
-        navigate('/dashboard')
+        
      }
 
 
