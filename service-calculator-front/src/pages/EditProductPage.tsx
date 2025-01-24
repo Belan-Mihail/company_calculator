@@ -203,7 +203,7 @@ const EditProductPage:React.FC = () => {
             
             <div className='flex flex-col gap-4 justify-center'>
                 <button type='submit' className='main-button'>Edit Product</button>
-                <button type='button' className='main-button' onClick={handleCancel}>Cancel</button>
+                <button type='button' className='main-button' onClick={handleCancel} disabled={!isFieldsChanged}>Cancel</button>
                 <ReturnToMainButton />
             </div>
         </form>
