@@ -171,14 +171,8 @@ const EditProductPage:React.FC = () => {
     };
 
     const handleCancel = () => {
-        setProductData({
-            id: 0,
-        name: '',
-        price: 0,
-        quantity: 0,
-        quantityInStock: 0,
-        })
-        
+        setProductData(initialProductData)
+        setIsFieldsChanged(false)
      }
 
 
