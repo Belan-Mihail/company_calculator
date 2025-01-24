@@ -202,7 +202,7 @@ const EditProductPage:React.FC = () => {
             </div>
             
             <div className='flex flex-col gap-4 justify-center'>
-                <button type='submit' className='main-button'>Edit Product</button>
+                <button type='submit' className={`main-button ${!isFieldsChanged ? "main-button-dis opacity-45 cursor-not-allowed" : ""}`} disabled={!isFieldsChanged}>Edit Product</button>
                 <button type='button' className={`main-button ${!isFieldsChanged ? "main-button-dis opacity-45 cursor-not-allowed" : ""}`} onClick={handleCancel} disabled={!isFieldsChanged}>Cancel</button>
                 <ReturnToMainButton />
             </div>
