@@ -11,7 +11,7 @@ const ReturnToMainButton = () => {
     }
 
   return (
-    <div>ReturnToMainButton</div>
+    <button onClick={handleClick} className='main-button' type='button'>Return to Main Page</button>
   )
 }
 
