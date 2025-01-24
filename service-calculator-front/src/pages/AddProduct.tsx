@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import { useAuth } from '../hooks/AuthContext'
+import ReturnToMainButton from '../components/ReturnToMainButton'
 
 interface ProductFormData {
     productName: string,
@@ -131,9 +132,7 @@ const AddProduct: React.FC = () => {
         }
     }
 
-    const handleReturnToMainPage = () => {
-        navigate('/')
-    }
+
     
 
   return (
@@ -163,7 +162,7 @@ const AddProduct: React.FC = () => {
             
             <div className='flex flex-col gap-4 justify-center'>
                 <button type='submit' className='main-button'>Add Product</button>
-                <button onClick={handleReturnToMainPage} type='button' className='main-button'>Return to Main Page</button>
+                <ReturnToMainButton />
             </div>
         </form>
         <ToastContainer />
