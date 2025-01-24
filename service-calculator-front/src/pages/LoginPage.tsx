@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useAuth } from '../hooks/AuthContext'
+import ReturnToMainButton from '../components/ReturnToMainButton'
 
 const LoginPage = () => {
     const [username, setUsername] = useState<string>('')
@@ -50,24 +51,9 @@ const LoginPage = () => {
         }
     }
 
-    const handleReturnToMainPage = () => {
-        navigate('/')
-    }
-
 
   return (
     <div className='flex flex-col items-center justify-center m-8 rounded main mx-auto mt-10 w-max'>
-        {/* <ToastContainer 
-        position="top-left" 
-        autoClose={2000} 
-        hideProgressBar={true} 
-        newestOnTop={true} 
-        closeOnClick={true} 
-        rtl={false} 
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      /> */}
         <form className='flex flex-col items-center justify-center p-4 ' onSubmit={handleSubmit}>
             <h2>Login as Admin</h2>
             <div className='flex gap-2'>
@@ -80,7 +66,7 @@ const LoginPage = () => {
             </div>
             <div className='flex justify-between items-center my-2 p-4 gap-4'>
                 <button type='submit' className='main-button p-2'>Login as Admin</button>
-                <button type='button' className='main-button p-2' onClick={handleReturnToMainPage}>Back to Main Page</button>
+                <ReturnToMainButton />
             </div>
         </form>
     </div>
