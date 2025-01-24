@@ -36,6 +36,9 @@ const EditProductPage:React.FC = () => {
         productQuantityInStockError: null
     })
 
+    // state to track if any field is changed
+    const [isFieldsChanged, setIsFieldsChanged] = useState(false)
+
     
     // Fetch product details on component mount
     useEffect(() => {
