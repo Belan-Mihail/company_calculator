@@ -13,6 +13,7 @@ import App from './App.tsx'; // Global Layout
 import { AuthProvider } from './hooks/AuthContext.tsx';
 import AddDiscount from './pages/AddDiscount.tsx';
 import EditProductPage from './pages/EditProductPage.tsx';
+import EditDiscountPage from './pages/EditDiscountPage.tsx';
 
 // Define routes
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: '/add-discount',
         element: <AddDiscount />,
+      },
+      {
+        path: '/edit-discounts/:discountId',
+        element: <EditDiscountPage />,
       },
       {
         path: '*',
