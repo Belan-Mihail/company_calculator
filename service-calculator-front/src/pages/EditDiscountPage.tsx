@@ -33,6 +33,9 @@ const EditDiscountPage = () => {
     discountAvailableFromError: null
   })
 
+  // state to track if any field is changed
+  const [isFieldsChanged, setIsFieldsChanged] = useState(false)
+
   // Fetch discount details on component mount
   useEffect(() => {
     if (!token) {
