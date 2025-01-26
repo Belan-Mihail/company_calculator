@@ -60,6 +60,10 @@ const EditDiscountPage = () => {
             discount_size: data.discount_size,
             available_from: data.available_from
           })
+          setInitialDiscount({
+            discount_size: data.discount_size,
+            available_from: data.available_from,
+          })
         } else {
           toast.error( data.message || 'Error fetching discount')
         }
