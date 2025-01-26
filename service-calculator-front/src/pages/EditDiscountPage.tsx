@@ -178,7 +178,7 @@ const EditDiscountPage = () => {
           <input
             type="text"
             id="discountSize"
-            name="name"
+            name="discount_size"
             value={discountData.discount_size}
             onChange={handleChange}
             placeholder="Enter discount size"
@@ -197,7 +197,7 @@ const EditDiscountPage = () => {
           <input
             type="text"
             id="discountAvailable"
-            name="name"
+            name="available_from"
             value={discountData.available_from}
             onChange={handleChange}
             placeholder="Enter amount"
@@ -216,7 +216,7 @@ const EditDiscountPage = () => {
             }`}
             disabled={!isFieldsChanged}
           >
-            Edit Product
+            Edit Discount
           </button>
           <button
             type="button"
