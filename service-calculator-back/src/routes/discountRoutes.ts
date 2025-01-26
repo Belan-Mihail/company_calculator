@@ -7,7 +7,7 @@ const router:Router = Router()
 router.post('/discounts', authenticAdmin, createDiscount)
 router.get('/discounts', getAllDiscounts)
 router.get('/discounts/:id', authenticAdmin, getDiscountById)
-router.put('/discounts/id', authenticAdmin, updateDicount)
+router.put('/discounts/:id', authenticAdmin, updateDicount)
 router.delete('/discounts/:id', authenticAdmin, deleteDiscount)
 
 export default router

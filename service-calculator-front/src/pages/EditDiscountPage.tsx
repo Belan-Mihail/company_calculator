@@ -13,7 +13,8 @@ interface ValidationErrors {
 const EditDiscountPage = () => {
   const { token } = useAuth();
   const navigate = useNavigate();
-  const discountId = useParams<{ discountId: string }>();
+  const discountId = useParams<{ discountId: string }>().discountId;
+  console.log(discountId)
 
   // state to manage Discount from data
   const [discountData, setDiscountData] = useState<Discount>({
@@ -51,7 +52,7 @@ const EditDiscountPage = () => {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
+              'Authorization': `Bearer ${token}`,
             },
           }
         );
