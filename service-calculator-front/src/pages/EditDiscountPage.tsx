@@ -184,6 +184,9 @@ const EditDiscountPage = () => {
             onChange={handleChange}
             placeholder="Enter discount size"
           />
+          {validationError.discountSizeError && (
+                        <p className="text-red-500 text-xs">{validationError.discountSizeError}</p>
+                    )}
         </div>
         <div className="mb-4">
           <label
@@ -200,6 +203,9 @@ const EditDiscountPage = () => {
             onChange={handleChange}
             placeholder="Enter amount"
           />
+          {validationError.discountAvailableFromError && (
+                        <p className="text-red-500 text-xs">{validationError.discountAvailableFromError}</p>
+                    )}
         </div>
         <div className="flex flex-col gap-4 justify-center">
           <button
