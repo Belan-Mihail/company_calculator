@@ -140,10 +140,17 @@ const EditDiscountPage = () => {
   // Handler for changes in form fields
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {name, value} = e.target
-    setDiscountData(prevData => ({
-      ...prevData,
-      [name]: value
-    }))
+    setDiscountData(prevData => {
+      const newDiscountData = {
+        ...prevData,
+        [name]: value
+      }
+
+      // Check if any field has changed
+      setIsFieldsChanged(JSON.stringify(newDiscountData) !== JSON.stringify(initialDiscount))
+      return newDiscountData
+
+    })
   }
 
   // Handler for Cancel button Click
