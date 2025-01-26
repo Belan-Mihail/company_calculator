@@ -114,8 +114,11 @@ const EditDiscountPage = () => {
     if (!validateFields()) {
       return;
     }
+    
 
     try {
+      
+
       const response = await fetch(
         `http://localhost:3000/api/discounts/${discountId}`,
         {
