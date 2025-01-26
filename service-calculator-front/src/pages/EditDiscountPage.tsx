@@ -21,6 +21,12 @@ const EditDiscountPage = () => {
     available_from: 0
   })
 
+  // state to manage initial discount data
+  const [initialDiscount, setInitialDiscount] = useState<Discount>({
+    discount_size: 0,
+    available_from: 0
+  })
+
   // state to manage validation error messages
   const [validationError, setValidationErrors] = useState<ValidationErrors>({
     discountSizeError: null,
