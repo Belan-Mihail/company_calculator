@@ -13,8 +13,8 @@ interface ValidationErrors {
 const EditDiscountPage = () => {
   const { token } = useAuth();
   const navigate = useNavigate();
-  const discountId = useParams<{ discountId: string }>().discountId;
-  console.log(discountId)
+  const {discountId} = useParams<{ discountId: string }>()
+  
 
   // state to manage Discount from data
   const [discountData, setDiscountData] = useState<Discount>({
@@ -122,7 +122,7 @@ const EditDiscountPage = () => {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+            'Authorization': `Bearer ${token}`,
           },
           body: JSON.stringify({
             discount_size: discountData.discount_size,

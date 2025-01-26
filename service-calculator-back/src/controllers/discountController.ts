@@ -43,6 +43,7 @@ export const getDiscountById = async (req: CustomRequest, res: Response):Promise
 
 // update Discount
 export const updateDicount = async (req: CustomRequest, res: Response):Promise<void> => {
+    console.log("Updating discount with ID:", req.params.id);
     try {
         const { discount_size, available_from} = req.body
         const discount = await ServiceDiscountModel.findByIdAndUpdate(req.params.id, {discount_size, available_from}, {new: true})
